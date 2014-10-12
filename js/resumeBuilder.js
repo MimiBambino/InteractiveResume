@@ -1,18 +1,3 @@
-var name = "Cynthia O'Donnell";
-var role = "Front End Web Developer";
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-
-$("#main").append(bio.name);
-$("#main").append(bio.role);
-$("#main").append(bio.contact);
-$("#main").append(bio.message);
-$("#main").append(bio.skills);
-
 var work = {
 	"jobs": [
 	{
@@ -20,20 +5,14 @@ var work = {
 	    "title": "Navy Surface Warfare Officer",
 	    "location": "Norfolk, Virginia",
 	    "dates": "2001 - 2005",
-	    "description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I 
-	    supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and 
-	    use of all onboard missile launching system hardware (including all missiles) and installation 
-	    and use of system software."
+	    "description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including all missiles) and installation and use of system software."
 	},
 	{
 	    "employer": "Case, Lombardi and Pettit",
 	    "title": "Attorney",
 	    "location": "Honolulu, Hawaii",
 	    "dates": "2008 - 2010",
-	    "description": "As a bankruptcy and business litigation attorney, I represented individual 
-	    debtors in personal bankruptcy proceedings.  I also advised business clients on their rights 
-	    under federal bankruptcy law as creditors and I participated in the successful reorganization 
-	    of companies emerging from bankruptcy protection."
+	    "description": "As a bankruptcy and business litigation attorney, I represented individual debtors in personal bankruptcy proceedings.  I also advised business clients on their rights under federal bankruptcy law as creditors and I participated in the successful reorganization of companies emerging from bankruptcy protection."
 	}
 	]
 
@@ -56,8 +35,8 @@ var projects = {
 };
 
 var bio = {
-	"name": "Cynthia",
-	"role": role,
+	"name": "Cynthia O'Donnell",
+	"role": "Front End Web Developer",
 	"welcomMessage": "Welcome to my resume!",
 	"contacts": {
 		"website" : "http://www.mimibambino.com", 
@@ -87,14 +66,13 @@ var education = {
 		"dates": 1996 - 2000,
 		"url": "http://www.music.fsu.edu//"
 	  }
-	]
-},
+	],
 	"onlineCourses": [
 	  {
 		"title": "Front End Web Developer Nanodegree",
 		"school": "Udacity",
 		"dates": 2014,
-		"url": "http://www.udacity.com"
+		"url": "http://www.udacity.com",
 		"certificate": ""
   	  },
   	  {
@@ -112,4 +90,77 @@ var education = {
         "certificate": "/images/SaasCertificate.pdf"
   	  }
 	]
-}	
+};
+
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+
+	for (skill in bio.skills) {
+      var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+	  $("#skills").append(formattedSkill);
+	}
+}
+
+for (job in work.jobs){
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedJobTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var employerAndTitle = formattedEmployer + formattedJobTitle;
+	$(".work-entry:last").append(employerAndTitle);
+
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	$(".work-entry:last").append(formattedDates);
+    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(formattedDescription);
+    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    $(".work-entry:last").append(formattedLocation);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
