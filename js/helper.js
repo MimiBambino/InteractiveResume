@@ -1,27 +1,13 @@
-/*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
-*/
-var HTMLheaderName = "<h1 id='name'>%data%</h1>";
+var HTMLheaderName = "<h1 id='HTMLheaderNamename'>%data%</h1>";
 var HTMLheaderRole = "<span>%data%</span><hr/>";
 
-var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%</span><span class='white-text'>%data%</span></li>";
-var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile</span><span class='white-text'>%data%</span></li>";
-var HTMLemail = "<li class='flex-item'><span class='orange-text'>email</span><span class='white-text'>%data%</span></li>";
-var HTMLtwitter = "<li class='flex-item'><span class='orange-text'>twitter</span><span class='white-text'>%data%</span></li>";
-var HTMLgithub = "<li class='flex-item'><span class='orange-text'>github</span><span class='white-text'>%data%</span></li>";
-var HTMLblog = "<li class='flex-item'><span class='orange-text'>blog</span><span class='white-text'>%data%</span></li>";
-var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location</span><span class='white-text'>%data%</span></li>";
+var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%:</span><span class='white-text'>%data%</span></li>";
+var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile:</span><span class='white-text'>%data%</span></li>";
+var HTMLemail = "<li class='flex-item'><span class='orange-text'>email:</span><span class='white-text'>%data%</span></li>";
+var HTMLtwitter = "<li class='flex-item'><span class='orange-text'>twitter:</span><span class='white-text'>%data%</span></li>";
+var HTMLgithub = "<li class='flex-item'><span class='orange-text'>github:</span><span class='white-text'>%data%</span></li>";
+var HTMLwebsite = "<li class='flex-item'><span class='orange-text'>website:</span><span class='white-text'>%data%</span></li>";
+var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location:</span><span class='white-text'>%data%</span></li>";
 
 var HTMLbioPic = "<img src='%data%' class='biopic'>";
 var HTMLWelcomeMsg = "<span class='welcome-message'>%data%</span>";
@@ -89,8 +75,6 @@ function logClicks(x,y) {
 $(document).click(function(loc) {
   // your code goes here!
 });
-
-
 
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
