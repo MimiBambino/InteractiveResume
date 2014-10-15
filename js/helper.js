@@ -1,6 +1,8 @@
-var HTMLheaderName = "<h1 id='HTMLheaderNamename'>%data%</h1>";
-var HTMLheaderRole = "<span>%data%</span><hr/>";
+var HTMLheaderName = "<h1 id='HTMLheaderNamename' class='text-right text-uppercase text-thin title-super analgous-color'>%data%</h1>";
+var HTMLheaderRole = "<h4 class='text-right text-uppercase contrasting1-color'>%data%</h4>";
+var HTMLheaderLogo = "<img class='img-responsive logo' src='%data%' alt='logo'>";
 
+var HTMLcontactsStart = "<h3 id='skillsH3'>Contacts:</h3><ul id='contacts' class='flex-box'></ul>";
 var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%:</span><span class='white-text'>%data%</span></li>";
 var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile:</span><span class='white-text'>%data%</span></li>";
 var HTMLemail = "<li class='flex-item'><span class='orange-text'>email:</span><span class='white-text'>%data%</span></li>";
@@ -9,7 +11,7 @@ var HTMLgithub = "<li class='flex-item'><span class='orange-text'>github:</span>
 var HTMLwebsite = "<li class='flex-item'><span class='orange-text'>website:</span><span class='white-text'>%data%</span></li>";
 var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location:</span><span class='white-text'>%data%</span></li>";
 
-var HTMLbioPic = "<img src='%data%' class='biopic'>";
+var HTMLbioPic = "<img src='%data%' class='biopic img-responsive img-rounded'>";
 var HTMLWelcomeMsg = "<span class='welcome-message'>%data%</span>";
 
 var HTMLskillsStart = "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills' class='flex-box'></ul>";
@@ -26,24 +28,21 @@ var HTMLprojectStart = "<div class='project-entry'></div>";
 var HTMLprojectTitle = "<a href='#'>%data%</a>";
 var HTMLprojectDates = "<div class='date-text'>%data%</div>";
 var HTMLprojectDescription = "<p><br>%data%</p>";
-var HTMLprojectImage = "<img src='%data%'>";
+var HTMLprojectImage = "<div class='col-md-4'><img src='%data%' class='img-rounded img-responsive'></div>";
 
 var HTMLschoolStart = "<div class='education-entry'></div>";
-var HTMLschoolName = "<a href='#'>%data%";
-var HTMLschoolDegree = " -- %data%</a>";
+var HTMLschoolNameandDegree = "<a href='#'>%data1% -- %data2%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
 var HTMLschoolMajor = "<em><br>Major: %data%</em>"
 
-var HTMLonlineClasses = "<h3>Online Classes</h3>";
-var HTMLonlineTitle = "<a href='#'>%data%";
-var HTMLonlineSchool = " - %data%</a>";
+var HTMLonlineStart = "<div class='online-entry'></div>"
+var HTMLonlineTitleAndSchool = "<a href='#'>%data1% -- %data2%</a>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
-var HTMLonlineURL = "<br><a href='#'>%data%</a>";
+var HTMLcerficate = "<em><br><a href='#'>View Certificate</a></em>";
 
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";
-
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
@@ -55,7 +54,14 @@ $(document).ready(function() {
   });
 })
 
-
+function nameChanger(oldName) {
+    var finalName = oldName;
+    var names = oldName.split(" ");
+    names[1] = names[1].toUpperCase();
+    names[0] = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
+    finalName = names.join(" ");
+    return finalName;
+}
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -77,7 +83,7 @@ $(document).click(function(loc) {
 });
 
 /*
-This is the fun part. Here's where we generate the custom Google Map for the website.
+Custom Google Map for resume.
 See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
@@ -154,7 +160,6 @@ function initializeMap() {
       content: name
     });
 
-    // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
     });
@@ -214,16 +219,9 @@ function initializeMap() {
   
 };
 
-/*
-Uncomment all the code below when you're ready to implement a Google Map!
-*/
-
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
-
-// Vanilla JS way to listen for resizing of the window 
-// and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('load', initializeMap);
+window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});

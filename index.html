@@ -1,93 +1,78 @@
 <!DOCTYPE html>
-
-<!--
-This is an HTML document. It contains information about how elements in the website
-are arranged. In other words, it describes the layout of a website.
-
-I can't wait to see the resumes you put together!
-
-Cameron Pittman, Udacity Course Developer
--->
-
-<!--
-The <head> of a website generally links to important resources the page will
-need to load. You'll see a lot of <link>s to CSS files for styles and
-<scripts> for JavaScript files to build interactions.
--->
 <head>
-  <link href="css/style.css" rel="stylesheet" type="text/css"></link>
-
-  <!--
-  jQuery is a common JavaScript library for reading and making changes to the
-  Document Object Model (DOM). The DOM is a tree that contains information
-  about what is actually visible on a website.
-
-  While HTML is a static document, the browser converts HTML to the
-  DOM and the DOM can change. In fact, JavaScript's power comes from
-  its ability to manipulate the DOM, which is essentially a JavaScript
-  object. When JavaScript makes something interesting happen on a
-  website, it's likely the action happened because JavaScript changed
-  the DOM. jQuery is fast and easy to use, but it doesn't do anything
-  you can't accomplish with vanilla (regular) JavaScript.
-  -->
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/jQuery.js"></script>
-
-  <!-- More on helper.js in the class -->
+  <script src="js/bootstrap.min.js"></script>
   <script src="js/helper.js"></script>
   <script src="js/resumeBuilder.js"></script>
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
-  <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
-
-  <meta name="viewport" content="width=device-width">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+  <link href="css/ugly.css" rel="stylesheet" type="text/css"></link>
+  <link rel='stylesheet' href='css/style.css' type='text/css'></link>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <link rel='shortcut icon' href='images/favicon.ico'/>
   <title>Resume - Cynthia O'Donnell</title>
 </head>
-<body unresolved>
-  <div id="main">
-
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
-    <div id="header" class="center-content">
-      <ul id="topContacts" class='flex-box'></ul>
+<body>
+  <div class='container'>
+    <header>
+      <div class='row'>
+        <div class='col-md-2'>
+        </div>
+        <div class='col-md-10'>
+        </div>
+      </div>
+    </header>
+  <div class='row'>
+    <div class='col-md-12'>
+      <hr>
     </div>
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
+  </div>
+  <div class='row'>
+    <div class='col-md-4 pic'>
+    </div>
+    <div class='col-md-4 skills'>
+    </div>
+    <div class='col-md-4 contacts'>
+    </div>
+  </div>
+  <div class='row'>  
+    <div id="workExperience" class='col-md-12'>
       <h2>Work Experience</h2>
     </div>
-    <div id="projects">
+  </div>
+  <div class='row'>
+    <div class='col-md-12' id="projects">
       <h2>Projects</h2>
     </div>
-    <div id="education" class='gray'>
+  </div>
+  <div class='row'>
+    <div id="education" class='col-md-12'>
       <h2>Education</h2>
     </div>
-    <div id="skillsChart">
-      <h2>Skills Chart</h2>
+  </div>
+  <div class='row'>
+    <div id='online' class='col-md-12'>
+      <h2>Online Courses</h2>
     </div>
-    <div id="mapDiv">
+  </div>
+<!--    <div id="skillsChart">
+      <h2>Skills Chart</h2>
+    </div>-->
+  <div class='row'>
+    <div id="mapDiv" class='col-md-12'>
       <h2>Where I've Lived and Worked</h2>
     </div>
-    <div id="letsConnect" class='dark-gray'>
+  </div>
+  <div class='row'>
+    <div id="letsConnect" class='col-md-12'>
       <h2 class='orange center-text'>Let's Connect</h2>
       <ul id="footerContacts" class="flex-box">
       </ul>
     </div>
   </div>
-
-  <!--
-  The next line tells the browser where to download the JavaScript file you'll be
-  writing. In resumeBuilder.js, you'll be writing code that builds the resume
-  dynamically when this website, index.html, is opened.
-  -->
   <script src="js/resumeBuilder.js"></script>
-
-
   <!--
   These scripts are written in JavaScript. You'll be breaking them down as part of
   a quiz. Essentially, the next few lines are checking to see if you have not
@@ -96,20 +81,10 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   course.
   -->
 
-  <script type="text/javascript">
+<script type="text/javascript">
   // Notice how all of a sudden there's JavaScript inside this HTML
   // document? You can write JavaScript between <script> tags. At the end of your 
   // JavaScript, don't forget the closing script tag with the slash (/).
-
-
-  // Also, this is a JavaScript style comment. You can comment in JavaScript with:
-
-  //   two slashes for all following characters on a single line, or
-
-  /*
-      an opening and closing set of slash asterisks for block comments.
-  */
-
 
   if(document.getElementsByClassName("flex-item").length === 0) {
     document.getElementById("topContacts").css("background-color", "black");
@@ -125,9 +100,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   }
   if(document.getElementsByClassName("education-entry").length === 0) {
     document.getElementById("education").css("background-color", "black");
-  }
-  if(document.getElementsByClassName("skills-entry").length === 0) {
-    document.getElementById("skillsChart").css("background-color", "black");
   }
   if(document.getElementsByClassName("flex-item").length === 0) {
     document.getElementById("letsConnect").css("background-color", "black");
