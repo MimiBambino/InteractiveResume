@@ -1,3 +1,7 @@
+//TODO:  Revise calls to display to call display on click of each item.
+//TODO:  Write a function to generate SVGs based on media queries.  
+//TODO:  Refactor index.html to remove all unnecessary items and add them to variables in helper.js.
+
 var bio = {
 	"name": "Cynthia O'Donnell",
 	"role": "Front End Web Developer",
