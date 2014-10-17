@@ -21,13 +21,40 @@ h1, a {
 	color: #747784;
 }
 
+/*(svg.education:hover {
+	background-color: #03A8B1;
+}*/
+
 hr {
 	height: 3px;
 	background-color: #bbb;
 }
 
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+span {
+	font-family: 'Montez', 'Brush Script MT', 'Papyrus', cursive;
+	color: #008cb0 ;
+	font-size: 26px;
+}
+
+.footer {
+  position: relative;
+  padding: 50px;
+}
+
 .logo {
   margin-top: 20px;
+}
+
+.github {
+	height: auto; 
+	width: auto; 
+	max-width: 20px; 
+	max-height: 20px;"
 }
 
 .title-super {
@@ -58,7 +85,6 @@ hr {
 .muted-color {
 	color: #777;
 }
-
 
 #map {
   display: block;
