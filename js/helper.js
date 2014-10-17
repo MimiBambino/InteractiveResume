@@ -1,6 +1,5 @@
-var HTMLheaderName = "<h1 id='HTMLheaderNamename' class='text-right text-uppercase text-thin title-super analgous-color'>%data%</h1>";
-var HTMLheaderRole = "<h4 class='text-right text-uppercase contrasting1-color'>%data%</h4>";
-var HTMLheaderLogo = "<img class='img-responsive logo' src='%data%' alt='logo'>";
+var HTMLheaderName = "<h1 id='HTMLheaderNamename' class='text-center text-thin title-super analgous-color'>%data%</h1>";
+var HTMLheaderRole = "<h4 class='text-center text-uppercase contrasting1-color'>%data%</h4>";
 
 var HTMLcontactsStart = "<h3 id='skillsH3'>Contacts:</h3><ul id='contacts' class='flex-box'></ul>";
 var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%:</span><span class='white-text'>%data%</span></li>";

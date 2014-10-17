@@ -15,7 +15,6 @@ var bio = {
 	"display": function(){
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-		var formattedLogo = HTMLheaderLogo.replace("%data%", bio.logo);
 		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 		var formattedWebsite = HTMLwebsite.replace("%data%", bio.contacts.website);
 		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
@@ -23,10 +22,8 @@ var bio = {
 		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
 
-		var formattedName = HTMLheaderName.replace("%data%", bio.name);
-		$(".col-md-10").prepend(formattedRole);
-		$(".col-md-10").prepend(formattedName);
-		$(".col-md-2").append(formattedLogo);
+		$(".col-md-12:first").prepend(formattedRole);
+		$(".col-md-12:first").prepend(formattedName);
 
 		$(".contacts").append(HTMLcontactsStart);
 		$("#contacts").append(formattedEmail);
