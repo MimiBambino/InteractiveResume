@@ -13,7 +13,6 @@ body {
 	font-family: 'Lato', sans-serif;
 /*	color: #747784;*/
 /*	color: #03bbc5;*/
-
 	font-weight: 400;
 }
 
@@ -24,6 +23,21 @@ h1, a {
 /*(svg.education:hover {
 	background-color: #03A8B1;
 }*/
+text#music {
+	font-family: 'Parisienne';
+	font-size: 65px;
+}
+
+text#law {
+	font-family: 'Poly';
+	font-size: 65px;
+}
+
+text#programming {
+	font-family: 'Lato';
+	font-size: 45px;
+	font-weight: 300;
+}
 
 text {
 	font-size: 35px;
