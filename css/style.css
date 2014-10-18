@@ -46,6 +46,10 @@ span {
 	font-size: 26px;
 }
 
+.svg {
+	padding: 20px;
+}
+
 .footer {
   position: relative;
   padding: 50px;

@@ -1,143 +1,82 @@
 <!DOCTYPE html>
-<head>
-  <meta charset='utf-8'>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/jQuery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/helper.js"></script>
-  <script src="js/resumeBuilder.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Lato|Montez' rel='stylesheet' type='text/css'>
-  <link rel='stylesheet' href='css/style.css' type='text/css'></link>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-  <link rel='shortcut icon' href='images/favicon.ico'/>
-  <title>Resume - Cynthia O'Donnell</title>
-</head>
-<body>
-  <div class='container'>
-    <header>
-      <div class='row'>
-        <div class='col-md-12'>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jQuery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="js/resumeBuilder.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato|Montez' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='css/style.css' type='text/css'></link>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <link rel='shortcut icon' href='images/favicon.ico'/>
+    <title>Resume - Cynthia O'Donnell</title>
+  </head>
+    <body>
+      <div class='container-fluid'>
+        <header>
+          <div class='row'>
+            <div class='col-md-12'>
+            </div>
+          </div>
+        </header>
+        <div class='row text-center'>
+          <div class='col-md-12'>
+            <hr>
+          </div>
+        </div>
+        <div class='main row text-center'>
+          <div class='svg col-lg-4 col-md-6 col-sm-6 education'>
+          </div>
+          <div class='svg col-lg-4 col-md-6 col-sm-6 work'>
+          </div>
+          <div class='svg col-lg-4 col-md-6 col-sm-6 projects'>
+          </div>
+          <div class='svg col-lg-4 col-md-6 col-sm-6 locations'>
+          </div>
+          <div class='svg col-lg-4 col-md-6 col-sm-6 skills'>
+          </div>
+          <div class='svg col-lg-4 col-md-6 col-sm-6 contacts'>
+          </div>
+        </div>
+      <div class='container-fluid'>
+        <div class='text-center'>
+          <h3>Education</h3>
+          <div class="education-show col-md-12">
+            <svg width="300" height="150">
+              <rect width="300" height="150" style="fill: #03bbc5  ;stroke-width:3;stroke: #03bbc5"/>
+              <text x='45' y='85' width='3cm' height='3cm' font-size='35' fill='white'>Programming</text>
+            </svg>
+            <svg width="300" height="150">
+              <rect width="300" height="150" style="fill: #646464  ;stroke-width:3;"/>
+              <text x='45' y='85' width='3cm' height='3cm' font-size='35' fill='white'>Law</text>
+            </svg>
+            <svg width="300" height="150">
+              <rect width="300" height="150" style="fill: #008cb0  ;stroke-width:3;stroke: #008cb0"/>
+              <text x='45' y='85' width='3cm' height='3cm' font-size='35' fill='white'>Music</text>
+            </svg>
+          </div>
+        </div>
+        <div class='work-show col-12 text-left'>
+        </div>
+        <div class='projects-show col-12 text-left'>
+        </div>
+        <div class='locations-show col-12 text-left'>
+        </div>
+        <div class='skills-show col-12 text-left'>
+        </div>
+        <div class='contacts-show col-12 text-left'>
         </div>
       </div>
-    </header>
-  <div class='row'>
-    <div class='col-md-12'>
-      <hr>
+      <div class='footer text-center row'>
+        <div class='col-md-12'>
+          <p>Made with <span>JavaScript</span>.  Code available at <span><a href="https://github.com/MimiBambino/InteractiveResume"><img class='github' src="images/GitHub.png" alt="GitHub"></a></span>.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class='main row text-center'>
-    <div class='col-lg-4 education'>
-    </div>
-    <div class='col-lg-4 work'>
-    </div>
-    <div class='col-lg-4 projects'>
-        <svg width="250" height="250" class="Projects">
-          <circle cx="125" cy="125" r="125" fill="#008cb0" />
-          <text x="60" y="135" width="3cm" height="3cm" font-size="35" fill="white">Projects</text>
-        </svg>
-    </div>
-  </div>
-  <div class='row text-center'>
-    <div class='col-lg-offset-2 col-lg-4 locations'>
-        <svg width="250" height="250">
-          <circle cx="125" cy="125" r="125" fill="#646464"/>
-          <text x="68" y="110" width="3cm" height="3cm" font-size="35" fill="white">Where</text>
-          <text x="49" y="155" width="3cm" height="3cm" font-size="35" fill="white">I've Lived</text>
-        </svg>
-    </div>
-    <div class='col-lg-4 contacts'>
-        <svg width="250" height="250">
-          <circle cx="125" cy="125" r="125" fill="#03bbc5" />
-          <text x="60" y="135" width="3cm" height="3cm" font-size="35" fill="white">Contacts</text>
-        </svg>
-    </div>
-  </div>
-
-
-
-<!--
-  <div class='row'>
-    <div class='col-md-4 pic'>
-    </div>
-    <div class='col-md-4 skills'>
-    </div>
-    <div class='col-md-4 contacts'>
-    </div>
-  </div>
-  <div class='row'>  
-    <div id="workExperience" class='col-md-12'>
-      <h2>Work Experience</h2>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col-md-12' id="projects">
-      <h2>Projects</h2>
-    </div>
-  </div>
-  <div class='row'>
-    <div id="education" class='col-md-12'>
-      <h2>Education</h2>
-    </div>
-  </div>
-  <div class='row'>
-    <div id='online' class='col-md-12'>
-      <h2>Online Courses</h2>
-    </div>
-  </div>
-  <div class='row'>
-    <div id="mapDiv" class='col-md-12'>
-      <h2>Where I've Lived and Worked</h2>
-    </div>
-  </div>
-  <div class='row'>
-    <div id="letsConnect" class='col-md-12'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-      <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
--->
-<div class='footer text-center row'>
-  <div class='col-md-12'>
-    <p>Made with <span>JavaScript</span>.  Code available at <span><a href="https://github.com/MimiBambino/InteractiveResume"><img class='github' src="images/GitHub.png" alt="GitHub"></a></span>.
-    </p>
-  </div>
-</div>
-  <script src="js/resumeBuilder.js"></script>
-  <!--
-  These scripts are written in JavaScript. You'll be breaking them down as part of
-  a quiz. Essentially, the next few lines are checking to see if you have not
-  changed each section of the resume. If you have not made any changes to a section
-  of the resume, then that part of the resume does not show up. More on this in the
-  course.
-  -->
-<script type="text/javascript">
-  // Notice how all of a sudden there's JavaScript inside this HTML
-  // document? You can write JavaScript between <script> tags. At the end of your 
-  // JavaScript, don't forget the closing script tag with the slash (/).
-/*
-  if(document.getElementsByClassName("flex-item").length === 0) {
-    document.getElementById("topContacts").css("background-color", "black");
-  }
-  if(document.getElementsByTagName("h1").length === 0) {
-    document.getElementById("header").css("background-color", "black");
-  }
-  if(document.getElementsByClassName("work-entry").length === 0) {
-    document.getElementById("workExperience").css("background-color", "black");
-  }
-  if(document.getElementsByClassName("project-entry").length === 0) {
-    document.getElementById("projects").css("background-color", "black");
-  }
-  if(document.getElementsByClassName("education-entry").length === 0) {
-    document.getElementById("education").css("background-color", "black");
-  }
-  if(document.getElementsByClassName("flex-item").length === 0) {
-    document.getElementById("letsConnect").css("background-color", "black");
-  }
-  if(document.getElementById("map") == undefined) {
-    document.getElementById("mapDiv").css("background-color", "black");
-  }
-  */
-  </script>
-</body>
+    <script src="js/resumeBuilder.js"></script>
+  </body>
+</html>

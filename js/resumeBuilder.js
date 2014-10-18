@@ -1,35 +1,181 @@
 //TODO:  Revise calls to display to call display on click of each item.
-//TODO:  Write a function to generate SVGs based on media queries.  
-//TODO:  Refactor index.html to remove all unnecessary items and add them to variables in helper.js.
+var bio = {
+	"name": "Cynthia O'Donnell",
+	"role": "Front End Web Developer",
+	"welcomeMessage": "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
+	"contacts": {
+		"website" : "www.mimibambino.com", 
+		"email" : "mimibambino@gmail.com",
+		"github" : "MimiBambino",
+		"twitter" : "@mimibambino",
+		"location" : "Naples, Italy"
+	},
+	"skills": ["awesomeness", "programming", "web development", "paper airplanes"], 
+	"image": "images/Cynthia.jpg",
+	"displayHeader": function(){
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		$(".col-md-12:first").prepend(formattedRole);
+		$(".col-md-12:first").prepend(formattedName);
+	},
+	"displayContacts": function(){
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		var formattedWebsite = HTMLwebsite.replace("%data%", bio.contacts.website);
+		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+		$(".contacts").append(HTMLcontactsStart);
+		$("#contacts").append(formattedEmail);
+		$("#contacts").append(formattedWebsite);
+		$("#contacts").append(formattedGithub);
+		$("#contacts").append(formattedTwitter);
+		$("#contacts").append(formattedLocation);
+	},
+	"displaySkills": function(){
+
+		$(".skills").append(HTMLskillsStart);
+
+		for (var skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkill);
+		}
+	},
+	"displayPic": function(){
+		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
+		$(".pic").append(formattedPic);
+	}
+};
+
+var education = {
+	"schools": [
+		{
+		"name": "University of Florida",
+		"location": "Gainesville, Florida",
+		"degree": "Juris Doctor", 
+		"major": ["Law"],
+		"dates": "2005 - 2008",
+		"url": "http://www.law.ufl.edu/"
+		},
+		{
+		"name": "Florida State University",
+		"location": "Tallahassee, Florida",
+		"degree": "Bachelor of Arts",
+		"major": ["Music"],
+		"dates": "1996 - 2000",
+		"url": "http://www.music.fsu.edu//"
+		}
+	],
+	"onlineCourses": [
+		{
+		"title": "Front End Web Developer Nanodegree",
+		"school": "Udacity",
+		"dates": 2014,
+		"url": "http://www.udacity.com",
+		"certificate": ""
+		},
+		{
+		"title": "Introduction to Linux",
+		"school": "edX",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
+		"certificate": "images/IntroToLinuxCertificate.pdf"
+		},
+		{
+		"title": "Engineering Software as a Service",
+		"school": "edx",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
+		"certificate": "images/SaasCertificate.pdf"
+		}
+	],
+	"display": function() {
+		for (var i in education.schools) {
+			var school = education.schools[i];
+			$(".education-show").append(HTMLschoolStart);
+			var formattedNameDegree = HTMLschoolNameandDegree.replace("#", school.url).replace("%data1%", school.name).replace("%data2%", school.degree);
+			$(".education-entry:last").append(formattedNameDegree);	
+			var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
+			$(".education-entry:last").append(formattedDates);
+			var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
+			$(".education-entry:last").append(formattedLocation);
+			if (school.major.length > 0) {
+				for (var j in school.major) {
+					var formattedMajor = HTMLschoolMajor.replace("%data%", school.major[j]);
+					$(".education-entry:last").append(formattedMajor);
+				}
+			}
+		}
+	
+		for (var i in education.onlineCourses){
+			var oC = education.onlineCourses[i];
+			$("#online").append(HTMLonlineStart);
+			var formattedTitle = HTMLonlineTitleAndSchool.replace("#", oC.url).replace("%data1%", oC.title).replace("%data2%", oC.school);
+			$(".online-entry:last").append(formattedTitle);
+			var formattedDates = HTMLonlineDates.replace("%data%", oC.dates);
+			$(".online-entry:last").append(formattedDates);
+			if (oC.certificate){
+				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
+				$(".online-entry:last").append(formattedCertificate);
+			}
+		}
+	}
+}
+
 var SVG = {
 	"large": {
-		"width": 250,
-		"height": 250,
-		"cx": 125,
-		"cy": 125,
-		"r": 125
+		"width": 210,
+		"height": 210,
+		"cx": 105,
+		"cy": 105,
+		"r": 105
 	},
 	"medium": {},
 	"small": {},
 	"education": {
 		"class": "education",
 		"fill": "#03bbc5",
-		"text_x": 45,
-		"text_y": 135,
+		"text_x": 28,
+		"text_y": 115,
 		"text": "Education"
 	},
 	"work": {
 		"class": "work",
-		"fill": "#002b2e",
-		"text_x": 80,
-		"text_y": 110,
+		"fill": "#646464",
+		"text_x": 60,
+		"text_y": 90,
 		"text": "Work",
-		"moreText": "<text x='43' y='155' width='3cm' height='3cm' font-size='35' fill='white'>Experience</text>"
+		"moreText": "<text x='20' y='130' width='3cm' height='3cm' font-size='35' fill='white'>Experience</text>"
 	},
-	"projects": {},
-	"locations": {},
-	"contacts": {},
-	"skills": {},
+	"projects": {
+		"class": "projects",
+		"fill": "#008cb0",
+		"text_x": 40,
+		"text_y": 115,
+		"text": "Projects"
+	},
+	"locations": {
+		"class": "locations",
+		"fill": "#002b2e",
+		"text_x": 50,
+		"text_y": 90,
+		"text": "Where",
+		"moreText": "<text x='30' y='130' width='3cm' height='3cm' font-size='35' fill='white'>I've Lived</text>"
+	},
+	"contacts": {
+		"class": "contacts",
+		"fill": "#03bbc5",
+		"text_x": 35,
+		"text_y": 115,
+		"text": "Contacts"
+	},
+	"skills": {
+		"class": "skills",
+		"fill": "#5FB6CE",
+		"text_x": 65,
+		"text_y": 115,
+		"text": "Skills"
+	},
 	"display": function(word, size){
 		size = SVG[size];
 		var caption = SVG[word];
@@ -42,63 +188,6 @@ var SVG = {
 		$(selector).append(SVGstring);
 	}
 };
-
-SVG.display("education", "large");
-SVG.display("work", "large");
-
-var bio = {
-	"name": "Cynthia O'Donnell",
-	"role": "Front End Web Developer",
-	"logo": "images/logo100Transparent.png",
-	"welcomMessage": "Welcome to my resume!",
-	"contacts": {
-		"website" : "www.mimibambino.com", 
-		"email" : "mimibambino@gmail.com",
-		"github" : "MimiBambino",
-		"twitter" : "@mimibambino",
-		"location" : "Naples, Italy"
-	},
-	"skills": ["awesomeness", "programming", "web development", "paper airplanes"], 
-	"image": "images/Cynthia.jpg",
-	"display": function(){
-		var formattedName = HTMLheaderName.replace("%data%", bio.name);
-		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-		var formattedWebsite = HTMLwebsite.replace("%data%", bio.contacts.website);
-		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
-
-		$(".col-md-12:first").prepend(formattedRole);
-		$(".col-md-12:first").prepend(formattedName);
-
-		$(".contacts").append(HTMLcontactsStart);
-		$("#contacts").append(formattedEmail);
-		$("#contacts").append(formattedWebsite);
-		$("#contacts").append(formattedGithub);
-		$("#contacts").append(formattedTwitter);
-		$("#contacts").append(formattedLocation);
-		$(".pic").append(formattedPic);
-		$(".skills").append(HTMLskillsStart);
-
-		for (var skill in bio.skills) {
-			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$("#skills").append(formattedSkill);
-		}
-	}
-};
-
-
-
-/*  <div class='col-lg-4'>
-      <a class="btn btn-primary btn-lg" role="button" href="">
-        <svg width="250" height="250" class="education">
-          <circle cx="125" cy="125" r="125" fill="#03bbc5" />
-         <text x="45" y="135" width="3cm" height="3cm" font-size="35" fill="white">Education</text>
-        </svg>
-      </a>
-    </div>*/
 
 var work = {
 	"jobs": [
@@ -171,80 +260,6 @@ var projects = {
 	}
 };
 
-var education = {
-	"schools": [
-		{
-		"name": "University of Florida",
-		"location": "Gainesville, Florida",
-		"degree": "Juris Doctor", 
-		"major": ["Law"],
-		"dates": "2005 - 2008",
-		"url": "http://www.law.ufl.edu/"
-		},
-		{
-		"name": "Florida State University",
-		"location": "Tallahassee, Florida",
-		"degree": "Bachelor of Arts",
-		"major": ["Music"],
-		"dates": "1996 - 2000",
-		"url": "http://www.music.fsu.edu//"
-		}
-	],
-	"onlineCourses": [
-		{
-		"title": "Front End Web Developer Nanodegree",
-		"school": "Udacity",
-		"dates": 2014,
-		"url": "http://www.udacity.com",
-		"certificate": ""
-		},
-		{
-		"title": "Introduction to Linux",
-		"school": "edX",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
-		"certificate": "images/IntroToLinuxCertificate.pdf"
-		},
-		{
-		"title": "Engineering Software as a Service",
-		"school": "edx",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
-		"certificate": "images/SaasCertificate.pdf"
-		}
-	],
-	"display": function() {
-		for (var i in education.schools) {
-			var school = education.schools[i];
-			$("#education").append(HTMLschoolStart);
-			var formattedNameDegree = HTMLschoolNameandDegree.replace("#", school.url).replace("%data1%", school.name).replace("%data2%", school.degree);
-			$(".education-entry:last").append(formattedNameDegree);	
-			var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
-			$(".education-entry:last").append(formattedDates);
-			var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
-			$(".education-entry:last").append(formattedLocation);
-			if (school.major.length > 0) {
-				for (var j in school.major) {
-					var formattedMajor = HTMLschoolMajor.replace("%data%", school.major[j]);
-					$(".education-entry:last").append(formattedMajor);
-				}
-			}
-		}
-	
-		for (var i in education.onlineCourses){
-			var oC = education.onlineCourses[i];
-			$("#online").append(HTMLonlineStart);
-			var formattedTitle = HTMLonlineTitleAndSchool.replace("#", oC.url).replace("%data1%", oC.title).replace("%data2%", oC.school);
-			$(".online-entry:last").append(formattedTitle);
-			var formattedDates = HTMLonlineDates.replace("%data%", oC.dates);
-			$(".online-entry:last").append(formattedDates);
-			if (oC.certificate){
-				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
-				$(".online-entry:last").append(formattedCertificate);
-			}
-		}
-	}
-}
 
 $(document).click(function(loc) {
 	var x = loc.pageX;
@@ -253,10 +268,22 @@ $(document).click(function(loc) {
 	logClicks(x, y);
 });
 
-//$("btn").click(work.display()); //Doesnt work why?
+bio.displayHeader();
+//$("hr").after(bio.welcomeMessage);
 
-//work.display();
-bio.display();
+SVG.display("education", "large");
+SVG.display("work", "large");
+SVG.display("projects", "large");
+SVG.display("locations", "large");
+SVG.display("skills", "large");
+SVG.display("contacts", "large");
+
+$(".main").hide();  //hide while developing the individual sections
+
+education.display();
+
+
+
 //projects.display();
 //education.display();
 

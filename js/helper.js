@@ -34,7 +34,7 @@ var HTMLprojectDates = "<div class='date-text'>%data%</div>";
 var HTMLprojectDescription = "<p><br>%data%</p>";
 var HTMLprojectImage = "<div class='col-md-4'><img src='%data%' class='img-rounded img-responsive'></div>";
 
-var HTMLschoolStart = "<div class='education-entry'></div>";
+var HTMLschoolStart = "<div class='education-entry col-md-4'></div>";
 var HTMLschoolNameandDegree = "<a href='#'>%data1% -- %data2%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
