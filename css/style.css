@@ -25,6 +25,11 @@ h1, a {
 	background-color: #03A8B1;
 }*/
 
+text {
+	font-size: 35px;
+	fill: white;
+}
+
 hr {
 	height: 3px;
 	background-color: #bbb;

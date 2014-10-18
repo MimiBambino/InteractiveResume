@@ -2,10 +2,12 @@ Interactive Resume
 ==================
 <<<<<<< HEAD
 
-Sources:
+No code was directly copied, but here is a list of resources used while making this project:
+
 Bootstrap Documentation
 Udacity JavaScript Basics Course
 w3schools.com
+jQuery documentation
 
 =======
 Javascript Basics course on Udacity

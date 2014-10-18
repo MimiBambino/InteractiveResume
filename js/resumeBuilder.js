@@ -1,6 +1,50 @@
 //TODO:  Revise calls to display to call display on click of each item.
 //TODO:  Write a function to generate SVGs based on media queries.  
 //TODO:  Refactor index.html to remove all unnecessary items and add them to variables in helper.js.
+var SVG = {
+	"large": {
+		"width": 250,
+		"height": 250,
+		"cx": 125,
+		"cy": 125,
+		"r": 125
+	},
+	"medium": {},
+	"small": {},
+	"education": {
+		"class": "education",
+		"fill": "#03bbc5",
+		"text_x": 45,
+		"text_y": 135,
+		"text": "Education"
+	},
+	"work": {
+		"class": "work",
+		"fill": "#002b2e",
+		"text_x": 80,
+		"text_y": 110,
+		"text": "Work",
+		"moreText": "<text x='43' y='155' width='3cm' height='3cm' font-size='35' fill='white'>Experience</text>"
+	},
+	"projects": {},
+	"locations": {},
+	"contacts": {},
+	"skills": {},
+	"display": function(word, size){
+		size = SVG[size];
+		var caption = SVG[word];
+		var SVGstring = SVGhelper.replace("%class%", word).replace("%width%", size.width).replace("%height%", size.height).replace("%cx%", size.cx).replace("%cy%", size.cy).replace("%r%", size.r).replace("%fill%", caption["fill"]).replace("%text_x%", caption["text_x"]).replace("%text_y%", caption["text_y"]).replace("%text%", caption["text"]).replace("%class%", word);
+		if (caption["moreText"]){
+			SVGstring += caption["moreText"];
+		}
+		var selector = "." + word;
+		SVGstring += SVGend;
+		$(selector).append(SVGstring);
+	}
+};
+
+SVG.display("education", "large");
+SVG.display("work", "large");
 
 var bio = {
 	"name": "Cynthia O'Donnell",
@@ -35,31 +79,42 @@ var bio = {
 		$("#contacts").append(formattedGithub);
 		$("#contacts").append(formattedTwitter);
 		$("#contacts").append(formattedLocation);
-	    $(".pic").append(formattedPic);
-	    $(".skills").append(HTMLskillsStart);
+		$(".pic").append(formattedPic);
+		$(".skills").append(HTMLskillsStart);
 
 		for (var skill in bio.skills) {
-	      var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-		  $("#skills").append(formattedSkill);
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkill);
 		}
 	}
 };
 
+
+
+/*  <div class='col-lg-4'>
+      <a class="btn btn-primary btn-lg" role="button" href="">
+        <svg width="250" height="250" class="education">
+          <circle cx="125" cy="125" r="125" fill="#03bbc5" />
+         <text x="45" y="135" width="3cm" height="3cm" font-size="35" fill="white">Education</text>
+        </svg>
+      </a>
+    </div>*/
+
 var work = {
 	"jobs": [
 	{
-	    "employer": "Case, Lombardi and Pettit",
-	    "title": "Attorney",
-	    "location": "Honolulu, Hawaii",
-	    "dates": "2008 - 2010",
-	    "description": "As a bankruptcy and business litigation attorney, I represented individual debtors in personal bankruptcy proceedings.  I also advised business clients on their rights under federal bankruptcy law as creditors and I participated in the successful reorganization of companies emerging from bankruptcy protection."
+		"employer": "Case, Lombardi and Pettit",
+		"title": "Attorney",
+		"location": "Honolulu, Hawaii",
+		"dates": "2008 - 2010",
+		"description": "As a bankruptcy and business litigation attorney, I represented individual debtors in personal bankruptcy proceedings.  I also advised business clients on their rights under federal bankruptcy law as creditors and I participated in the successful reorganization of companies emerging from bankruptcy protection."
 	},
 	{
-	    "employer": "United States Navy",
-	    "title": "Navy Surface Warfare Officer",
-	    "location": "Norfolk, Virginia",
-	    "dates": "2001 - 2005",
-	    "description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including all missiles) and installation and use of system software."
+		"employer": "United States Navy",
+		"title": "Navy Surface Warfare Officer",
+		"location": "Norfolk, Virginia",
+		"dates": "2001 - 2005",
+		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including all missiles) and installation and use of system software."
 	}
 	],
 	"display": function(){
@@ -116,49 +171,47 @@ var projects = {
 	}
 };
 
-
-
 var education = {
 	"schools": [
-	  {
+		{
 		"name": "University of Florida",
 		"location": "Gainesville, Florida",
 		"degree": "Juris Doctor", 
 		"major": ["Law"],
 		"dates": "2005 - 2008",
 		"url": "http://www.law.ufl.edu/"
-	  },
-	  {
+		},
+		{
 		"name": "Florida State University",
 		"location": "Tallahassee, Florida",
 		"degree": "Bachelor of Arts",
 		"major": ["Music"],
 		"dates": "1996 - 2000",
 		"url": "http://www.music.fsu.edu//"
-	  }
+		}
 	],
 	"onlineCourses": [
-	  {
+		{
 		"title": "Front End Web Developer Nanodegree",
 		"school": "Udacity",
 		"dates": 2014,
 		"url": "http://www.udacity.com",
 		"certificate": ""
-  	  },
-  	  {
-  	  	"title": "Introduction to Linux",
-  	  	"school": "edX",
-  	  	"dates": 2014,
-  	  	"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
-        "certificate": "images/IntroToLinuxCertificate.pdf"
-  	  },
-  	  {
-  	  	"title": "Engineering Software as a Service",
-  	  	"school": "edx",
-  	  	"dates": 2014,
-  	  	"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
-        "certificate": "images/SaasCertificate.pdf"
-  	  }
+		},
+		{
+		"title": "Introduction to Linux",
+		"school": "edX",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
+		"certificate": "images/IntroToLinuxCertificate.pdf"
+		},
+		{
+		"title": "Engineering Software as a Service",
+		"school": "edx",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
+		"certificate": "images/SaasCertificate.pdf"
+		}
 	],
 	"display": function() {
 		for (var i in education.schools) {
@@ -185,62 +238,29 @@ var education = {
 			$(".online-entry:last").append(formattedTitle);
 			var formattedDates = HTMLonlineDates.replace("%data%", oC.dates);
 			$(".online-entry:last").append(formattedDates);
-            if (oC.certificate){
-                var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
-                $(".online-entry:last").append(formattedCertificate);
-            }
+			if (oC.certificate){
+				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
+				$(".online-entry:last").append(formattedCertificate);
+			}
 		}
 	}
 }
 
 $(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
+	var x = loc.pageX;
+	var y = loc.pageY;
 
-  logClicks(x, y);
+	logClicks(x, y);
 });
 
-work.display();
+//$("btn").click(work.display()); //Doesnt work why?
+
+//work.display();
 bio.display();
-projects.display();
-education.display();
+//projects.display();
+//education.display();
 
-$("#mapDiv").append(googleMap);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//$("#mapDiv").append(googleMap);
 
 
 
