@@ -25,23 +25,28 @@ h1, a {
 }*/
 text#music {
 	font-family: 'Parisienne';
-	font-size: 65px;
+	font-size: 80px;
 }
 
 text#law {
 	font-family: 'Poly';
-	font-size: 65px;
+	font-size: 80px;
 }
 
 text#programming {
 	font-family: 'Lato';
-	font-size: 45px;
+	font-size: 48px;
 	font-weight: 300;
 }
 
 text {
 	font-size: 35px;
 	fill: white;
+}
+
+.btn {
+	color: white;
+	background-color: #03bbc5;
 }
 
 hr {
