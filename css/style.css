@@ -11,8 +11,6 @@ muted gray    #999 (featured)
 
 body {
 	font-family: 'Lato', sans-serif;
-/*	color: #747784;*/
-/*	color: #03bbc5;*/
 	font-weight: 400;
 }
 
@@ -20,28 +18,67 @@ h1, a {
 	color: #747784;
 }
 
-/*(svg.education:hover {
-	background-color: #03A8B1;
-}*/
-text#music {
+/* Properties for SVG text */
+text.music {
 	font-family: 'Parisienne';
 	font-size: 80px;
+	color: white;
 }
 
-text#law {
+text.law {
 	font-family: 'Poly';
 	font-size: 80px;
+	color: white;
 }
 
-text#programming {
+text.programming {
 	font-family: 'Lato';
 	font-size: 48px;
 	font-weight: 300;
+	color: white;
 }
 
 text {
 	font-size: 35px;
 	fill: white;
+}
+
+/* Properties for SVG backgrounds */
+
+circle#work {
+	fill: #646464;
+}
+
+circle#education {
+	fill: #03bbc5;
+}
+
+circle#projects {
+	fill: #008cb0;
+}
+
+circle#locations {
+	fill: #002b2e;
+}
+
+circle#contacts {
+	fill: #03bbc5;
+}
+
+circle#skills {
+	fill: #5FB6CE;
+}
+
+rect#law {
+	fill: #646464;
+}
+
+rect#music {
+	fill: #008cb0;
+}
+
+rect#programming {
+	fill: #03bbc5;
 }
 
 .btn {

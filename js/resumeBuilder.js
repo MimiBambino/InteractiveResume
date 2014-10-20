@@ -123,69 +123,97 @@ var education = {
 }
 
 var SVG = {
-	"large": {
-		"width": 210,
-		"height": 210,
-		"cx": 105,
-		"cy": 105,
-		"r": 105
-	},
-	"medium": {},
-	"small": {},
-	"education": {
-		"class": "education",
-		"fill": "#03bbc5",
-		"text_x": 28,
-		"text_y": 115,
-		"text": "Education"
-	},
-	"work": {
-		"class": "work",
-		"fill": "#646464",
-		"text_x": 60,
-		"text_y": 90,
-		"text": "Work",
-		"moreText": "<text x='20' y='130' width='3cm' height='3cm' font-size='35' fill='white'>Experience</text>"
-	},
-	"projects": {
-		"class": "projects",
-		"fill": "#008cb0",
-		"text_x": 40,
-		"text_y": 115,
-		"text": "Projects"
-	},
-	"locations": {
-		"class": "locations",
-		"fill": "#002b2e",
-		"text_x": 50,
-		"text_y": 90,
-		"text": "Where",
-		"moreText": "<text x='30' y='130' width='3cm' height='3cm' font-size='35' fill='white'>I've Lived</text>"
-	},
-	"contacts": {
-		"class": "contacts",
-		"fill": "#03bbc5",
-		"text_x": 35,
-		"text_y": 115,
-		"text": "Contacts"
-	},
-	"skills": {
-		"class": "skills",
-		"fill": "#5FB6CE",
-		"text_x": 65,
-		"text_y": 115,
-		"text": "Skills"
-	},
-	"display": function(word, size){
-		size = SVG[size];
-		var caption = SVG[word];
-		var SVGstring = SVGhelper.replace("%class%", word).replace("%width%", size.width).replace("%height%", size.height).replace("%cx%", size.cx).replace("%cy%", size.cy).replace("%r%", size.r).replace("%fill%", caption["fill"]).replace("%text_x%", caption["text_x"]).replace("%text_y%", caption["text_y"]).replace("%text%", caption["text"]).replace("%class%", word);
-		if (caption["moreText"]){
-			SVGstring += caption["moreText"];
+	"circle": {
+		"education": {
+			"id": "education",
+			"text_x": 28,
+			"text_y": 115,
+			"text": "Education"
+		},
+		"work": {
+			"id": "work",
+			"text_x": 60,
+			"text_y": 90,
+			"text": "Work",
+			"moreText": "<text x='20' y='130' width='3cm' height='3cm' font-size='35' fill='white'>Experience</text>"
+		},
+		"projects": {
+			"id": "projects",
+			"text_x": 40,
+			"text_y": 115,
+			"text": "Projects"
+		},
+		"locations": {
+			"id": "locations",
+			"text_x": 50,
+			"text_y": 90,
+			"text": "Where",
+			"moreText": "<text x='30' y='130' width='3cm' height='3cm' font-size='35' fill='white'>I've Lived</text>"
+		},
+		"contacts": {
+			"id": "contacts",
+			"text_x": 35,
+			"text_y": 115,
+			"text": "Contacts"
+		},
+		"skills": {
+			"id": "skills",
+			"text_x": 65,
+			"text_y": 115,
+			"text": "Skills"
 		}
-		var selector = "." + word;
-		SVGstring += SVGend;
-		$(selector).append(SVGstring);
+	},
+	"rectangle": {
+		"programming": {
+			"id": "programming",
+			"text_x": 10,
+			"text_y": 95,
+			"text": "Programming"
+		},
+		"law": {
+			"id": "law",
+			"text_x": 80,
+			"text_y": 100,
+			"text": "Law"
+		},
+		"music": {
+			"id": "music",
+			"text_x": 50,
+			"text_y": 92,
+			"text": "Music"
+		}
+	},
+	"circleDisplay": function(){
+		// function takes one of the resume sections as the title parameter
+		for (var i in SVG.circle){
+			var svg = SVG.circle[i];
+			// set caption to the appropriate property of SVG class 
+			
+			// insert appropriate SVG properties into the HTML helper
+			var SVGstring = SVGcircleHelper + SVGtext;
+			SVGstring = SVGstring.replace("%id%", svg["id"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace("%class%", svg["id"]);
+			if (svg["moreText"]){
+				SVGstring = SVGstring + svg["moreText"];
+			}
+			var selector = "." + i;
+			SVGstring += SVGend;
+			$(selector).append(SVGstring);
+		}
+		HTMLWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+		$(".home").prepend(HTMLWelcomeMsg);
+	},
+	"rectangleDisplay": function(){
+		for (var i in SVG.rectangle){
+			var svg = SVG.rectangle[i];
+			var SVGstring = SVGrectHelper + SVGtext;
+
+			console.log(svg["text"]);
+			SVGstring = SVGstring.replace("%id%", svg["id"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace("%class%", svg["id"]);
+			SVGstring += SVGend;
+			console.log(SVGstring);
+			$(".education-show").append(SVGstring);
+		}
+		$(".education-show").prepend(educationHeader);
 	}
 };
 
@@ -260,7 +288,6 @@ var projects = {
 	}
 };
 
-
 $(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
@@ -269,18 +296,18 @@ $(document).click(function(loc) {
 });
 
 bio.displayHeader();
-//$("hr").after(bio.welcomeMessage);
 
-SVG.display("education", "large");
-SVG.display("work", "large");
-SVG.display("projects", "large");
-SVG.display("locations", "large");
-SVG.display("skills", "large");
-SVG.display("contacts", "large");
+SVG.circleDisplay();
+$(".home").on("click", function(){
+	SVG.rectangleDisplay();
+	$(".home").hide();
 
-$(".main").hide();  //hide while developing the individual sections
+});
 
-education.display();
+
+//$(".main").hide();  //hide while developing the individual sections
+
+//education.display();
 
 
 

@@ -1,8 +1,10 @@
 var HTMLheaderName = "<h1 id='HTMLheaderNamename' class='text-center text-thin title-super analgous-color'>%data%</h1>";
 var HTMLheaderRole = "<h4 class='text-center text-uppercase contrasting1-color'>%data%</h4>";
+var educationHeader = "<h3>Education</h3>";
 
-var SVGhelper = "<svg width='%width%' height='%height%' class='%class%'><circle cx='%cx%' cy='%cy%' r='%r%' fill='%fill%'/><text x='%text_x%' y='%text_y%' width='3cm' height='3cm' font-size='35' fill='white' class='%class%'>%text%</text>";
-
+var SVGcircleHelper = "<svg width='210' height='210'><circle id='%id%' cx='105' cy='105' r='105'/>";
+var SVGrectHelper = "<svg width='310' height='150'><rect id='%id%' width='300' height='150'/>";
+var SVGtext = "<text x='%text_x%' y='%text_y%' class='%class%' width='300' height='150'>%text%</text>";
 var moreTextHelper = "";
 var SVGend = "</svg>";
 
@@ -16,7 +18,7 @@ var HTMLwebsite = "<li class='flex-item'><span class='orange-text'>website:</spa
 var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location:</span><span class='white-text'>%data%</span></li>";
 
 var HTMLbioPic = "<img src='%data%' class='biopic img-responsive img-rounded'>";
-var HTMLWelcomeMsg = "<span class='welcome-message'>%data%</span>";
+var HTMLWelcomeMsg = "<h4 class='welcome-message'>%data%</h4>";
 
 var HTMLskillsStart = "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills' class='flex-box'></ul>";
 var HTMLskills = "<li class='flex-item'><span class='white-text'>%data%</span></li>";
