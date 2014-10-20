@@ -19,19 +19,19 @@ h1, a {
 }
 
 /* Properties for SVG text */
-text.music {
+text.music-rect {
 	font-family: 'Parisienne';
 	font-size: 80px;
 	color: white;
 }
 
-text.law {
+text.law-rect {
 	font-family: 'Poly';
 	font-size: 80px;
 	color: white;
 }
 
-text.programming {
+text.programming-rect {
 	font-family: 'Lato';
 	font-size: 48px;
 	font-weight: 300;
@@ -45,45 +45,46 @@ text {
 
 /* Properties for SVG backgrounds */
 
-circle#work {
+#work-circle {
 	fill: #646464;
 }
 
-circle#education {
+#education-circle {
 	fill: #03bbc5;
 }
 
-circle#projects {
+#projects-circle {
 	fill: #008cb0;
 }
 
-circle#locations {
+#locations-circle {
 	fill: #002b2e;
 }
 
-circle#contacts {
+#contacts-circle {
 	fill: #03bbc5;
 }
 
-circle#skills {
+#skills-circle {
 	fill: #5FB6CE;
 }
 
-rect#law {
+#law-rect {
 	fill: #646464;
 }
 
-rect#music {
+#music-rect {
 	fill: #008cb0;
 }
 
-rect#programming {
+#programming-rect {
 	fill: #03bbc5;
 }
 
 .btn {
 	color: white;
 	background-color: #03bbc5;
+	border: #03bbc5;
 }
 
 hr {

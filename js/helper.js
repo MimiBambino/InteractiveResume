@@ -2,8 +2,8 @@ var HTMLheaderName = "<h1 id='HTMLheaderNamename' class='text-center text-thin t
 var HTMLheaderRole = "<h4 class='text-center text-uppercase contrasting1-color'>%data%</h4>";
 var educationHeader = "<h3>Education</h3>";
 
-var SVGcircleHelper = "<svg width='210' height='210'><circle id='%id%' cx='105' cy='105' r='105'/>";
-var SVGrectHelper = "<svg width='310' height='150'><rect id='%id%' width='300' height='150'/>";
+var SVGcircleHelper = "<svg width='210' height='210' id='%id%'><circle cx='105' cy='105' r='105'/>";
+var SVGrectHelper = "<svg width='310' height='150' id='%id%'><rect width='300' height='150'/>";
 var SVGtext = "<text x='%text_x%' y='%text_y%' class='%class%' width='300' height='150'>%text%</text>";
 var moreTextHelper = "";
 var SVGend = "</svg>";

@@ -1,4 +1,3 @@
-//TODO:  Revise calls to display to call display on click of each item.
 var bio = {
 	"name": "Cynthia O'Donnell",
 	"role": "Front End Web Developer",
@@ -125,39 +124,39 @@ var education = {
 var SVG = {
 	"circle": {
 		"education": {
-			"id": "education",
+			"id": "education-circle",
 			"text_x": 28,
 			"text_y": 115,
 			"text": "Education"
 		},
 		"work": {
-			"id": "work",
+			"id": "work-circle",
 			"text_x": 60,
 			"text_y": 90,
 			"text": "Work",
 			"moreText": "<text x='20' y='130' width='3cm' height='3cm' font-size='35' fill='white'>Experience</text>"
 		},
 		"projects": {
-			"id": "projects",
+			"id": "projects-circle",
 			"text_x": 40,
 			"text_y": 115,
 			"text": "Projects"
 		},
 		"locations": {
-			"id": "locations",
+			"id": "locations-circle",
 			"text_x": 50,
 			"text_y": 90,
 			"text": "Where",
 			"moreText": "<text x='30' y='130' width='3cm' height='3cm' font-size='35' fill='white'>I've Lived</text>"
 		},
 		"contacts": {
-			"id": "contacts",
+			"id": "contacts-circle",
 			"text_x": 35,
 			"text_y": 115,
 			"text": "Contacts"
 		},
 		"skills": {
-			"id": "skills",
+			"id": "skills-circle",
 			"text_x": 65,
 			"text_y": 115,
 			"text": "Skills"
@@ -165,19 +164,19 @@ var SVG = {
 	},
 	"rectangle": {
 		"programming": {
-			"id": "programming",
+			"id": "programming-rect",
 			"text_x": 10,
 			"text_y": 95,
 			"text": "Programming"
 		},
 		"law": {
-			"id": "law",
+			"id": "law-rect",
 			"text_x": 80,
 			"text_y": 100,
 			"text": "Law"
 		},
 		"music": {
-			"id": "music",
+			"id": "music-rect",
 			"text_x": 50,
 			"text_y": 92,
 			"text": "Music"
@@ -295,17 +294,38 @@ $(document).click(function(loc) {
 	logClicks(x, y);
 });
 
+
 bio.displayHeader();
 
-SVG.circleDisplay();
-$(".home").on("click", function(){
-	SVG.rectangleDisplay();
-	$(".home").hide();
+//TODO:  Enable footer button 
+//  if .main is showing:
+//		button text="Show Whole Resume"
+//			on click show all resume sections
+//	else  
+//		button text = "Home"
+//		on click 
+//			display .main
+//			hide everything else
+//			button text = "Show Whole Resume"
 
+//TODO:  Revise calls to display to call display on click of each item.
+
+
+SVG.circleDisplay();
+SVG.rectangleDisplay();
+$('.education-show').hide();
+
+$("#education-circle").on("click", function(){
+	$(".home").hide();
+	$('button').html("Home");
+	$('.education-show').show();
 });
 
-
-//$(".main").hide();  //hide while developing the individual sections
+$("button").on("click", function() {
+	$(".main").show();
+	$(".education-show").hide();
+	$('button').html("Show Whole Resume");
+});
 
 //education.display();
 
