@@ -1,6 +1,6 @@
 var HTMLheaderName = "<h1 id='HTMLheaderNamename' class='text-center text-thin title-super analgous-color'>%data%</h1>";
 var HTMLheaderRole = "<h4 class='text-center text-uppercase contrasting1-color'>%data%</h4>";
-var educationHeader = "<h3>Education</h3>";
+var educationHeader = "<h3>Education</h3><p>Please click on a subject for more information.</p>";
 
 var SVGcircleHelper = "<svg width='210' height='210' id='%id%'><circle cx='105' cy='105' r='105'/>";
 var SVGrectHelper = "<svg width='310' height='150' id='%id%'><rect width='300' height='150'/>";
@@ -8,7 +8,7 @@ var SVGtext = "<text x='%text_x%' y='%text_y%' class='%class%' width='300' heigh
 var moreTextHelper = "";
 var SVGend = "</svg>";
 
-var HTMLcontactsStart = "<h3 id='skillsH3'>Contacts:</h3><ul id='contacts' class='flex-box'></ul>";
+var HTMLcontactsStart = "<h3 id='skills'>Contacts:</h3><ul id='contacts' class='flex-box'></ul>";
 var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%:</span><span class='white-text'>%data%</span></li>";
 var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile:</span><span class='white-text'>%data%</span></li>";
 var HTMLemail = "<li class='flex-item'><span class='orange-text'>email:</span><span class='white-text'>%data%</span></li>";

@@ -105,7 +105,8 @@ var education = {
 				}
 			}
 		}
-	
+	},
+	"displayOnlineCourses": function(){
 		for (var i in education.onlineCourses){
 			var oC = education.onlineCourses[i];
 			$("#online").append(HTMLonlineStart);
@@ -205,11 +206,8 @@ var SVG = {
 		for (var i in SVG.rectangle){
 			var svg = SVG.rectangle[i];
 			var SVGstring = SVGrectHelper + SVGtext;
-
-			console.log(svg["text"]);
 			SVGstring = SVGstring.replace("%id%", svg["id"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace("%class%", svg["id"]);
 			SVGstring += SVGend;
-			console.log(SVGstring);
 			$(".education-show").append(SVGstring);
 		}
 		$(".education-show").prepend(educationHeader);
@@ -319,6 +317,9 @@ $("#education-circle").on("click", function(){
 	$(".home").hide();
 	$('button').html("Home");
 	$('.education-show').show();
+	$('.programming-rect').on("click", function(){
+		education.displayOnlineCourses();
+	});
 });
 
 $("button").on("click", function() {
