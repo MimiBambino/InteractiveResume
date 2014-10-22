@@ -3,79 +3,63 @@
   <head>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
     <script src="js/jQuery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/helper.js"></script>
-    <script src="js/resumeBuilder.js"></script>
+    <script src="js/dummyHelper.js"></script>
+    <script src="js/dummyBuilder.js"></script>
     <!--Google font for my name, footer and standard text-->
-    <link href='http://fonts.googleapis.com/css?family=Lato|Montez' rel='stylesheet' type='text/css'>
-    <!--Google font options for text#music-->
-    <link href='http://fonts.googleapis.com/css?family=Parisienne|Alex+Brush|Great+Vibes' rel='stylesheet' type='text/css'>
-    <!--Google font options for text#law-->
-    <link href='http://fonts.googleapis.com/css?family=IM+Fell+French+Canon|Montaga|Poly' rel='stylesheet' type='text/css'>
-    <!--Google font options for text#programming-->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' href='css/style.css' type='text/css'></link>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Parisienne|Montez|Poly' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='css/dummy.css' type='text/css'></link>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <link rel='shortcut icon' href='images/favicon.ico'/>
     <title>Resume - Cynthia O'Donnell</title>
   </head>
     <body>
 <!--HEADER-->
-      <div class='container-fluid'>
-        <header>
-          <div class='row'>
-            <div class='col-md-12'>
-            </div>
-          </div>
-        </header>
-        <div class='row text-center'>
-          <div class='col-md-12'>
-            <hr>
-          </div>
+      <header class='text-center'>
+      </header>
+<!--Home view-->
+        <div class='main text-center'>
+          <ul class='svg'>
+          </ul>
         </div>
-        <!--Home view-->
-        <div class='main home row text-center'>
-          <div class='svg col-lg-4 col-md-6 col-sm-6 education'>
-          </div>
-          <div class='svg col-lg-4 col-md-6 col-sm-6 work'>
-          </div>
-          <div class='svg col-lg-4 col-md-6 col-sm-6 projects'>
-          </div>
-          <div class='svg col-lg-4 col-md-6 col-sm-6 locations'>
-          </div>
-          <div class='svg col-lg-4 col-md-6 col-sm-6 skills'>
-          </div>
-          <div class='svg col-lg-4 col-md-6 col-sm-6 contacts'>
-          </div>
+<!--Education view-->
+        <div class='education-data text-center'>
+          <ul class='ed'>
+          </ul>
         </div>
-      </div>
-     <div class='container-fluid'>
-        <div class='row text-center'>
-          <div class="education-show col-md-12">
-            <svg width='310' height='150' id='%id%'><rect width='300' height='150'/>
-              <text x='%text_x%' y='%text_y%' class='%class%' width='300' height='150'>%text%</text>
-            </svg>
-            <div class='online-entry'>
-              <a href='#'>%data1% -- %data2%</a>
-              <div class='date-text'>%data%</div>
-              <em><br><a href='#'>View Certificate</a></em>
-            </div>
-          </div>
+<!--Work Experience view-->
+        <div class='work-data text-center'>
+          <ul class=''>
+          </ul>
         </div>
-      </div>
-      <div class='footer text-center row'>
-        <div class='col-md-12'>
-          <p>
-            <button type="button" class="btn btn-primary img-rounded">Show Whole Resume</button>
-          </p>
-          <p>Made with <span>JavaScript</span>.  Code available at <span><a href="https://github.com/MimiBambino/InteractiveResume"><img class='github' src="images/GitHub.png" alt="GitHub"></a></span>.
-          </p>
-          <p>&copy; Cynthia O'Donnell 2014</p>
+<!--Projects view-->
+        <div class='projects-data text-center'>
+          <ul class=''>
+          </ul>
         </div>
-      </div>
-    </div>
-    <script src="js/resumeBuilder.js"></script>
+<!--Skills view-->
+        <div class='skills-data text-center'>
+          <ul class=''>
+          </ul>
+        </div>
+<!--Contacts view-->
+        <div class='contact-data text-center'>
+          <ul>
+          </ul>
+        </div>
+        <div class='map text-center'>
+        </div>
+<!--FOOTER-->
+      <footer class='text-center'>
+        <p>
+          <button type="button" class="btn show">Show Whole Resume</button>
+        </p>
+        <p>Made with <span>JavaScript</span>.  Code available at <span><a href="https://github.com/MimiBambino/InteractiveResume"><img class='github' src="images/GitHub.png" alt="GitHub"></a></span> 
+        </p>
+        <p>&copy; Cynthia O'Donnell 2014</p>
+      </footer>
+    <script src="js/dummyBuilder.js"></script>
   </body>
 </html>
