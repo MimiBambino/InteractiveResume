@@ -22,7 +22,6 @@
 	fill: #4b4b4b; /* gray svg */
 }
 
-
 body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
@@ -83,25 +82,6 @@ svg > circle:hover {
     background-color: yellow;
 }
 
-/* Properties for SVG text */
-.music-rect text {
-	font-family: 'Parisienne';
-	font-size: 80px;
-	color: white;
-}
-
-.law-rect text {
-	font-family: 'Poly';
-	font-size: 80px;
-	color: white;
-}
-
-.programming-rect text {
-	font-family: 'Lato';
-	font-size: 48px;
-	font-weight: 300;
-	color: white;
-}
 
 text {
 	font-size: 35px;
@@ -168,9 +148,71 @@ span {
 	font-size: 26px;
 }
 
+.education-row {
+	position: relative;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 
-.ed {
-	padding: 40px;
+.programming-col, .law-col, .music-col {
+	padding: 20px 10px 20px 10px;
+
+}
+div.education-row {
+	color: white;
+}
+
+.education-row h1 {
+	color: white;
+}
+
+.law-col h1 {
+	font-family: 'Poly';
+	font-size: 80px;
+	font-weight: 300;
+	color: white;
+	margin-top: -6px;
+}
+
+.course a, .major a {
+	float: right;
+	color: white;
+}
+
+.music-col h1 {
+	font-family: 'Parisienne';
+	font-size: 80px;
+	font-weight: 300;
+	color: white;
+	margin-top: -6px;
+}
+
+.programming-col h1 {
+	font-family: 'Lato';
+	font-size: 47px;
+	font-weight: 300;
+	color: white;
+}
+
+.programming-col {
+	order: 1;
+	flex-grow: 1.2;
+	background-color:  #03bbc5;
+}
+
+.law-col {
+	order: 2;
+	flex-grow: 1.4;
+	background-color: #646464;
+}
+
+.music-col {
+	flex-grow: 1.2;
+	order: 3;
+	background-color: #008cb0;
 }
 
 .footer {
