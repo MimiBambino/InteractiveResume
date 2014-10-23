@@ -1,3 +1,4 @@
+/* Fill circle SVGs */
 .primary {
 	fill: #03bbc5; /* logo */
 }
@@ -22,14 +23,11 @@
 	fill: #4b4b4b; /* gray svg */
 }
 
+/*  */
+
 body {
 	font-family: 'Lato', sans-serif;
-	font-weight: 400;
-}
-
-.col {
-	display: inline-block;
-	padding: 20px;
+	font-weight: 300;
 }
 
 header {
@@ -48,10 +46,6 @@ h1.analgous-color {
 h4.contrasting1-color {
 	text-transform: uppercase;
 	line-height: 0.2;
-}
-
-footer {
-	padding-top: 50px;
 }
 
 h1, a {
@@ -90,27 +84,27 @@ text {
 
 /* Properties for SVG backgrounds */
 
-#work-circle, #law-rect {
+#work-circle {
 	fill: #646464;
 }
 
-#work-circle:hover, #law-rect:hover {
+#work-circle:hover {
 	fill: #4B4B4B;
 }
 
-#education-circle, #contacts-circle, #programming-rect {
+#education-circle, #contacts-circle {
 	fill: #03bbc5;
 }
 
-#education-circle:hover, #contacts-circle:hover, #programming-rect:hover {
+#education-circle:hover, #contacts-circle:hover {
 	fill: #00A2AC;
 }
 
-#projects-circle, #music-rect {
+#projects-circle {
 	fill: #008cb0;
 }
 
-#projects-circle:hover, #music-rect:hover {
+#projects-circle:hover {
 	fill: #007397;
 }
 
@@ -137,70 +131,29 @@ text {
 	outline: none;
 }
 
-hr {
-	height: 3px;
-	background-color: #bbb;
-}
-
-span {
+#javascript {
 	font-family: 'Montez', 'Brush Script MT', 'Papyrus', cursive;
 	color: #008cb0 ;
 	font-size: 26px;
 }
 
+/*  Flexbox */
+
 .education-row {
-	position: relative;
+	/*position: relative;*/
 	padding-top: 20px;
+	margin: 0 20px 0 20px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.programming-col, .law-col, .music-col {
-	padding: 20px 10px 20px 10px;
-
-}
-div.education-row {
-	color: white;
-}
-
-.education-row h1 {
-	color: white;
-}
-
-.law-col h1 {
-	font-family: 'Poly';
-	font-size: 80px;
-	font-weight: 300;
-	color: white;
-	margin-top: -6px;
-}
-
-.course a, .major a {
-	float: right;
-	color: white;
-}
-
-.music-col h1 {
-	font-family: 'Parisienne';
-	font-size: 80px;
-	font-weight: 300;
-	color: white;
-	margin-top: -6px;
-}
-
-.programming-col h1 {
-	font-family: 'Lato';
-	font-size: 47px;
-	font-weight: 300;
-	color: white;
+	justify-content: space-between;
 }
 
 .programming-col {
 	order: 1;
-	flex-grow: 1.2;
+	flex-grow: 1;
 	background-color:  #03bbc5;
+
 }
 
 .law-col {
@@ -215,10 +168,62 @@ div.education-row {
 	background-color: #008cb0;
 }
 
-.footer {
-  position: relative;
-  padding: 50px;
-  text-align: center;
+.programming-col, .law-col, .music-col {
+	padding: 20px 10px 20px 10px;
+	margin: 20px;
+}
+
+div.education-row {
+	color: white;
+}
+
+.education-row h1 {
+	color: white;
+}
+
+.law-col h1 {
+	font-family: 'Poly';
+	font-size: 80px;
+	font-weight: 300;
+	color: white;
+	margin-top: -10px;
+}
+
+.course, .degree {
+	left: 20;
+}
+
+.school {
+	color: white;
+	right: 20;
+}
+
+.certificate {
+	font-family: 'Montez';
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	text-align: center;
+}
+
+.music-col h1 {
+	font-family: 'Parisienne';
+	font-size: 80px;
+	font-weight: 300;
+	color: white;
+	margin-top: -10px;
+}
+
+.programming-col h1 {
+	font-family: 'Lato';
+	font-size: 52px;
+	font-weight: 300;
+	color: white;
+	margin-top: 10px;
+}
+
+footer {
+	padding-top: 15px;
 }
 
 .github {
