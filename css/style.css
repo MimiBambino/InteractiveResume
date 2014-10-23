@@ -146,11 +146,15 @@ text {
 	color: white;
 	background-color: #03bbc5;
 	border: #03bbc5;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .btn:hover {
 	background-color: #00A2AC;
+}
+
+.btn:focus {
+	outline: none;
 }
 
 hr {

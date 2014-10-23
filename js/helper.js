@@ -1,6 +1,6 @@
 var headerName = "<h1 class='analgous-color'>%data%</h1>";
 var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
-var educationHeader = "<h3>Education</h3><p>Please click on a subject for more information.</p>";
+var educationHeader = "<h2>Education</h2><p>Please click on a subject for more information.</p>";
 // The id must be in the svg and not the circle in order for CSS to supply the fill property correctly
 var SVGcircleHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='210' height='210'><circle cx='105' cy='105' r='105'/>";
 var SVGrectHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='310' height='150'><rect width='300' height='150'/>";
