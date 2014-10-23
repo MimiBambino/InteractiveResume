@@ -48,8 +48,12 @@ h4.contrasting1-color {
 	line-height: 0.2;
 }
 
-h1, a {
+h1, h2, a {
 	color: #747784;
+}
+
+h2 {
+	font-size: 30px;
 }
 a {
 	display: inline-block;
@@ -65,6 +69,10 @@ svg {
 
 .text-center {
 	text-align: center;
+}
+
+.section-heading {
+	margin-bottom: -5px;
 }
 
 li {
@@ -120,7 +128,7 @@ text {
 	color: white;
 	background-color: #03bbc5;
 	border: #03bbc5;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 .btn:hover {
@@ -153,19 +161,21 @@ text {
 	order: 1;
 	flex-grow: 1;
 	background-color:  #03bbc5;
-
+	border-radius: 10px;
 }
 
 .law-col {
 	order: 2;
-	flex-grow: 1.4;
+	flex-grow: 1;
 	background-color: #646464;
+	border-radius: 10px;
 }
 
 .music-col {
-	flex-grow: 1.2;
 	order: 3;
+	flex-grow: 1;
 	background-color: #008cb0;
+	border-radius: 10px;
 }
 
 .programming-col, .law-col, .music-col {
@@ -190,19 +200,19 @@ div.education-row {
 }
 
 .course, .degree {
-	left: 20;
+	margin-left: 20;
 }
 
 .school {
 	color: white;
-	right: 20;
+	margin-right: 20;
 }
 
 .certificate {
 	font-family: 'Montez';
 	text-decoration: none;
 	color: black;
-	font-size: 20px;
+	font-size: 22px;
 	text-align: center;
 }
 
@@ -220,6 +230,24 @@ div.education-row {
 	font-weight: 300;
 	color: white;
 	margin-top: 10px;
+}
+
+.work-col {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+.navy-row {
+	background-color: #002b2e;
+	border-radius: 10px;
+	color: white;
+}
+.law-row {
+	background-color: #008cb0;
+	border-radius: 10px;
+	color: white;
 }
 
 footer {

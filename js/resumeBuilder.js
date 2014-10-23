@@ -161,29 +161,6 @@ var SVG = {
 			"color": "contrasting-1"
 		}
 	},
-	"rectangle": {
-		"programming": {
-			"id": "programming-rect",
-			"text_x": 10,
-			"text_y": 95,
-			"text": "Programming",
-			"color": "primary"
-		},
-		"law": {
-			"id": "law-rect",
-			"text_x": 80,
-			"text_y": 100,
-			"text": "Law",
-			"color": "gray"
-		},
-		"music": {
-			"id": "music-rect",
-			"text_x": 50,
-			"text_y": 92,
-			"text": "Music",
-			"color": "analgous"
-		}
-	},
 	"circleDisplay": function(){
 		// function takes one of the resume sections as the title parameter
 		for (var i in SVG.circle){
@@ -202,16 +179,6 @@ var SVG = {
 		HTMLWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 		$(".main").prepend(HTMLWelcomeMsg);
 	},
-	"rectangleDisplay": function(){
-		for (var i in SVG.rectangle){
-			var svg = SVG.rectangle[i];
-			var SVGstring = SVGrectHelper + SVGtext;
-			SVGstring = SVGstring.replace("%id%", svg["id"]).replace("%color%", svg["color"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace("%class%", svg["id"]);
-			SVGstring += SVGend;
-			$(".education-data ul").append(SVGstring);
-		}
-		$(".education-data").prepend(educationHeader);
-	}
 };
 
 var work = {
@@ -221,14 +188,14 @@ var work = {
 		"title": "Attorney",
 		"location": "Honolulu, Hawaii",
 		"dates": "2008 - 2010",
-		"description": "As a bankruptcy and business litigation attorney, I represented individual debtors in personal bankruptcy proceedings.  I also advised business clients on their rights under federal bankruptcy law as creditors and I participated in the successful reorganization of companies emerging from bankruptcy protection."
+		"description": "I began my legal career as a bankruptcy and business litigation attorney during the Summer of 2008. About 2 months after I began my career, the financial crisis hit. As a result, I was quickly indoctrinated in the inner workings of business reorganization, corporate board restructuring, and corporate finance as I advised and represented business clients on their rights under federal bankruptcy law as corporate creditors."
 	},
 	{
 		"employer": "United States Navy",
 		"title": "Navy Surface Warfare Officer",
-		"location": "Norfolk, Virginia",
+		"locations": ["Norfolk, Virginia", "Mediterranean Sea", "North Sea", "Indian Ocean", "Arabian Gulf"],
 		"dates": "2001 - 2005",
-		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including all missiles) and installation and use of system software."
+		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
 	}
 	],
 	"display": function(){
