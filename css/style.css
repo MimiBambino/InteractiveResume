@@ -1,3 +1,8 @@
+* { 
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
 /* Fill circle SVGs */
 .primary {
 	fill: #03bbc5; /* logo */
@@ -27,18 +32,21 @@
 
 body {
 	font-family: 'Lato', sans-serif;
+	font-size: 1.7em;
 	font-weight: 300;
+	color: white;
 }
 
 header {
 	border-bottom: 3px solid #999;
 	padding: -5px;
+	color: #002b2e;
 }
 
 h1.analgous-color {
 	display: block;
 	font-family: 'Montez', 'Brush Script MT', 'Papyrus', cursive;
-	font-size: 85px;
+	font-size: 5.2em;
 	font-weight: 100;
 	line-height: 1.1;
 }
@@ -53,7 +61,7 @@ h1, h2, a {
 }
 
 h2 {
-	font-size: 30px;
+	font-size: 2.2em;
 }
 a {
 	display: inline-block;
@@ -67,12 +75,8 @@ svg {
 	margin-left: -20px;
 }
 
-.text-center {
-	text-align: center;
-}
-
 .section-heading {
-	margin-bottom: -5px;
+	font-style: italic;
 }
 
 li {
@@ -80,13 +84,8 @@ li {
 	list-style : none;
 }
 
-svg > circle:hover { 
-    background-color: yellow;
-}
-
-
 text {
-	font-size: 35px;
+	font-size: 2em;
 	fill: white;
 }
 
@@ -128,7 +127,6 @@ text {
 	color: white;
 	background-color: #03bbc5;
 	border: #03bbc5;
-	border-radius: 10px;
 }
 
 .btn:hover {
@@ -142,116 +140,102 @@ text {
 #javascript {
 	font-family: 'Montez', 'Brush Script MT', 'Papyrus', cursive;
 	color: #008cb0 ;
-	font-size: 26px;
-}
-
-/*  Flexbox */
-
-.education-row {
-	/*position: relative;*/
-	padding-top: 20px;
-	margin: 0 20px 0 20px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	font-size: 1.6em;
 }
 
 .programming-col {
-	order: 1;
-	flex-grow: 1;
-	background-color:  #03bbc5;
+	background-color: #03bbc5;
 	border-radius: 10px;
+	height: 280px;
+}
+
+.container {
+    padding-left:30px;
+    padding-right:30px;
 }
 
 .law-col {
-	order: 2;
-	flex-grow: 1;
 	background-color: #646464;
 	border-radius: 10px;
+	height: 280px;
 }
 
 .music-col {
-	order: 3;
-	flex-grow: 1;
 	background-color: #008cb0;
 	border-radius: 10px;
+	height: 280px;
 }
-
-.programming-col, .law-col, .music-col {
-	padding: 20px 10px 20px 10px;
-	margin: 20px;
+.heading {
+	color: white;
 }
-
-div.education-row {
+.col h1 {
 	color: white;
 }
 
-.education-row h1 {
+.lawyer-col h1 {
 	color: white;
 }
 
 .law-col h1 {
 	font-family: 'Poly';
-	font-size: 80px;
+	font-size: 4.6em;
 	font-weight: 300;
-	color: white;
-	margin-top: -10px;
-}
-
-.course, .degree {
-	margin-left: 20;
 }
 
 .school {
 	color: white;
-	margin-right: 20;
+	margin: 3px;
+	border-bottom: 1px solid white;
+	line-height: 1;
+}
+
+.school:hover {
+	text-decoration: none;
+	color: #444;
+	border-bottom: 1px solid #444;
 }
 
 .certificate {
 	font-family: 'Montez';
 	text-decoration: none;
-	color: black;
-	font-size: 22px;
-	text-align: center;
+	color: #444;
+	font-size: 1.4em;
+	border-bottom: 1px solid #444;
+	line-height: 1;
+}
+
+.certificate:hover {
+	text-decoration: none;
+	color: #eee;
+	border-bottom: 1px solid #eee;
 }
 
 .music-col h1 {
 	font-family: 'Parisienne';
-	font-size: 80px;
+	font-size: 4.6em;
 	font-weight: 300;
-	color: white;
-	margin-top: -10px;
 }
 
 .programming-col h1 {
 	font-family: 'Lato';
-	font-size: 52px;
+	font-size: 3em;
 	font-weight: 300;
 	color: white;
-	margin-top: 10px;
 }
 
-.work-col {
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-}
-
-.navy-row {
+.navy-col {
 	background-color: #002b2e;
 	border-radius: 10px;
-	color: white;
 }
-.law-row {
+
+.lawyer-col {
 	background-color: #008cb0;
 	border-radius: 10px;
-	color: white;
 }
 
 footer {
 	padding-top: 15px;
+	color: black;
 }
 
 .github {
@@ -293,6 +277,3 @@ footer {
   width: 100%;
   padding-bottom: 5%;
 }
-
-
-

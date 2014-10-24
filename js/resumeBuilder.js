@@ -107,13 +107,11 @@ var education = {
 		}
 	},
 	"displayOnlineCourses": function(){
-		for (var i in education.onlineCourses){
-			var oC = education.onlineCourses[i];
-			$(".programming").addClass('online-entry');
-			var formattedTitle = HTMLonlineTitleAndSchool.replace("#", oC.url).replace("%data1%", oC.title).replace("%data2%", oC.school);
-			$(".online-entry:last").append(formattedTitle);
-			var formattedDates = HTMLonlineDates.replace("%data%", oC.dates);
-			$(".online-entry:last").append(formattedDates);
+		var oC = education.onlineCourses;
+		$("#education").append(onlineStart);
+		for (var i in oC){
+			var formattedTitleAndSchool = onlineTitleAndSchool.replace("%title%", oC["title"]).replace("#", oC["url"]).replace("%school%", oC["school"]);
+			$(".programming-col").append(formattedTitleAndSchool);
 			if (oC.certificate){
 				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
 				$(".online-entry:last").append(formattedCertificate);
@@ -252,12 +250,12 @@ var projects = {
 	}
 };
 
-$(document).click(function(loc) {
+/*$(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
 
 	logClicks(x, y);
-});
+});*/
 
 
 bio.displayHeader();
@@ -277,7 +275,6 @@ bio.displayHeader();
 
 
 SVG.circleDisplay();
-SVG.rectangleDisplay();
 $('.education-data').hide();
 
 $("#education-circle").on("click", function(){

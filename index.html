@@ -3,7 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jQuery.js"></script>
     <script src="js/helper.js"></script>
     <script src="js/resumeBuilder.js"></script>
@@ -24,47 +24,52 @@
         </ul>
       </div>
 <!--Education view-->
+    <div class='container'>
       <h2 class='section-heading text-center'>Education</h2>
-      <div class='education-row text-center'>
-        <div class='programming-col'> 
-          <h1>Programming</h1>
-            <p class='course'>Front End Developer Nanodegree &nbsp; &nbsp;<a class='school' href='#'>Udacity</a></p>
-            <p class='course'>Introduction to Linux &nbsp; &nbsp;<a class='school' href='#'>edX</a></p>
+      <div class='education-row row text-center'>
+        <div class='programming-col col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center'> 
+          <h1 class='heading'>Programming</h1>
+            <p>Front End Developer Nanodegree&nbsp; &#151; &nbsp;
+            <a class='school' href='#'>Udacity</a></p>
+            <p class='course'>Introduction to Linux &nbsp; &#151; &nbsp;<a class='school' href='#'>edX</a></p>
             <a class='certificate' href='#'>Certificate</a>
-            <p class='course'>Engineering SaaS &nbsp; &nbsp;<a class='school' href='#'>edX</a></p>
+            <p class='course'>Engineering SaaS &nbsp;&#151; &nbsp;<a class='school' href='#'>edX</a></p>
             <a class='certificate' href='#'>Certificate</a>
         </div>
-        <div class='law-col'>
-          <h1>Law</h1>
+        <div class='law-col col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+          <h1 class='heading'>Law</h1>
           <div class='education-entry'>
-            <p class='degree'>Juris Doctor &nbsp; &nbsp;<a class='school' href='#'>University of Florida</a></p>
+            <p class='degree'>Juris Doctor &nbsp;&#151; &nbsp;<a class='school' href='#'>University of Florida</a></p>
             <p class='location-text'>Gainesville, Florida</p>
-            <p class='date-text'>2005-2008</p>
+            <p class='date-text'>2005&#150;2008</p>
           </p>
           </div>
         </div>
-        <div class='music-col'>
-          <h1>Music</h1>
+        <div class='music-col col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+          <h1 class='heading'>Music</h1>
           <div class='education-entry'>
-            <p class='degree'>Bachelor of Arts &nbsp; &nbsp;<a class='school' href='#'>Florida State University</a></p>
+            <p class='degree'>Bachelor of Arts &nbsp; &#151;&nbsp;<a class='school' href='#'>Florida State University</a></p>
             <p class='location-text'>Tallahassee, Florida</p>
-            <p class='date-text'>1996-2000</p>
+            <p class='date-text'>1996&#150;2000</p>
           </div>
         </div>
       </div>
+    </div>
+
+
+
 <!--Work Experience view-->
+<div class='container'>
       <h2 class='section-heading text-center'>Work Experience</h2>
-      <div class='work-col'>
-        <div class='navy-row'> 
+      <div class='work-row row text-center'>
+        <div class='navy-col col-lg-6 col-md-6 col-sm-12 col-xs-12'> 
           <h1>Naval Officer</h1>
-            <p class='employer'>United States Navy</p>
-            <p class='description'>Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness</p>
+          <p class='employer'>United States Navy</p>
+          <p class='description'>Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness</p>
         </div>
-        <div class='law-row'>
+        <div class='lawyer-col col-lg-6 col-md-6 col-sm-12 col-xs-12'>
           <h1>Bankruptcy Attorney</h1>
-          <p class='employer'>Case, Lombardi, &amp; Pettit</p>
-          <p class='location-text'>Honolulu, Hawaii</p>
-          <p class='date-text'>2008-2010</p>
+          <p class='employer'>Case, Lombardi, &amp; Pettit &#151; <span class='location-text'>Honolulu, Hawaii</span></p>
           <p class='description'>Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness
           </p>
         </div>        
@@ -72,32 +77,41 @@
           <ul class=''>
           </ul>
         </div>
+      </div>
 <!--Projects view-->
+<div class='container'>
         <div class='projects-data text-center'>
           <ul class=''>
           </ul>
         </div>
+      </div>
 <!--Skills view-->
+<div class='container'>
         <div class='skills-data text-center'>
           <ul class=''>
           </ul>
         </div>
+      </div>
 <!--Contacts view-->
+<div class='container'>
         <div class='contact-data text-center'>
           <ul>
           </ul>
         </div>
         <div class='map text-center'>
         </div>
+      </div>
 <!--FOOTER-->
-      <footer class='text-center'>
-        <p>
-          <button type="button" class="btn show">Show Whole Resume</button>
-        </p>
-        <p>Made with <span id='javascript'>JavaScript</span>.  Code available at <span><a href="https://github.com/MimiBambino/InteractiveResume"><img class='github' src="images/GitHub.png" alt="GitHub"></a></span> 
-        </p>
-        <p>&copy; Cynthia O'Donnell 2014</p>
+<div class='container'>
+      <footer class='row text-center'>
+        <div class='col-md-12 text-center'>
+          <p><button type="button" class="btn img-rounded show">Show Whole Resume</button></p>
+          <p>Made with <span id='javascript'>JavaScript</span>.  Code available at <span><a href="https://github.com/MimiBambino/InteractiveResume"><img class='github' src="images/GitHub.png" alt="GitHub"></a></span> 
+          </p>
+          <p>&copy; Cynthia O'Donnell 2014</p>
+        </div>
       </footer>
+    </div>
     <script src="js/resumeBuilder.js"></script>
   </body>
 </html>

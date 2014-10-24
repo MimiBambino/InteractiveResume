@@ -3,7 +3,6 @@ var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
 var educationHeader = "<h2>Education</h2><p>Please click on a subject for more information.</p>";
 // The id must be in the svg and not the circle in order for CSS to supply the fill property correctly
 var SVGcircleHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='210' height='210'><circle cx='105' cy='105' r='105'/>";
-var SVGrectHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='310' height='150'><rect width='300' height='150'/>";
 var SVGtext = "<text x='%text_x%' y='%text_y%' width='300' height='150'>%text%</text>";
 var moreTextHelper = "";
 var SVGend = "</svg></li>";
@@ -42,11 +41,19 @@ var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
 var HTMLschoolMajor = "<em><br>Major: %data%</em>"
 
-var HTMLonlineTitleAndSchool = "<a href='#'>%data1% -- %data2%</a>";
+
+
+          
+            <p class='course'>Introduction to Linux &nbsp; &#151; &nbsp;<a class='school' href='#'>edX</a></p>
+            <a class='certificate' href='#'>Certificate</a>
+            <p class='course'>Engineering SaaS &nbsp;&#151; &nbsp;<a class='school' href='#'>edX</a></p>
+            <a class='certificate' href='#'>Certificate</a>
+        </div>
+var onlineStart = "<h2 class='section-heading text-center'>Education</h2><div class='education-row row text-center'><div class='programming-col col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
+var onlineTitleAndSchool = "<p>%title%&nbsp; &#151; &nbsp;<a class='school' href='#'>%school%</a></p>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
 var HTMLcerficate = "<em><br><a href='#'>View Certificate</a></em>";
 
-var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";
 
 /*
@@ -83,21 +90,21 @@ function logClicks(x,y) {
   console.log("x location: " + x + "; y location: " + y);
 }
 
-$(document).click(function(loc) {
+/*$(document).click(function(loc) {
   // your code goes here!
 });
 
-/*
-Custom Google Map for resume.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
+
+//Custom Google Map for resume.
+//See the documentation below for more details.
+//https://developers.google.com/maps/documentation/javascript/reference
+
 var map;    // declares a global map variable
 
 
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
+
+//Start here! initializeMap() is called when page is loaded.
+
 function initializeMap() {
 
   var locations;        
@@ -111,10 +118,10 @@ function initializeMap() {
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
-  /*
-  locationFinder() returns an array of every location string from the JSONs
-  written for bio, education, and work.
-  */
+
+//  locationFinder() returns an array of every location string from the JSONs
+//  written for bio, education, and work.
+
   function locationFinder() {
     
     // initializes an empty array
@@ -138,11 +145,10 @@ function initializeMap() {
     return locations;
   }
 
-  /*
-  createMapMarker(placeData) reads Google Places search results to create map pins.
-  placeData is the object returned from search results containing information
-  about a single location.
-  */
+//  createMapMarker(placeData) reads Google Places search results to create map pins.
+//  placeData is the object returned from search results containing information
+//  about a single location.
+
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
@@ -178,20 +184,18 @@ function initializeMap() {
     map.setCenter(bounds.getCenter());
   }
 
-  /*
-  callback(results, status) makes sure the search returned results for a location.
-  If so, it creates a new map marker for that location.
-  */
+//  callback(results, status) makes sure the search returned results for a location.
+//  If so, it creates a new map marker for that location.
+
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0])
     }
   }
 
-  /*
-  pinPoster(locations) takes in the array of locations created by locationFinder()
-  and fires off Google place searches for each location
-  */
+//  pinPoster(locations) takes in the array of locations created by locationFinder()
+//  and fires off Google place searches for each location
+
   function pinPoster(locations) {
 
     // creates a Google place search service object. PlacesService does the work of
@@ -229,4 +233,4 @@ window.addEventListener('load', initializeMap);
 window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
   map.fitBounds(mapBounds);
-});
+});*/
