@@ -53,7 +53,7 @@ var education = {
 		"location": "Gainesville, Florida",
 		"degree": "Juris Doctor", 
 		"major": "Law",
-		"dates": "2005 - 2008",
+		"dates": "2005 &151; 2008",
 		"url": "http://www.law.ufl.edu/"
 		},
 		{
@@ -61,7 +61,7 @@ var education = {
 		"location": "Tallahassee, Florida",
 		"degree": "Bachelor of Arts",
 		"major": "Music",
-		"dates": "1996 - 2000",
+		"dates": "1996 &151; 2000",
 		"url": "http://www.music.fsu.edu//"
 		}
 	],
@@ -89,7 +89,7 @@ var education = {
 		}
 	],
 	"display": function(){
-		$("#education").append(educationStart);
+		$(".education-row").append(educationStart);
 		for (var i in education.onlineCourses){
 			var oC = education.onlineCourses[i];
 			var formattedTitleAndSchool = onlineTitleAndSchool.replace("%title%", oC["title"]).replace("%#%", oC["url"]).replace("%school%", oC["school"]);
@@ -103,7 +103,7 @@ var education = {
 			var school = education.schools[i];
 			var formattedSchoolString = schoolString.replace("%major%", school.major).replace("%major%", school.major);
 			var formattedDegreeLocationDate = degreeLocationDate.replace("%degree%", school.degree).replace("%school%", school.name).replace("%#%", school.url).replace("%dates%", school.dates).replace("%location%", school.location);
-			$("#education").append(formattedSchoolString);
+			$(".education-row").append(formattedSchoolString);
 			var selector = "." + school.major + "-col";
 			$(selector).append(formattedDegreeLocationDate);
 		}
@@ -172,7 +172,7 @@ var SVG = {
 var work = {
 	"jobs": [
 	{
-		"employer": "Case, Lombardi and Pettit",
+		"employer": "Case, Lombardi &amp; Pettit",
 		"title": "Attorney",
 		"location": "Honolulu, Hawaii",
 		"dates": "2008 - 2010",
@@ -269,7 +269,7 @@ SVG.circleDisplay();
 
 $("#education-circle").on("click", function(){
 	$(".main").hide();
-	$('button').html("Home").removeClass('show').addClass('home');
+	$('button').html("Home").removeClass('show-all').addClass('home');
 	$('#education').show();
 	});
 
@@ -277,7 +277,7 @@ $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
 		$(".main").show();
 		$("#education").hide();
-		$('button').html("Show Whole Resume").addClass('show').removeClass('home');
+		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
 	}
 	else {
 		$(".main").hide();
@@ -287,7 +287,7 @@ $("button").on("click", function() {
 		$(".skills-data").show();
 		$(".contact-data").show();
 		$(".map").show();
-		$('button').html("Home").removeClass('show').addClass('home');
+		$('button').html("Home").removeClass('show-all').addClass('home');
 	}
 });
 

@@ -1,11 +1,47 @@
 var headerName = "<h1 class='analgous-color'>%data%</h1>";
 var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
+var HTMLWelcomeMsg = "<h4 class='welcome-message'>%data%</h4>";
+
 var educationHeader = "<h2>Education</h2><p>Please click on a subject for more information.</p>";
 // The id must be in the svg and not the circle in order for CSS to supply the fill property correctly
 var SVGcircleHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='210' height='210'><circle cx='105' cy='105' r='105'/>";
 var SVGtext = "<text x='%text_x%' y='%text_y%' width='300' height='150'>%text%</text>";
 var moreTextHelper = "";
 var SVGend = "</svg></li>";
+
+var educationStart = "<div class='programming-col col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
+var onlineTitleAndSchool = "<p>%title%&nbsp; &#151; &nbsp;<a class='school' href='%#%'>%school%</a></p>";
+var HTMLcerficate = "<a class='certificate' href='#'>Certificate</a>";
+var schoolString = "<div class='%major%-col col-lg-4 col-md-4 col-sm-6 col-xs-12'><h1 class='heading'>%major%</h1><div class='education-entry'>";
+var degreeLocationDate= "<p class='degree'>%degree% &nbsp;&#151; &nbsp;<a class='school' href='%#%'>%school%</a></p><p class='location-text'>%location%</p><p class='date-text'>%dates%</p></p></div></div>";
+
+
+
+var HTMLworkStart = "<div class='work-entry'></div>";
+var HTMLworkEmployer = "<a href='#'>%data%";
+var HTMLworkTitle = " - %data%</a>";
+var HTMLworkDates = "<div class='date-text'>%data%</div>";
+var HTMLworkLocation = "<div class='location-text'>%data%</div>";
+var HTMLworkDescription = "<p><br>%data%</p>";
+
+
+
+<div class='navy-col col-lg-6 col-md-6 col-sm-12 col-xs-12'> 
+            <h1>Naval Officer</h1>
+            <p class='employer'>United States Navy</p>
+            <p class='description'>Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness</p>
+          </div>
+
+
+
+
+
+
+var HTMLprojectStart = "<div class='project-entry'></div>";
+var HTMLprojectTitle = "<a href='#'>%data%</a>";
+var HTMLprojectDates = "<div class='date-text'>%data%</div>";
+var HTMLprojectDescription = "<p><br>%data%</p>";
+var HTMLprojectImage = "<div><img src='%data%' class='img-rounded img-responsive'></div>";
 
 var HTMLcontactsStart = "<h3 id='skills'>Contacts:</h3><ul id='contacts' class='flex-box'></ul>";
 var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%:</span><span class='white-text'>%data%</span></li>";
@@ -17,32 +53,21 @@ var HTMLwebsite = "<li class='flex-item'><span class='orange-text'>website:</spa
 var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location:</span><span class='white-text'>%data%</span></li>";
 
 var HTMLbioPic = "<img src='%data%' class='biopic img-responsive img-rounded'>";
-var HTMLWelcomeMsg = "<h4 class='welcome-message'>%data%</h4>";
+
 
 var HTMLskillsStart = "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills' class='flex-box'></ul>";
 var HTMLskills = "<li class='flex-item'><span class='white-text'>%data%</span></li>";
 
-var HTMLworkStart = "<div class='work-entry'></div>";
-var HTMLworkEmployer = "<a href='#'>%data%";
-var HTMLworkTitle = " - %data%</a>";
-var HTMLworkDates = "<div class='date-text'>%data%</div>";
-var HTMLworkLocation = "<div class='location-text'>%data%</div>";
-var HTMLworkDescription = "<p><br>%data%</p>";
-
-var HTMLprojectStart = "<div class='project-entry'></div>";
-var HTMLprojectTitle = "<a href='#'>%data%</a>";
-var HTMLprojectDates = "<div class='date-text'>%data%</div>";
-var HTMLprojectDescription = "<p><br>%data%</p>";
-var HTMLprojectImage = "<div><img src='%data%' class='img-rounded img-responsive'></div>";
 
 
-var educationStart = "<h2 class='section-heading text-center'>Education</h2><div class='education-row row text-center'><div class='programming-col col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
-var onlineTitleAndSchool = "<p>%title%&nbsp; &#151; &nbsp;<a class='school' href='%#%'>%school%</a></p>";
-var HTMLcerficate = "<a href='#'>Certificate</a></div>";
 
-var schoolString = "<div class='%major%-col col-lg-4 col-md-4 col-sm-6 col-xs-12'><h1 class='heading'>%major%</h1><div class='education-entry'>";
-var degreeLocationDate= "<p class='degree'>%degree% &nbsp;&#151; &nbsp;<a class='school' href='%#%'>%school%</a></p><p class='location-text'>%location%</p><p class='date-text'>%dates%</p></p></div></div>";
-            
+
+
+
+
+
+
+
 
 var googleMap = "<div id='map'></div>";
 

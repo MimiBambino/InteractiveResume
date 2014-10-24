@@ -28,8 +28,6 @@
 	fill: #4b4b4b; /* gray svg */
 }
 
-/*  */
-
 body {
 	font-family: 'Lato', sans-serif;
 	font-size: 1.7em;
@@ -146,7 +144,7 @@ text {
 .programming-col {
 	background-color: #03bbc5;
 	border-radius: 10px;
-	height: 280px;
+	height: 300px;
 }
 
 .container {
@@ -157,13 +155,13 @@ text {
 .Law-col {
 	background-color: #646464;
 	border-radius: 10px;
-	height: 280px;
+	height: 300px;
 }
 
 .Music-col {
 	background-color: #008cb0;
 	border-radius: 10px;
-	height: 280px;
+	height: 300px;
 }
 .heading {
 	color: white;
@@ -228,14 +226,31 @@ text {
 	border-radius: 10px;
 }
 
+.navy-col h1 {
+	color: white;
+	font-family: Poly;
+	font-variant: small-caps;
+	font-size: 4em;
+}
+
 .lawyer-col {
 	background-color: #008cb0;
 	border-radius: 10px;
 }
 
+.lawyer-col h1 {
+	color: white;
+	font-family: Poly;
+	font-size: 4em;
+}
+
 footer {
 	padding-top: 15px;
 	color: black;
+}
+
+.btn {
+	color: white;
 }
 
 .github {
