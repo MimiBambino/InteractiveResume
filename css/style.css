@@ -154,13 +154,13 @@ text {
     padding-right:30px;
 }
 
-.law-col {
+.Law-col {
 	background-color: #646464;
 	border-radius: 10px;
 	height: 280px;
 }
 
-.music-col {
+.Music-col {
 	background-color: #008cb0;
 	border-radius: 10px;
 	height: 280px;
@@ -176,7 +176,7 @@ text {
 	color: white;
 }
 
-.law-col h1 {
+.Law-col h1 {
 	font-family: 'Poly';
 	font-size: 4.6em;
 	font-weight: 300;
@@ -210,7 +210,7 @@ text {
 	border-bottom: 1px solid #eee;
 }
 
-.music-col h1 {
+.Music-col h1 {
 	font-family: 'Parisienne';
 	font-size: 4.6em;
 	font-weight: 300;

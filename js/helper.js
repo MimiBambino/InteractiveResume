@@ -35,24 +35,14 @@ var HTMLprojectDates = "<div class='date-text'>%data%</div>";
 var HTMLprojectDescription = "<p><br>%data%</p>";
 var HTMLprojectImage = "<div><img src='%data%' class='img-rounded img-responsive'></div>";
 
-var HTMLschoolStart = "<div class='education-entry'></div>";
-var HTMLschoolNameandDegree = "<a href='#'>%data1% -- %data2%</a>";
-var HTMLschoolDates = "<div class='date-text'>%data%</div>";
-var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
-var HTMLschoolMajor = "<em><br>Major: %data%</em>"
 
+var educationStart = "<h2 class='section-heading text-center'>Education</h2><div class='education-row row text-center'><div class='programming-col col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
+var onlineTitleAndSchool = "<p>%title%&nbsp; &#151; &nbsp;<a class='school' href='%#%'>%school%</a></p>";
+var HTMLcerficate = "<a href='#'>Certificate</a></div>";
 
-
-          
-            <p class='course'>Introduction to Linux &nbsp; &#151; &nbsp;<a class='school' href='#'>edX</a></p>
-            <a class='certificate' href='#'>Certificate</a>
-            <p class='course'>Engineering SaaS &nbsp;&#151; &nbsp;<a class='school' href='#'>edX</a></p>
-            <a class='certificate' href='#'>Certificate</a>
-        </div>
-var onlineStart = "<h2 class='section-heading text-center'>Education</h2><div class='education-row row text-center'><div class='programming-col col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
-var onlineTitleAndSchool = "<p>%title%&nbsp; &#151; &nbsp;<a class='school' href='#'>%school%</a></p>";
-var HTMLonlineDates = "<div class='date-text'>%data%</div>";
-var HTMLcerficate = "<em><br><a href='#'>View Certificate</a></em>";
+var schoolString = "<div class='%major%-col col-lg-4 col-md-4 col-sm-6 col-xs-12'><h1 class='heading'>%major%</h1><div class='education-entry'>";
+var degreeLocationDate= "<p class='degree'>%degree% &nbsp;&#151; &nbsp;<a class='school' href='%#%'>%school%</a></p><p class='location-text'>%location%</p><p class='date-text'>%dates%</p></p></div></div>";
+            
 
 var googleMap = "<div id='map'></div>";
 
