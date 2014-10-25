@@ -53,7 +53,7 @@ var education = {
 		"location": "Gainesville, Florida",
 		"degree": "Juris Doctor", 
 		"major": "Law",
-		"dates": "2005 &151; 2008",
+		"dates": "2005 &#151; 2008",
 		"url": "http://www.law.ufl.edu/"
 		},
 		{
@@ -61,7 +61,7 @@ var education = {
 		"location": "Tallahassee, Florida",
 		"degree": "Bachelor of Arts",
 		"major": "Music",
-		"dates": "1996 &151; 2000",
+		"dates": "1996 &#151; 2000",
 		"url": "http://www.music.fsu.edu//"
 		}
 	],
@@ -149,12 +149,11 @@ var SVG = {
 			"color": "contrasting-1"
 		}
 	},
-	"circleDisplay": function(){
+	"display": function(){
 		// function takes one of the resume sections as the title parameter
 		for (var i in SVG.circle){
 			var svg = SVG.circle[i];
 			// set caption to the appropriate property of SVG class 
-			
 			// insert appropriate SVG properties into the HTML helper
 			var SVGstring = SVGcircleHelper + SVGtext;
 			SVGstring = SVGstring.replace("%class%", svg["text"]).replace("%color%", svg["color"]).replace("%id%", svg["id"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace ("class", svg["id"]);
@@ -172,6 +171,7 @@ var SVG = {
 var work = {
 	"jobs": [
 	{
+		"job": "lawyer",
 		"employer": "Case, Lombardi &amp; Pettit",
 		"title": "Attorney",
 		"location": "Honolulu, Hawaii",
@@ -179,8 +179,9 @@ var work = {
 		"description": "I began my legal career as a bankruptcy and business litigation attorney during the Summer of 2008. About 2 months after I began my career, the financial crisis hit. As a result, I was quickly indoctrinated in the inner workings of business reorganization, corporate board restructuring, and corporate finance as I advised and represented business clients on their rights under federal bankruptcy law as corporate creditors."
 	},
 	{
+		"job": "navy",
 		"employer": "United States Navy",
-		"title": "Navy Surface Warfare Officer",
+		"title": "Naval Officer",
 		"locations": ["Norfolk, Virginia", "Mediterranean Sea", "North Sea", "Indian Ocean", "Arabian Gulf"],
 		"dates": "2001 - 2005",
 		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
@@ -189,18 +190,8 @@ var work = {
 	"display": function(){
 		for (var i in work.jobs){
 			var job = work.jobs[i];
-			$("#workExperience").append(HTMLworkStart);
-			var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-			var formattedJobTitle = HTMLworkTitle.replace("%data%", job.title);
-			var employerAndTitle = formattedEmployer + formattedJobTitle;
-			$(".work-entry:last").append(employerAndTitle);
-
-			var formattedDates = HTMLworkDates.replace("%data%", job.dates);
-			$(".work-entry:last").append(formattedDates);
-			var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
-			$(".work-entry:last").append(formattedDescription);
-			var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-			$(".work-entry:last").append(formattedLocation);
+			formattedWork = workStart.replace("%job%", job.job).replace("%title%", job.title).replace("%employer%", job.employer).replace("%description%", job.description);
+			$(".work-row").append(formattedWork);
 		}
 	}
 };
@@ -264,36 +255,65 @@ bio.displayHeader();
 //TODO:  Revise calls to display to call display on click of each item.
 
 
-SVG.circleDisplay();
-//$('#education').hide();
+SVG.display();
+education.display();
+work.display();
+//projects.display();
+//bio.skills.display();
+//bio.contacts.display();
+
+$("#education").hide();
+$("#work").hide();
+//$("#projects").hide();
+//$("#skills").hide();
+//$("#contact").hide();
 
 $("#education-circle").on("click", function(){
 	$(".main").hide();
 	$('button').html("Home").removeClass('show-all').addClass('home');
 	$('#education').show();
 	});
+$("#work-circle").on("click", function(){
+	$(".main").hide();
+	$('button').html("Home").removeClass('show-all').addClass('home');
+	$('#work').show();
+	});
+$("#projects-circle").on("click", function(){
+	$(".main").hide();
+	$('button').html("Home").removeClass('show-all').addClass('home');
+	$('#projects').show();
+	});
+$("#skills-circle").on("click", function(){
+	$(".main").hide();
+	$('button').html("Home").removeClass('show-all').addClass('home');
+	$('#skills').show();
+	});
+$("#contact-circle").on("click", function(){
+	$(".main").hide();
+	$('button').html("Home").removeClass('show-all').addClass('home');
+	$('#contact').show();
+	});
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
 		$(".main").show();
 		$("#education").hide();
+		$("#work").hide();
+		$("#projects").hide();
+		$("#skills").hide();
+		$("#contact").hide();
 		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
 	}
 	else {
-		$(".main").hide();
+		//$(".main").hide();
 		$("#education").show();
-		$(".work-data").show();
-		$(".projects-data").show();
-		$(".skills-data").show();
-		$(".contact-data").show();
-		$(".map").show();
+		$("#work").show();
+		$("#projects").show();
+		$("#skills").show();
+		$("#contact").show();
 		$('button').html("Home").removeClass('show-all').addClass('home');
 	}
 });
-
-education.display();
-
-//projects.display();
 
 //$("#mapDiv").append(googleMap);
 

@@ -15,23 +15,8 @@ var HTMLcerficate = "<a class='certificate' href='#'>Certificate</a>";
 var schoolString = "<div class='%major%-col col-lg-4 col-md-4 col-sm-6 col-xs-12'><h1 class='heading'>%major%</h1><div class='education-entry'>";
 var degreeLocationDate= "<p class='degree'>%degree% &nbsp;&#151; &nbsp;<a class='school' href='%#%'>%school%</a></p><p class='location-text'>%location%</p><p class='date-text'>%dates%</p></p></div></div>";
 
-
-
-var HTMLworkStart = "<div class='work-entry'></div>";
-var HTMLworkEmployer = "<a href='#'>%data%";
-var HTMLworkTitle = " - %data%</a>";
-var HTMLworkDates = "<div class='date-text'>%data%</div>";
-var HTMLworkLocation = "<div class='location-text'>%data%</div>";
-var HTMLworkDescription = "<p><br>%data%</p>";
-
-
-
-<div class='navy-col col-lg-6 col-md-6 col-sm-12 col-xs-12'> 
-            <h1>Naval Officer</h1>
-            <p class='employer'>United States Navy</p>
-            <p class='description'>Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness Awesome awesomeness awesome awesomeness</p>
-          </div>
-
+var workStart = "<div class='%job%-col col-lg-6 col-md-6 col-sm-12 col-xs-12'><h1>%title%</h1><p class='employer'>%employer%</p><p class='description'>%description%</p></div>";
+var workLocation = "<p class='location'>%location%</p>";
 
 
 
