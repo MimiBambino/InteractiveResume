@@ -1,7 +1,7 @@
-* { 
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
 }
 /* Fill circle SVGs */
 .primary {
@@ -121,7 +121,7 @@ text {
 	fill: #1A4548;
 }
 
-.btn {
+button {
 	color: white;
 	background-color: #03bbc5;
 	border: #03bbc5;
@@ -135,12 +135,6 @@ text {
 	outline: none;
 }
 
-#javascript {
-	font-family: 'Montez', 'Brush Script MT', 'Papyrus', cursive;
-	color: #008cb0 ;
-	font-size: 1.6em;
-}
-
 .programming-col {
 	background-color: #03bbc5;
 	border-radius: 10px;
@@ -148,8 +142,8 @@ text {
 }
 
 .container {
-    padding-left:30px;
-    padding-right:30px;
+	padding-left:30px;
+	padding-right:30px;
 }
 
 .Law-col {
@@ -244,13 +238,53 @@ text {
 	font-size: 4em;
 }
 
+.projects-row a {
+	color: #008cb0;
+}
+
+.project {
+	color: #008cb0;
+}
+
+.project:hover {
+	text-decoration: none;
+	color: #444;
+	border-bottom: 1px solid #444;
+	line-height: 1;
+}
+
+.skill-list li {
+	font-weight: bold;
+	display: block;
+	font-size: 1.5em;
+}
+
+.contact-type {
+	font-weight: bold;
+	font-size: 0.8em;
+	color: #008cb0;
+	display: block;
+}
+
+.contact-data {
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #008cb0;
+}
+
+.map-header {
+	color: ;
+}
+
 footer {
 	padding-top: 15px;
 	color: black;
 }
 
-.btn {
-	color: white;
+#javascript {
+	font-family: 'Montez', 'Brush Script MT', 'Papyrus', cursive;
+	color: #008cb0 ;
+	font-size: 1.6em;
 }
 
 .github {
@@ -280,15 +314,23 @@ footer {
 	color: #777;
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+#map-header {
+	color: #777;
+}
+
+.map {
+	display: block;
+	height: 450px;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 #mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+	height: 400px;
+	width: 400px;
+	padding-bottom: 5%;
+}
+
+#projects {
+	color: #008cb0;
 }

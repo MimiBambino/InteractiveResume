@@ -5,11 +5,11 @@ var bio = {
 	"contacts": {
 		"website" : "www.mimibambino.com", 
 		"email" : "mimibambino@gmail.com",
-		"github" : "MimiBambino",
 		"twitter" : "@mimibambino",
+		"github" : "MimiBambino",
 		"location" : "Naples, Italy"
 	},
-	"skills": ["awesomeness", "programming", "web development", "paper airplanes"], 
+	"skills": ["css", "php", "html5", "python", "javascript", "business law", "management", "paper airplanes"], 
 	"image": "images/Cynthia.jpg",
 	"displayHeader": function(){
 		var formattedName = headerName.replace("%data%", bio.name);
@@ -18,31 +18,18 @@ var bio = {
 		$("header").prepend(formattedName);
 	},
 	"displayContacts": function(){
-		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-		var formattedWebsite = HTMLwebsite.replace("%data%", bio.contacts.website);
-		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-
-		$(".contacts").append(HTMLcontactsStart);
-		$("#contacts").append(formattedEmail);
-		$("#contacts").append(formattedWebsite);
-		$("#contacts").append(formattedGithub);
-		$("#contacts").append(formattedTwitter);
-		$("#contacts").append(formattedLocation);
-	},
-	"displaySkills": function(){
-
-		$(".skills").append(HTMLskillsStart);
-
-		for (var skill in bio.skills) {
-			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$("#skills").append(formattedSkill);
+		for (var i in bio.contacts) {
+			var contact = HTMLcontact.replace("%type%", i).replace("%data%", bio.contacts[i]);
+			$(".contact-list").append(contact);
 		}
 	},
-	"displayPic": function(){
+	"displaySkills": function(){
 		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
-		$(".pic").append(formattedPic);
+		$(".biopic").append(formattedPic);
+		for (var skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$(".skill-list").append(formattedSkill);
+		}
 	}
 };
 
@@ -199,74 +186,61 @@ var work = {
 var projects = {
 	"project": [
 	{
-		"title": "Mockup Portfolio",
-		"dates": "2014",
-		"description": "A single page website made to showcase all of my projects",
-		"images": ["images/Brigitte.jpg", "images/Grandpa.jpg", "images/Johnny.jpg"]
+		"title": "Brigitte",
+		"dates": "2012",
+		"description": "A sweet little girl",
+		"images": "images/Brigitte.jpg", 
+		"url": "https://github.com/MimiBambino"
 	},
 	{
-		"title": "Interactive Resume",
-		"dates": "2014",
-		"description": "A resume made with javascript, jQuery and JSON",
-		"images": ["images/fry.jpg"]
+		"title": "Grandpa",
+		"dates": "2010",
+		"description": "The best grandpa ever.",
+		"images": "images/Grandpa.jpg",
+		"url": "https://github.com/MimiBambino"
+	},
+	{
+		"title": "Johnny",
+		"dates": "2010",
+		"description": "This kid loves Spiderman!",
+		"images": "images/Johnny.jpg",
+		"url": "https://github.com/MimiBambino"
 	}
 	],
 	"display": function() {
 		for (var i in projects.project) {
 			var project = projects.project[i];
-			$("#projects").append(HTMLprojectStart);
-			var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
-			$(".project-entry:last").append(formattedTitle);
-			var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
-			$(".project-entry:last").append(formattedDates);
-			var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
-			$(".project-entry:last").append(formattedDescription);
-			if (project.images.length > 0) {
-				for (var image in project.images) {
-					var formattedImage = HTMLprojectImage.replace("%data%", project.images[image]);
-					$(".project-entry:last").append(formattedImage);
-				}
-			}
+			var formattedProject = projectStart.replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title);
+			$("#projects").append(formattedProject);
 		}
 	}
 };
 
-/*$(document).click(function(loc) {
+$(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
 
 	logClicks(x, y);
-});*/
-
+});
 
 bio.displayHeader();
-
-//TODO:  Enable footer button 
-//  if .main is showing:
-//		button text="Show Whole Resume"
-//			on click show all resume sections
-//	else  
-//		button text = "Home"
-//		on click 
-//			display .main
-//			hide everything else
-//			button text = "Show Whole Resume"
-
-//TODO:  Revise calls to display to call display on click of each item.
-
-
 SVG.display();
 education.display();
 work.display();
-//projects.display();
-//bio.skills.display();
-//bio.contacts.display();
+projects.display();
+bio.displaySkills();
+bio.displayContacts();
+
+//$(".map").append(mapHeader);
+//$("#mapDiv").append(googleMap);
+
+// Make a buttonClick object and put all the following crap in there
 
 $("#education").hide();
 $("#work").hide();
-//$("#projects").hide();
-//$("#skills").hide();
-//$("#contact").hide();
+$("#projects").hide();
+$("#skills").hide();
+$("#contacts").hide();
 
 $("#education-circle").on("click", function(){
 	$(".main").hide();
@@ -288,10 +262,10 @@ $("#skills-circle").on("click", function(){
 	$('button').html("Home").removeClass('show-all').addClass('home');
 	$('#skills').show();
 	});
-$("#contact-circle").on("click", function(){
+$("#contacts-circle").on("click", function(){
 	$(".main").hide();
 	$('button').html("Home").removeClass('show-all').addClass('home');
-	$('#contact').show();
+	$('#contacts').show();
 	});
 
 $("button").on("click", function() {
@@ -301,7 +275,7 @@ $("button").on("click", function() {
 		$("#work").hide();
 		$("#projects").hide();
 		$("#skills").hide();
-		$("#contact").hide();
+		$("#contacts").hide();
 		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
 	}
 	else {
@@ -310,12 +284,7 @@ $("button").on("click", function() {
 		$("#work").show();
 		$("#projects").show();
 		$("#skills").show();
-		$("#contact").show();
+		$("#contacts").show();
 		$('button').html("Home").removeClass('show-all').addClass('home');
 	}
 });
-
-//$("#mapDiv").append(googleMap);
-
-
-
