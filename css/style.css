@@ -253,6 +253,7 @@ svg {
 .navy-col {
 	background-color: #002b2e;
 	border-radius: 10px;
+	padding: 0 20px 20px 20px;
 }
 
 .navy-col h1 {
@@ -265,6 +266,7 @@ svg {
 .lawyer-col {
 	background-color: #008cb0;
 	border-radius: 10px;
+	padding: 0 20px 20px 20px;
 }
 
 .lawyer-col h1 {
