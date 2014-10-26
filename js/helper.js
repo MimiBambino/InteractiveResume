@@ -10,15 +10,15 @@ var moreTextHelper = "";
 var SVGend = "</svg></li>";
 
 var educationStart = "<div class='programming-col col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
-var onlineTitleAndSchool = "<p>%title%&nbsp; &#151; &nbsp;<a class='school' href='%#%'>%school%</a></p>";
-var HTMLcerficate = "<a class='certificate' href='#'>Certificate</a>";
+var onlineTitleAndSchool = "<p 'class='title'>%title%&nbsp; &#151; &nbsp;<a class='school' target='_blank' href='%#%'>%school%</a></p>";
+var HTMLcerficate = "<a class='certificate' target='_blank' href='#'>Certificate</a>";
 var schoolString = "<div class='%major%-col col-md-4 col-sm-6 col-xs-12'><h1 class='heading'>%major%</h1><div class='education-entry'>";
-var degreeLocationDate= "<p class='degree'>%degree% &nbsp;&#151; &nbsp;<a class='school' href='%#%'>%school%</a></p><p class='location-text'>%location%</p><p class='date-text'>%dates%</p></p></div></div>";
+var degreeLocationDate= "<p class='degree'>%degree% &nbsp;&#151; &nbsp;<a class='school' target='_blank' href='%#%'>%school%</a></p><p class='location-text'>%location%</p><p class='date-text'>%dates%</p></p></div></div>";
 
 var workStart = "<div class='%job%-col col-md-6 col-sm-12'><h1>%title%</h1><p class='employer'>%employer%</p><p class='description'>%description%</p></div>";
 var workLocation = "<p class='location'>%location%</p>";
 
-var projectStart = "<div class='col-md-4 text-center'><img class='img-responsive img-rounded' src='%image%' alt='%description%'><a class='project' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a></div>";
+var projectStart = "<div class='col-md-4 text-center'><img class='img-responsive img-rounded' src='%image%' alt='%description%'><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a></div>";
 
 var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%:</span><span class='white-text'>%data%</span></li>";
 var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile:</span><span class='white-text'>%data%</span></li>";

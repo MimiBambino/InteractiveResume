@@ -1,102 +1,3 @@
-var bio = {
-	"name": "Cynthia O'Donnell",
-	"role": "Front End Web Developer",
-	"welcomeMessage": "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
-	"contacts": {
-		"website" : "www.mimibambino.com", 
-		"email" : "mimibambino@gmail.com",
-		"twitter" : "@mimibambino",
-		"github" : "MimiBambino",
-		"location" : "Naples, Italy"
-	},
-	"skills": ["css", "php", "html5", "python", "javascript", "business law", "management", "paper airplanes"], 
-	"image": "images/Cynthia.jpg",
-	"displayHeader": function(){
-		var formattedName = headerName.replace("%data%", bio.name);
-		var formattedRole = headerRole.replace("%data%", bio.role);
-		$("header").prepend(formattedRole);
-		$("header").prepend(formattedName);
-	},
-	"displayContacts": function(){
-		for (var i in bio.contacts) {
-			var contact = HTMLcontact.replace("%type%", i).replace("%data%", bio.contacts[i]);
-			$(".contact-list").append(contact);
-		}
-	},
-	"displaySkills": function(){
-		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
-		$(".biopic").append(formattedPic);
-		for (var skill in bio.skills) {
-			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$(".skill-list").append(formattedSkill);
-		}
-	}
-};
-
-var education = {
-	"schools": [
-		{
-		"name": "University of Florida",
-		"location": "Gainesville, Florida",
-		"degree": "Juris Doctor", 
-		"major": "Law",
-		"dates": "2005 &#151; 2008",
-		"url": "http://www.law.ufl.edu/"
-		},
-		{
-		"name": "Florida State University",
-		"location": "Tallahassee, Florida",
-		"degree": "Bachelor of Arts",
-		"major": "Music",
-		"dates": "1996 &#151; 2000",
-		"url": "http://www.music.fsu.edu//"
-		}
-	],
-	"onlineCourses": [
-		{
-		"title": "Front End Web Developer Nanodegree",
-		"school": "Udacity",
-		"dates": 2014,
-		"url": "http://www.udacity.com",
-		"certificate": ""
-		},
-		{
-		"title": "Introduction to Linux",
-		"school": "edX",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
-		"certificate": "images/IntroToLinuxCertificate.pdf"
-		},
-		{
-		"title": "Engineering Software as a Service",
-		"school": "edx",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
-		"certificate": "images/SaasCertificate.pdf"
-		}
-	],
-	"display": function(){
-		$(".education-row").append(educationStart);
-		for (var i in education.onlineCourses){
-			var oC = education.onlineCourses[i];
-			var formattedTitleAndSchool = onlineTitleAndSchool.replace("%title%", oC["title"]).replace("%#%", oC["url"]).replace("%school%", oC["school"]);
-			$(".programming-col").append(formattedTitleAndSchool);
-			if (oC.certificate){
-				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
-				$(".programming-col").append(formattedCertificate);
-			}
-		}
-		for (var i in education.schools) {
-			var school = education.schools[i];
-			var formattedSchoolString = schoolString.replace("%major%", school.major).replace("%major%", school.major);
-			var formattedDegreeLocationDate = degreeLocationDate.replace("%degree%", school.degree).replace("%school%", school.name).replace("%#%", school.url).replace("%dates%", school.dates).replace("%location%", school.location);
-			$(".education-row").append(formattedSchoolString);
-			var selector = "." + school.major + "-col";
-			$(selector).append(formattedDegreeLocationDate);
-		}
-	}
-}
-
 var SVG = {
 	"circle": {
 		"education": {
@@ -153,7 +54,156 @@ var SVG = {
 		HTMLWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 		$(".main").prepend(HTMLWelcomeMsg);
 	},
+	"click": function(){
+		$("#education-circle").on("click", function(){
+			$(".main").hide();
+			$('button').html("Home").removeClass('show-all').addClass('home');
+			$('#education').show();
+			$('#work').hide();
+			$('#projects').hide();
+			$('#skills').hide();
+			$('#contacts').hide();
+		});
+		$("#work-circle").on("click", function(){
+			$(".main").hide();
+			$('button').html("Home").removeClass('show-all').addClass('home');
+			$('#work').show();
+			$('#education').hide();
+			$('#projects').hide();
+			$('#skills').hide();
+			$('#contacts').hide();
+		});
+		$("#projects-circle").on("click", function(){
+			$(".main").hide();
+			$('button').html("Home").removeClass('show-all').addClass('home');
+			$('#projects').show();
+			$('#education').hide();
+			$('#work').hide();
+			$('#skills').hide();
+			$('#contacts').hide();
+		});
+		$("#skills-circle").on("click", function(){
+			$(".main").hide();
+			$('button').html("Home").removeClass('show-all').addClass('home');
+			$('#skills').show();
+			$('#education').hide();
+			$('#work').hide();
+			$('#projects').hide();
+			$('#contacts').hide();
+		});
+		$("#contacts-circle").on("click", function(){
+			$(".main").hide();
+			$('button').html("Home").removeClass('show-all').addClass('home');
+			$('#contacts').show();
+			$('#education').hide();
+			$('#work').hide();
+			$('#projects').hide();
+			$('#skills').hide();
+		});
+	}
 };
+
+var bio = {
+	"name": "Cynthia O'Donnell",
+	"role": "Front End Web Developer",
+	"welcomeMessage": "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
+	"contacts": {
+		"website" : "www.mimibambino.com", 
+		"email" : "mimibambino@gmail.com",
+		"twitter" : "@mimibambino",
+		"github" : "MimiBambino",
+		"location" : "Naples, Italy"
+	},
+	"skills": ["css", "php", "html5", "python", "javascript", "business law", "management", "paper airplanes", "conversational german"], 
+	"image": "images/Cynthia.jpg",
+	"displayHeader": function(){
+		var formattedName = headerName.replace("%data%", bio.name);
+		var formattedRole = headerRole.replace("%data%", bio.role);
+		$("header").prepend(formattedRole);
+		$("header").prepend(formattedName);
+	},
+	"displayContacts": function(){
+		for (var i in bio.contacts) {
+			var contact = HTMLcontact.replace("%type%", i).replace("%data%", bio.contacts[i]);
+			$(".contact-list").append(contact);
+		}
+		$("#contacts").hide();
+	},
+	"displaySkills": function(){
+		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
+		$(".biopic").append(formattedPic);
+		for (var skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$(".skill-list").append(formattedSkill);
+		}
+		$("#skills").hide();
+	}
+};
+
+var education = {
+	"schools": [
+		{
+		"name": "University of Florida",
+		"location": "Gainesville, Florida",
+		"degree": "Juris Doctor", 
+		"major": "Law",
+		"dates": "2005 &#151; 2008",
+		"url": "http://www.law.ufl.edu/"
+		},
+		{
+		"name": "Florida State University",
+		"location": "Tallahassee, Florida",
+		"degree": "Bachelor of Arts",
+		"major": "Music",
+		"dates": "1996 &#151; 2000",
+		"url": "http://www.music.fsu.edu//"
+		}
+	],
+	"onlineCourses": [
+		{
+		"title": "Front End Developer Nanodegree",
+		"school": "Udacity",
+		"dates": 2014,
+		"url": "http://www.udacity.com",
+		"certificate": ""
+		},
+		{
+		"title": "Introduction to Linux",
+		"school": "edX",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
+		"certificate": "images/IntroToLinuxCertificate.pdf"
+		},
+		{
+		"title": "Engineering Software as a Service",
+		"school": "edx",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
+		"certificate": "images/SaasCertificate.pdf"
+		}
+	],
+	"display": function(){
+		$(".education-row").append(educationStart);
+		for (var i in education.onlineCourses){
+			var oC = education.onlineCourses[i];
+			var formattedTitleAndSchool = onlineTitleAndSchool.replace("%title%", oC["title"]).replace("%#%", oC["url"]).replace("%school%", oC["school"]);
+			$(".programming-col").append(formattedTitleAndSchool);
+			if (oC.certificate){
+				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
+				$(".programming-col").append(formattedCertificate);
+			}
+		}
+		for (var i in education.schools) {
+			var school = education.schools[i];
+			var formattedSchoolString = schoolString.replace("%major%", school.major).replace("%major%", school.major);
+			var formattedDegreeLocationDate = degreeLocationDate.replace("%degree%", school.degree).replace("%school%", school.name).replace("%#%", school.url).replace("%dates%", school.dates).replace("%location%", school.location);
+			$(".education-row").append(formattedSchoolString);
+			var selector = "." + school.major + "-col";
+			$(selector).append(formattedDegreeLocationDate);
+		}
+		$("#education").hide();
+	}
+}
 
 var work = {
 	"jobs": [
@@ -180,6 +230,7 @@ var work = {
 			formattedWork = workStart.replace("%job%", job.job).replace("%title%", job.title).replace("%employer%", job.employer).replace("%description%", job.description);
 			$(".work-row").append(formattedWork);
 		}
+		$("#work").hide();
 	}
 };
 
@@ -213,6 +264,7 @@ var projects = {
 			var formattedProject = projectStart.replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title);
 			$("#projects").append(formattedProject);
 		}
+		$("#projects").hide();
 	}
 };
 
@@ -230,43 +282,10 @@ work.display();
 projects.display();
 bio.displaySkills();
 bio.displayContacts();
+SVG.click();
 
 //$(".map").append(mapHeader);
 //$("#mapDiv").append(googleMap);
-
-// Make a buttonClick object and put all the following crap in there
-
-$("#education").hide();
-$("#work").hide();
-$("#projects").hide();
-$("#skills").hide();
-$("#contacts").hide();
-
-$("#education-circle").on("click", function(){
-	$(".main").hide();
-	$('button').html("Home").removeClass('show-all').addClass('home');
-	$('#education').show();
-	});
-$("#work-circle").on("click", function(){
-	$(".main").hide();
-	$('button').html("Home").removeClass('show-all').addClass('home');
-	$('#work').show();
-	});
-$("#projects-circle").on("click", function(){
-	$(".main").hide();
-	$('button').html("Home").removeClass('show-all').addClass('home');
-	$('#projects').show();
-	});
-$("#skills-circle").on("click", function(){
-	$(".main").hide();
-	$('button').html("Home").removeClass('show-all').addClass('home');
-	$('#skills').show();
-	});
-$("#contacts-circle").on("click", function(){
-	$(".main").hide();
-	$('button').html("Home").removeClass('show-all').addClass('home');
-	$('#contacts').show();
-	});
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
