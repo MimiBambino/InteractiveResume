@@ -79,7 +79,7 @@ function initializeMap() {
   },{
     "featureType":"water",
     "stylers":[
-    {"hue":"#03bbc5"},
+    {"hue":"008cb0"},
     {"saturation":29},
     {"gamma":0.74}
     ]
