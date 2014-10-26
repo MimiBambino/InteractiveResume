@@ -304,6 +304,8 @@ svg {
 	font-size: 1.5em;
 }
 
+/* Contacts Section */
+
 .contact-type {
 	font-weight: bold;
 	font-size: 0.8em;
@@ -318,12 +320,8 @@ svg {
 }
 
 /*  Map */
-.map-header {
-	color: ;
-}
 
-
-.map {
+/*.map {
 	display: block;
 	height: 450px;
 	margin-left: 5%;
@@ -334,6 +332,19 @@ svg {
 	height: 400px;
 	width: 400px;
 	padding-bottom: 5%;
+}*/
+
+#map {
+  display: block;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#mapDiv {
+  height: 400px;
+  width: 500px;
+  padding-bottom: 10%;
 }
 
 /* Footer */
@@ -366,5 +377,22 @@ footer {
 	.main ul li{
 	margin-bottom: -20px;
 	margin-top: -20px;
+	}
+	footer {
+		padding-top: 30px;
+	}
+	.contact-list {
+		text-align: center;
+	}
+
 }
+
+@media screen and (max-width: 700px){
+	footer {
+		padding-top: 60px;
+	}
+	#mapDiv {
+		height: 400px;
+		width: 400px;
+	}
 }

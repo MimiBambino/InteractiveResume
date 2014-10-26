@@ -284,8 +284,8 @@ bio.displaySkills();
 bio.displayContacts();
 SVG.click();
 
-//$(".map").append(mapHeader);
-//$("#mapDiv").append(googleMap);
+$("#mapDiv").append(mapHeader);
+$("#mapDiv").append(googleMap);
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {

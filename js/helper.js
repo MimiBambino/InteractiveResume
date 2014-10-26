@@ -34,27 +34,7 @@ var HTMLbioPic = "<img src='%data%' class='img-responsive img-rounded'>";
 var HTMLskills = "<li>%data%</li>";
 
 var googleMap = "<div id='map'></div>";
-var mapHeader = "<h4 id='map-header'>Where I've Lived</h4>";
-
-
-//The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-/*
-$(document).ready(function() {
-  $('button').click(function() {
-    var iName = inName() || function(){};
-    $('#name').html(iName);  
-  });
-})
-
-function nameChanger(oldName) {
-    var finalName = oldName;
-    var names = oldName.split(" ");
-    names[1] = names[1].toUpperCase();
-    names[0] = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
-    finalName = names.join(" ");
-    return finalName;
-}
-*/
+var mapHeader = "<h3 id='map-header'>Where I've Lived</h3>";
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -76,33 +56,58 @@ $(document).click(function(loc) {
 });
 
 
-//This is the fun part. Here's where we generate the custom Google Map for the website.
-//See the documentation below for more details.
-//https://developers.google.com/maps/documentation/javascript/reference
+/*
+This is the fun part. Here's where we generate the custom Google Map for the website.
+See the documentation below for more details.
+https://developers.google.com/maps/documentation/javascript/reference
+*/
+var map;    // declares a global map variable
 
-/*var map;    // declares a global map variable
 
-
-
-//Start here! initializeMap() is called when page is loaded.
-
+/*
+Start here! initializeMap() is called when page is loaded.
+*/
 function initializeMap() {
 
+  var styles = [
+  {
+    "featureType":"landscape.natural.landcover",
+    "stylers":[
+    { "gamma":0.44 },
+    { "hue":"#2bff00" }
+    ]
+  },{
+    "featureType":"water",
+    "stylers":[
+    {"hue":"#03bbc5"},
+    {"saturation":29},
+    {"gamma":0.74}
+    ]
+  },{
+    "featureType":"landscape.natural.terrain",
+    "stylers":[{"hue":"#00ff00"},{"saturation":54},{"lightness":-51},{"gamma":0.4}]},{"featureType":"transit.line","stylers":[{"gamma":0.27},{"hue":"#0077ff"},{"saturation":-91},{"lightness":36}]},{"featureType":"landscape.man_made","stylers":[{"saturation":10},{"lightness":-23},{"hue":"#0099ff"},{"gamma":0.71}]},{"featureType":"poi.business","stylers":[{"hue":"#0055ff"},{"saturation":9},{"lightness":-46},{"gamma":1.05}]},{"featureType":"administrative.country","stylers":[{"gamma":0.99}]},{"featureType":"administrative.province","stylers":[{"lightness":36},{"saturation":-54},{"gamma":0.76}]},{"featureType":"administrative.locality","stylers":[{"lightness":33},{"saturation":-61},{"gamma":1.21}]},{"featureType":"administrative.neighborhood","stylers":[{"hue":"#ff0000"},{"gamma":2.44}]},{"featureType":"road.highway.controlled_access","stylers":[{"hue":"#ff0000"},{"lightness":67},{"saturation":-40}]},{"featureType":"road.arterial","stylers":[{"hue":"#ff6600"},{"saturation":52},{"gamma":0.64}]},{"featureType":"road.local","stylers":[{"hue":"#006eff"},{"gamma":0.46},{"saturation":-3},{"lightness":-10}]},{"featureType":"transit.line","stylers":[{"hue":"#0077ff"},{"saturation":-46},{"gamma":0.58}]},{"featureType":"transit.station","stylers":[{"gamma":0.8}]},{"featureType":"transit.station.rail","stylers":[{"hue":"#ff0000"},{"saturation":-45},{"gamma":0.9}]},{"elementType":"labels.text.fill","stylers":[{"gamma":0.58}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"gamma":2.01},{"hue":"#00ffff"},{"lightness":22}]},{"featureType":"transit","stylers":[{"saturation":-87},{"lightness":44},{"gamma":1.98},{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.text","stylers":[{"gamma":0.06},{"visibility":"off"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"hue":"#00aaff"},{"lightness":-6},{"gamma":2.21}]},{"elementType":"labels.text.stroke","stylers":[{"gamma":3.84}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"gamma":9.99}]},{"featureType":"administrative","stylers":[{"gamma":0.01}]}];
   var locations;        
 
   var mapOptions = {
-    disableDefaultUI: true
+    disableDefaultUI: true,
+    mapTypeControlOptions: {
+      mapTypeIds: ['map_style']
+    }
   };
+
+  var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
-
-  
-  //locationFinder() returns an array of every location string from the JSONs
-  //written for bio, education, and work.
-  
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
+  /*
+  locationFinder() returns an array of every location string from the JSONs
+  written for bio, education, and work.
+  */
   function locationFinder() {
     
     // initializes an empty array
@@ -126,11 +131,11 @@ function initializeMap() {
     return locations;
   }
 
-  
-  //createMapMarker(placeData) reads Google Places search results to create map pins.
-  //placeData is the object returned from search results containing information
-  //about a single location.
-  
+  /*
+  createMapMarker(placeData) reads Google Places search results to create map pins.
+  placeData is the object returned from search results containing information
+  about a single location.
+  */
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
@@ -167,20 +172,20 @@ function initializeMap() {
     map.setCenter(bounds.getCenter());
   }
 
-  
-  //callback(results, status) makes sure the search returned results for a location.
-  //If so, it creates a new map marker for that location.
-  
+  /*
+  callback(results, status) makes sure the search returned results for a location.
+  If so, it creates a new map marker for that location.
+  */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0])
     }
   }
 
-  
-  //pinPoster(locations) takes in the array of locations created by locationFinder()
-  //and fires off Google place searches for each location
-  
+  /*
+  pinPoster(locations) takes in the array of locations created by locationFinder()
+  and fires off Google place searches for each location
+  */
   function pinPoster(locations) {
 
     // creates a Google place search service object. PlacesService does the work of
@@ -213,7 +218,9 @@ function initializeMap() {
   
 };
 
-//Uncomment all the code below when you're ready to implement a Google Map!
+/*
+Uncomment all the code below when you're ready to implement a Google Map!
+*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
@@ -223,4 +230,4 @@ window.addEventListener('load', initializeMap);
 window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
   map.fitBounds(mapBounds);
-});*/
+});
