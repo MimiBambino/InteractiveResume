@@ -1,3 +1,44 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?e83dlr');
+	src:url('fonts/icomoon.eot?#iefixe83dlr') format('embedded-opentype'),
+		url('fonts/icomoon.woff?e83dlr') format('woff'),
+		url('fonts/icomoon.ttf?e83dlr') format('truetype'),
+		url('fonts/icomoon.svg?e83dlr#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-link:before {
+	content: "\e600";
+}
+.icon-twitter:before {
+	content: "\e601";
+}
+.icon-github:before {
+	content: "\e602";
+}
+.icon-linkedin:before {
+	content: "\e603";
+}
+.icon-mail:before {
+	content: "\e604";
+}
+
 * {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -13,9 +54,19 @@ body {
 }
 
 header {
-	border-bottom: 3px solid #999;
 	padding: -5px;
 	color: #002b2e;
+}
+
+.contactBar {
+	background-color: #646464;
+	color: white;
+	padding: 8px;
+}
+
+.contactBar ul {
+	display: inline-block;
+	float: none;
 }
 
 button {
@@ -51,9 +102,6 @@ h1, h2, a {
 
 h2 {
 	font-size: 2.2em;
-}
-a {
-	display: inline-block;
 }
 
 .section-heading {

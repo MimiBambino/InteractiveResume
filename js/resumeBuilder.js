@@ -112,6 +112,7 @@ var bio = {
 		"email" : "mimibambino@gmail.com",
 		"twitter" : "@mimibambino",
 		"github" : "MimiBambino",
+		"linkedin" : "Cynthia O'Donnell",
 		"location" : "Naples, Italy"
 	},
 	"skills": ["css", "php", "html5", "python", "javascript", "business law", "management", "paper airplanes", "conversational german"], 
@@ -121,12 +122,23 @@ var bio = {
 		var formattedRole = headerRole.replace("%data%", bio.role);
 		$("header").prepend(formattedRole);
 		$("header").prepend(formattedName);
+		//$("header").append(headerContacts);
+		var formattedContactBar = headerContacts.replace("%website%", bio.contacts["website"]).replace("%website%", bio.contacts["website"]).replace("%email%", bio.contacts["email"]).replace("%email%", bio.contacts["email"]).replace("%twitter%", bio.contacts["twitter"]).replace("%github%", bio.contacts["github"]).replace("%github%", bio.contacts["github"]).replace("%linkedin%", bio.contacts["linkedin"]);
+		$("header").append(formattedContactBar);
 	},
 	"displayContacts": function(){
-		for (var i in bio.contacts) {
-			var contact = HTMLcontact.replace("%type%", i).replace("%data%", bio.contacts[i]);
-			$(".contact-list").append(contact);
-		}
+		var formattedWebsite = contactWebsite.replace("%data%", bio.contacts["website"]).replace("%data%", bio.contacts["website"]);
+		$(".contact-list").append(formattedWebsite);
+		var formattedEmail = contactEmail.replace("%data%", bio.contacts["email"]).replace("%data%", bio.contacts["email"]);
+		$(".contact-list").append(formattedEmail);
+		var formattedTwitter = contactTwitter.replace("%data%", bio.contacts["twitter"]);
+		$(".contact-list").append(formattedTwitter);
+		var formattedGithub = contactGithub.replace("%data%", bio.contacts["github"]).replace("%data%", bio.contacts["github"]);
+		$(".contact-list").append(formattedGithub);
+		var formattedLinkedIn = contactLinkedIn.replace("%data%", bio.contacts["linkedin"]);
+		$(".contact-list").append(formattedLinkedIn);
+		var formattedLocation = contactLocation.replace("%data%", bio.contacts["location"]);
+		$(".contact-list").append(formattedLocation);
 		$("#contacts").hide();
 	},
 	"displaySkills": function(){
@@ -176,7 +188,7 @@ var education = {
 		},
 		{
 		"title": "Engineering Software as a Service",
-		"school": "edx",
+		"school": "edX",
 		"dates": 2014,
 		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
 		"certificate": "images/SaasCertificate.pdf"
@@ -186,8 +198,10 @@ var education = {
 		$(".education-row").append(educationStart);
 		for (var i in education.onlineCourses){
 			var oC = education.onlineCourses[i];
-			var formattedTitleAndSchool = onlineTitleAndSchool.replace("%title%", oC["title"]).replace("%#%", oC["url"]).replace("%school%", oC["school"]);
-			$(".programming-col").append(formattedTitleAndSchool);
+			var formattedTitle = onlineTitle.replace("%title%", oC["title"]);
+			var formattedSchool = onlineSchool.replace("%#%", oC["url"]).replace("%school%", oC["school"]);
+			var titleSchoolRow = formattedTitle + formattedSchool;
+			$(".programming-col").append(titleSchoolRow);
 			if (oC.certificate){
 				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
 				$(".programming-col").append(formattedCertificate);
@@ -195,11 +209,14 @@ var education = {
 		}
 		for (var i in education.schools) {
 			var school = education.schools[i];
-			var formattedSchoolString = schoolString.replace("%major%", school.major).replace("%major%", school.major);
-			var formattedDegreeLocationDate = degreeLocationDate.replace("%degree%", school.degree).replace("%school%", school.name).replace("%#%", school.url).replace("%dates%", school.dates).replace("%location%", school.location);
-			$(".education-row").append(formattedSchoolString);
+			var formattedSchoolStart = schoolStart.replace("%major%", school.major).replace("%major%", school.major);
+			$(".education-row").append(formattedSchoolStart);
+			var formattedDegree = degreeString.replace("%degree%", school.degree);
+			var formattedSchool = schoolString.replace("%school%", school.name).replace("%#%", school.url);
+			var formattedLocation = locationString.replace("%dates%", school.dates).replace("%location%", school.location);
+			var formattedSchoolString = formattedDegree + formattedSchool + formattedLocation;
 			var selector = "." + school.major + "-col";
-			$(selector).append(formattedDegreeLocationDate);
+			$(selector).append(formattedSchoolString);
 		}
 		$("#education").hide();
 	}

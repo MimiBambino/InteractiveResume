@@ -1,5 +1,7 @@
 var headerName = "<h1 class='analgous-color'>%data%</h1>";
 var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
+var headerContacts = "<div class='row'><div class='contactBar col-md-12'><ul class='nav nav-pills navbar-center'><li><span class='icon-link'</span><span><a target='_blank' href='http://%website%'>%website%</a></span></li><li><span class='icon-mail'></span><span><a href='mailto:%email%'>%email%</a></span></li><li><span class='icon-twitter'></span><span><a target='_blank' href='http://www.twitter.com/mimibambino'>%twitter%</a></span></li><li><span class='icon-github'></span><span><a target='_blank' href='https://www.github.com/%github%'>%github%</a></span></li><li><span class='icon-linkedin'></span><span><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/'>%linkedin%</a></span></li></ul></div></div>";
+
 var HTMLWelcomeMsg = "<h4 class='welcome-message'>%data%</h4>";
 
 var educationHeader = "<h2>Education</h2><p>Please click on a subject for more information.</p>";
@@ -10,25 +12,27 @@ var moreTextHelper = "";
 var SVGend = "</svg></li>";
 
 var educationStart = "<div class='programming-col col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
-var onlineTitleAndSchool = "<p 'class='title'>%title%&nbsp; &#151; &nbsp;<a class='school' target='_blank' href='%#%'>%school%</a></p>";
-var HTMLcerficate = "<a class='certificate' target='_blank' href='#'>Certificate</a>";
-var schoolString = "<div class='%major%-col col-md-4 col-sm-6 col-xs-12'><h1 class='heading'>%major%</h1><div class='education-entry'>";
-var degreeLocationDate= "<p class='degree'>%degree% &nbsp;&#151; &nbsp;<a class='school' target='_blank' href='%#%'>%school%</a></p><p class='location-text'>%location%</p><p class='date-text'>%dates%</p></p></div></div>";
+var onlineTitle = "<div class='row'><div class='col-md-9 text-left'><p 'class='title'>%title%</p></div>";
+var onlineSchool = "<div class='col-md-2 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div></div>";
+var HTMLcerficate = "<div class='row><div class='col-md-12 text-center><a class='certificate' target='_blank' href='#'>Certificate</a></div></div>";
+
+var schoolStart = "<div class='%major%-col col-md-4 col-sm-6 col-xs-12'><h1 class='heading text-center'>%major%</h1></div></div>";
+var degreeString = "<div class='row'><div class='col-md-5 text-left'><p class='degree'>%degree%</p></div>";
+var schoolString = "<div class='col-md-7 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div></div>";
+var locationString = "<div class='row text-center'><div class='col-md-12'><p class='location-text'>%location%</p></div></div><div class='row text-center'><div class='col-md-12'><p class='date-text'>%dates%</p></div></div>";
 
 var workStart = "<div class='%job%-col col-md-6 col-sm-12'><h1>%title%</h1><p class='employer'>%employer%</p><p class='description'>%description%</p></div>";
 var workLocation = "<p class='location'>%location%</p>";
 
 var projectStart = "<div class='col-md-4 text-center'><img class='img-responsive img-rounded' src='%image%' alt='%description%'><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a></div>";
 
-var HTMLcontactGeneric = "<li class='flex-item'><span class='orange-text'>%contact%:</span><span class='white-text'>%data%</span></li>";
-var HTMLmobile = "<li class='flex-item'><span class='orange-text'>mobile:</span><span class='white-text'>%data%</span></li>";
-var HTMLemail = "<li class='flex-item'><span class='orange-text'>email:</span><span class='white-text'>%data%</span></li>";
-var HTMLtwitter = "<li class='flex-item'><span class='orange-text'>twitter:</span><span class='white-text'>%data%</span></li>";
-var HTMLgithub = "<li class='flex-item'><span class='orange-text'>github:</span><span class='white-text'>%data%</span></li>";
-var HTMLwebsite = "<li class='flex-item'><span class='orange-text'>website:</span><span class='white-text'>%data%</span></li>";
-var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location:</span><span class='white-text'>%data%</span></li>";
+var contactLocation = "<li class='contact-type'>location: <span class='contact-data'>%data%</span></li>";
+var contactWebsite = "<li class='contact-type'>website: <span class='contact-data'><a target='_blank' href='http://%data%'>%data%</a></span></li>";
+var contactEmail = "<li class='contact-type'>email: <span class='contact-data'><a href='mailto:%data%'>%data%</a></span></li>";
+var contactTwitter = "<li class='contact-type'>twitter: <span class='contact-data'><a target='_blank' href='http://www.twitter.com/mimibambino'>%data%</a></span></li>";
+var contactGithub = "<li class='contact-type'>github: <span class='contact-data'><a target='_blank' href='https://www.github.com/%data%'>%data%</a></span></li>";
+var contactLinkedIn = "<li class='contact-type'>linkedin: <span class='contact-data'><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/'>%data%</a></span></li>";
 
-var HTMLcontact = "<li class='contact-type'>%type%: <span class='contact-data'> %data%</span></li>";
 
 var HTMLbioPic = "<img src='%data%' class='img-responsive img-rounded'>";
 var HTMLskills = "<li>%data%</li>";
@@ -85,7 +89,163 @@ function initializeMap() {
     ]
   },{
     "featureType":"landscape.natural.terrain",
-    "stylers":[{"hue":"#00ff00"},{"saturation":54},{"lightness":-51},{"gamma":0.4}]},{"featureType":"transit.line","stylers":[{"gamma":0.27},{"hue":"#0077ff"},{"saturation":-91},{"lightness":36}]},{"featureType":"landscape.man_made","stylers":[{"saturation":10},{"lightness":-23},{"hue":"#0099ff"},{"gamma":0.71}]},{"featureType":"poi.business","stylers":[{"hue":"#0055ff"},{"saturation":9},{"lightness":-46},{"gamma":1.05}]},{"featureType":"administrative.country","stylers":[{"gamma":0.99}]},{"featureType":"administrative.province","stylers":[{"lightness":36},{"saturation":-54},{"gamma":0.76}]},{"featureType":"administrative.locality","stylers":[{"lightness":33},{"saturation":-61},{"gamma":1.21}]},{"featureType":"administrative.neighborhood","stylers":[{"hue":"#ff0000"},{"gamma":2.44}]},{"featureType":"road.highway.controlled_access","stylers":[{"hue":"#ff0000"},{"lightness":67},{"saturation":-40}]},{"featureType":"road.arterial","stylers":[{"hue":"#ff6600"},{"saturation":52},{"gamma":0.64}]},{"featureType":"road.local","stylers":[{"hue":"#006eff"},{"gamma":0.46},{"saturation":-3},{"lightness":-10}]},{"featureType":"transit.line","stylers":[{"hue":"#0077ff"},{"saturation":-46},{"gamma":0.58}]},{"featureType":"transit.station","stylers":[{"gamma":0.8}]},{"featureType":"transit.station.rail","stylers":[{"hue":"#ff0000"},{"saturation":-45},{"gamma":0.9}]},{"elementType":"labels.text.fill","stylers":[{"gamma":0.58}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"gamma":2.01},{"hue":"#00ffff"},{"lightness":22}]},{"featureType":"transit","stylers":[{"saturation":-87},{"lightness":44},{"gamma":1.98},{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.text","stylers":[{"gamma":0.06},{"visibility":"off"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"hue":"#00aaff"},{"lightness":-6},{"gamma":2.21}]},{"elementType":"labels.text.stroke","stylers":[{"gamma":3.84}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"gamma":9.99}]},{"featureType":"administrative","stylers":[{"gamma":0.01}]}];
+    "stylers":[
+    {"hue":"#00ff00"},
+    {"saturation":54},
+    {"lightness":-51},
+    {"gamma":0.4}
+    ]
+  },{
+    "featureType":"transit.line",
+    "stylers":[
+    {"gamma":0.27},
+    {"hue":"#0077ff"},
+    {"saturation":-91},
+    {"lightness":36}
+    ]
+  },{
+    "featureType":"landscape.man_made",
+    "stylers":[
+    {"saturation":10},
+    {"lightness":-23},
+    {"hue":"#0099ff"},
+    {"gamma":0.71}
+    ]
+  },{
+    "featureType":"poi.business",
+    "stylers":[
+    {"hue":"#0055ff"},
+    {"saturation":9},
+    {"lightness":-46},
+    {"gamma":1.05}
+    ]
+  },{
+    "featureType":"administrative.country",
+    "stylers":[
+    {"gamma":0.99}
+    ]
+  },{
+    "featureType":"administrative.province",
+    "stylers":[
+    {"lightness":36},
+    {"saturation":-54},
+    {"gamma":0.76}
+    ]
+  },{
+    "featureType":"administrative.locality",
+    "stylers":[
+    {"lightness":33},
+    {"saturation":-61},
+    {"gamma":1.21}
+    ]
+  }, {
+    "featureType":"administrative.neighborhood",
+    "stylers":[
+    {"hue":"#ff0000"},
+    {"gamma":2.44}
+    ]
+  },{
+    "featureType":"road.highway.controlled_access",
+    "stylers":[
+    {"hue":"#ff0000"},
+    {"lightness":67},
+    {"saturation":-40}
+    ]
+  },{
+    "featureType":"road.arterial",
+    "stylers":[
+    {"hue":"#ff6600"},
+    {"saturation":52},
+    {"gamma":0.64}
+    ]
+  },{
+    "featureType":"road.local",
+    "stylers":[
+    {"hue":"#006eff"},
+    {"gamma":0.46},
+    {"saturation":-3},
+    {"lightness":-10}
+    ]
+  },{
+    "featureType":"transit.line",
+    "stylers":[
+    {"hue":"#0077ff"},
+    {"saturation":-46},
+    {"gamma":0.58}
+    ]
+  },{
+    "featureType":"transit.station",
+    "stylers":[
+    {"gamma":0.8}
+    ]
+  },{
+    "featureType":"transit.station.rail",
+    "stylers":[
+    {"hue":"#ff0000"},
+    {"saturation":-45},
+    {"gamma":0.9}
+    ]
+  },{
+    "elementType":"labels.text.fill",
+    "stylers":[
+    {"gamma":0.58}
+    ]
+  },{
+    "featureType":"landscape.man_made",
+    "elementType":"geometry.fill",
+    "stylers":[
+    {"gamma":2.01},
+    {"hue":"#00ffff"},
+    {"lightness":22}
+    ]
+  },{
+    "featureType":"transit",
+    "stylers":[
+    {"saturation":-87},
+    {"lightness":44},
+    {"gamma":1.98},
+    {"visibility":"off"}
+    ]
+  },{
+    "featureType":"poi.business",
+    "elementType":"labels.text",
+    "stylers":[
+    {"gamma":0.06},
+    {"visibility":"off"}
+    ]
+  },{
+    "featureType":"poi",
+    "elementType":"geometry",
+    "stylers":[
+    {"hue":"#00aaff"},
+    {"lightness":-6},
+    {"gamma":2.21}
+    ]
+  },{
+    "elementType":"labels.text.stroke",
+    "stylers":[
+    {"gamma":3.84}
+    ]
+  },{
+    "featureType":"road",
+    "elementType":"geometry.stroke",
+    "stylers":[
+    {"visibility":"off"}
+    ]
+  },{
+    "featureType":"road",
+    "elementType":"labels.text.stroke",
+    "stylers":[
+    {"gamma":9.99}
+    ]
+  },{
+    "featureType":"administrative",
+    "stylers":[
+    {"gamma":0.01}
+    ]
+  }
+];
+
   var locations;        
 
   var mapOptions = {
