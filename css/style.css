@@ -1,3 +1,11 @@
+/** {
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;         
+}*/
+
+/*  Icons */
+
 @font-face {
 	font-family: 'icomoon';
 	src:url('fonts/icomoon.eot?e83dlr');
@@ -23,6 +31,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon {
+	font-size: 1.5em;
+}
+
 .icon-link:before {
 	content: "\e600";
 }
@@ -39,11 +51,10 @@
 	content: "\e604";
 }
 
-* {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
+.icon-mail {
+	padding-top: 5px;
 }
+
 /* General styling */
 
 body {
@@ -51,36 +62,6 @@ body {
 	font-size: 1.7em;
 	font-weight: 300;
 	color: white;
-}
-
-header {
-	padding: -5px;
-	color: #002b2e;
-}
-
-.contactBar {
-	background-color: #646464;
-	color: white;
-	padding: 8px;
-}
-
-.contactBar ul {
-	display: inline-block;
-	float: none;
-}
-
-button {
-	color: white;
-	background-color: #03bbc5;
-	border: #03bbc5;
-}
-
-.btn:hover {
-	background-color: #00A2AC;
-}
-
-.btn:focus {
-	outline: none;
 }
 
 h1.analgous-color {
@@ -126,6 +107,7 @@ text {
 .heading {
 	color: white;
 }
+
 .col h1 {
 	color: white;
 }
@@ -150,8 +132,37 @@ text {
 	color: #777;
 }
 
-#map-header {
-	color: #777;
+/* Header */
+
+header {
+	padding: -5px;
+	color: #002b2e;
+}
+
+header h4 {
+	padding-bottom: 10px;
+}
+
+.contactBar {
+	background-color: #eee;
+	color: #bbb;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+.contactBar ul {
+	display: inline-block;
+	float: none;
+}
+
+.contactBar ul li {
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+header .row {
+	margin-left: 0;
 }
 
 /* SVGs */
@@ -193,7 +204,7 @@ svg {
 }
 
 #work-circle:hover {
-	fill: #4B4B4B;
+	fill: #8A8A8A;
 }
 
 #education-circle, #contacts-circle {
@@ -201,7 +212,7 @@ svg {
 }
 
 #education-circle:hover, #contacts-circle:hover {
-	fill: #00A2AC;
+	fill: #29E1EB;
 }
 
 #projects-circle {
@@ -209,7 +220,7 @@ svg {
 }
 
 #projects-circle:hover {
-	fill: #007397;
+	fill: #26B2D6;
 }
 
 #skills-circle {
@@ -217,7 +228,7 @@ svg {
 }
 
 #skills-circle:hover {
-	fill: #1A4548;
+	fill: #265154;
 }
 
 /* Education Section*/
@@ -225,8 +236,10 @@ svg {
 .programming-col {
 	background-color: #03bbc5;
 	border-radius: 10px;
-	height: 300px;
+	height: 400px;
 	padding-bottom: 10px;
+	margin: 1%;
+	padding: -1%;
 }
 
 .programming-col h1 {
@@ -234,24 +247,52 @@ svg {
 	font-size: 3.4em;
 	font-weight: 300;
 	color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .Law-col {
 	background-color: #646464;
 	border-radius: 10px;
-	height: 300px;
+	height: 400px;
+	margin: 1%;
+	padding: -1%;
 }
 
 .Law-col h1 {
 	font-family: 'Poly';
 	font-size: 4.6em;
 	font-weight: 300;
+	padding-bottom: 20px;
+}
+
+.Law-col > div, .Music-col > div {
+	padding: 5px;
+}
+
+.Law-col .row {
+	margin-top: 10px;
+}
+
+.oC {
+	padding: 5px;
 }
 
 .Music-col {
 	background-color: #008cb0;
 	border-radius: 10px;
-	height: 300px;
+	height: 400px;
+	margin: 1%;
+	padding: -1%;
+}
+
+.Music-col h1 {
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+
+.heading {
+	border-bottom: 2px solid #eee;
 }
 
 .title {
@@ -302,6 +343,7 @@ svg {
 	background-color: #002b2e;
 	border-radius: 10px;
 	padding: 0 20px 20px 20px;
+	height: 340px;
 }
 
 .navy-col h1 {
@@ -315,6 +357,7 @@ svg {
 	background-color: #008cb0;
 	border-radius: 10px;
 	padding: 0 20px 20px 20px;
+	height: 340px;
 }
 
 .lawyer-col h1 {
@@ -382,6 +425,10 @@ svg {
 	padding-bottom: 5%;
 }*/
 
+#map-header {
+	color: #777;
+}
+
 #map {
   display: block;
   height: 100%;
@@ -415,6 +462,23 @@ footer {
 	max-height: 20px;"
 }
 
+button {
+	color: white;
+	background-color: #03bbc5;
+	border: #03bbc5;
+}
+
+.btn:hover {
+	background-color: #29E1EB;
+	color: white;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+/* Media Queries */
+
 @media screen and (max-width: 1200px) {
 	.programming-col h1 {
 	font-size: 3em;
@@ -423,8 +487,8 @@ footer {
 
 @media screen and (max-width: 1000px) {
 	.main ul li{
-	margin-bottom: -20px;
-	margin-top: -20px;
+		margin-bottom: -20px;
+		margin-top: -20px;
 	}
 	footer {
 		padding-top: 30px;
@@ -444,3 +508,4 @@ footer {
 		width: 400px;
 	}
 }
+

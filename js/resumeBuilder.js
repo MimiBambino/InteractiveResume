@@ -123,7 +123,7 @@ var bio = {
 		$("header").prepend(formattedRole);
 		$("header").prepend(formattedName);
 		//$("header").append(headerContacts);
-		var formattedContactBar = headerContacts.replace("%website%", bio.contacts["website"]).replace("%website%", bio.contacts["website"]).replace("%email%", bio.contacts["email"]).replace("%email%", bio.contacts["email"]).replace("%twitter%", bio.contacts["twitter"]).replace("%github%", bio.contacts["github"]).replace("%github%", bio.contacts["github"]).replace("%linkedin%", bio.contacts["linkedin"]);
+		var formattedContactBar = headerContacts.replace("%website%", bio.contacts["website"]).replace("%email%", bio.contacts["email"]).replace("%github%", bio.contacts["github"]);
 		$("header").append(formattedContactBar);
 	},
 	"displayContacts": function(){
@@ -195,7 +195,7 @@ var education = {
 		}
 	],
 	"display": function(){
-		$(".education-row").append(educationStart);
+		$(".Programming-holder").append(educationStart);
 		for (var i in education.onlineCourses){
 			var oC = education.onlineCourses[i];
 			var formattedTitle = onlineTitle.replace("%title%", oC["title"]);
@@ -206,16 +206,18 @@ var education = {
 				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
 				$(".programming-col").append(formattedCertificate);
 			}
+			$(".programming-col").append(endOnline);
 		}
 		for (var i in education.schools) {
 			var school = education.schools[i];
 			var formattedSchoolStart = schoolStart.replace("%major%", school.major).replace("%major%", school.major);
-			$(".education-row").append(formattedSchoolStart);
+			var selector = "." + school.major + "-holder";
+			$(selector).append(formattedSchoolStart);
 			var formattedDegree = degreeString.replace("%degree%", school.degree);
 			var formattedSchool = schoolString.replace("%school%", school.name).replace("%#%", school.url);
 			var formattedLocation = locationString.replace("%dates%", school.dates).replace("%location%", school.location);
 			var formattedSchoolString = formattedDegree + formattedSchool + formattedLocation;
-			var selector = "." + school.major + "-col";
+			selector = "." + school.major + "-col";
 			$(selector).append(formattedSchoolString);
 		}
 		$("#education").hide();
@@ -245,7 +247,8 @@ var work = {
 		for (var i in work.jobs){
 			var job = work.jobs[i];
 			formattedWork = workStart.replace("%job%", job.job).replace("%title%", job.title).replace("%employer%", job.employer).replace("%description%", job.description);
-			$(".work-row").append(formattedWork);
+			var selector = "." + job.job + "-holder";
+			$(selector).append(formattedWork);
 		}
 		$("#work").hide();
 	}

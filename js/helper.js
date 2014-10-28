@@ -1,27 +1,27 @@
 var headerName = "<h1 class='analgous-color'>%data%</h1>";
 var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
-var headerContacts = "<div class='row'><div class='contactBar col-md-12'><ul class='nav nav-pills navbar-center'><li><span class='icon-link'</span><span><a target='_blank' href='http://%website%'>%website%</a></span></li><li><span class='icon-mail'></span><span><a href='mailto:%email%'>%email%</a></span></li><li><span class='icon-twitter'></span><span><a target='_blank' href='http://www.twitter.com/mimibambino'>%twitter%</a></span></li><li><span class='icon-github'></span><span><a target='_blank' href='https://www.github.com/%github%'>%github%</a></span></li><li><span class='icon-linkedin'></span><span><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/'>%linkedin%</a></span></li></ul></div></div>";
+var headerContacts = "<div class='container'><div class='row'><div class='contactBar col-md-12'><ul class='nav nav-pills navbar-center'><li><a target='_blank' href='https://www.github.com/%github%' class='icon icon-github'></a></li><li><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/' class='icon icon-linkedin'></a></li><li><a target='_blank' href='http://www.twitter.com/mimibambino' class='icon icon-twitter'></a></li><li><a href='mailto:%email%' class='icon icon-mail'></a></li><li><a target='_blank' href='http://%website%' class='icon icon-link'></a></li></ul></div></div></div>";
 
 var HTMLWelcomeMsg = "<h4 class='welcome-message'>%data%</h4>";
 
-var educationHeader = "<h2>Education</h2><p>Please click on a subject for more information.</p>";
 // The id must be in the svg and not the circle in order for CSS to supply the fill property correctly
 var SVGcircleHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='210' height='210'><circle cx='105' cy='105' r='105'/>";
 var SVGtext = "<text x='%text_x%' y='%text_y%' width='300' height='150'>%text%</text>";
 var moreTextHelper = "";
 var SVGend = "</svg></li>";
 
-var educationStart = "<div class='programming-col col-md-4 col-sm-6 col-xs-12 text-center'><h1 class='heading'>Programming</h1>";
-var onlineTitle = "<div class='row'><div class='col-md-9 text-left'><p 'class='title'>%title%</p></div>";
+var educationStart = "<div class='programming-col col-md-12 text-center'><div class='row'><div class='col-md-12'><h1 class='heading'>Programming</h1>";
+var onlineTitle = "<div class='row oC'><div class='col-md-9 text-left'><p 'class='title'>%title%</p></div>";
 var onlineSchool = "<div class='col-md-2 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div></div>";
 var HTMLcerficate = "<div class='row><div class='col-md-12 text-center><a class='certificate' target='_blank' href='#'>Certificate</a></div></div>";
+var endOnline = "</div></div>";
 
-var schoolStart = "<div class='%major%-col col-md-4 col-sm-6 col-xs-12'><h1 class='heading text-center'>%major%</h1></div></div>";
+var schoolStart = "<div class='%major%-col col-md-12'><h1 class='heading text-center'>%major%</h1></div></div>";
 var degreeString = "<div class='row'><div class='col-md-5 text-left'><p class='degree'>%degree%</p></div>";
 var schoolString = "<div class='col-md-7 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div></div>";
 var locationString = "<div class='row text-center'><div class='col-md-12'><p class='location-text'>%location%</p></div></div><div class='row text-center'><div class='col-md-12'><p class='date-text'>%dates%</p></div></div>";
 
-var workStart = "<div class='%job%-col col-md-6 col-sm-12'><h1>%title%</h1><p class='employer'>%employer%</p><p class='description'>%description%</p></div>";
+var workStart = "<div class='%job%-col col-md-12'><h1>%title%</h1><p class='employer'>%employer%</p><p class='description'>%description%</p></div>";
 var workLocation = "<p class='location'>%location%</p>";
 
 var projectStart = "<div class='col-md-4 text-center'><img class='img-responsive img-rounded' src='%image%' alt='%description%'><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a></div>";
