@@ -21,7 +21,7 @@ var degreeString = "<div class='row'><div class='col-md-5 text-left'><p class='d
 var schoolString = "<div class='col-md-7 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div></div>";
 var locationString = "<div class='row text-center'><div class='col-md-12'><p class='location-text'>%location%</p></div></div><div class='row text-center'><div class='col-md-12'><p class='date-text'>%dates%</p></div></div>";
 
-var workStart = "<div class='%job%-col col-md-12'><h1>%title%</h1><p class='employer'>%employer%</p><p class='description'>%description%</p></div>";
+var workStart = "<div class='%job%-col col-md-12'><h1>%title%</h1><p class='employer'>%employer%</p><div class='row'><div class='col-md-offset-1 col-md-10'><p class='description'>%description%</p></div></div></div>";
 var workLocation = "<p class='location'>%location%</p>";
 
 var projectStart = "<div class='col-md-4 text-center'><img class='img-responsive img-rounded' src='%image%' alt='%description%'><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a></div>";
@@ -33,12 +33,10 @@ var contactTwitter = "<li class='contact-type'>twitter: <span class='contact-dat
 var contactGithub = "<li class='contact-type'>github: <span class='contact-data'><a target='_blank' href='https://www.github.com/%data%'>%data%</a></span></li>";
 var contactLinkedIn = "<li class='contact-type'>linkedin: <span class='contact-data'><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/'>%data%</a></span></li>";
 
-
 var HTMLbioPic = "<img src='%data%' class='img-responsive img-rounded'>";
 var HTMLskills = "<li>%data%</li>";
 
 var googleMap = "<div id='map'></div>";
-var mapHeader = "<h3 id='map-header'>Where I've Lived</h3>";
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -59,211 +57,24 @@ $(document).click(function(loc) {
   // your code goes here!
 });
 
-
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
 var map;    // declares a global map variable
-
 
 /*
 Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
 
-  var styles = [
-  {
-    "featureType":"landscape.natural.landcover",
-    "stylers":[
-    { "gamma":0.44 },
-    { "hue":"#2bff00" }
-    ]
-  },{
-    "featureType":"water",
-    "stylers":[
-    {"hue":"008cb0"},
-    {"saturation":29},
-    {"gamma":0.74}
-    ]
-  },{
-    "featureType":"landscape.natural.terrain",
-    "stylers":[
-    {"hue":"#00ff00"},
-    {"saturation":54},
-    {"lightness":-51},
-    {"gamma":0.4}
-    ]
-  },{
-    "featureType":"transit.line",
-    "stylers":[
-    {"gamma":0.27},
-    {"hue":"#0077ff"},
-    {"saturation":-91},
-    {"lightness":36}
-    ]
-  },{
-    "featureType":"landscape.man_made",
-    "stylers":[
-    {"saturation":10},
-    {"lightness":-23},
-    {"hue":"#0099ff"},
-    {"gamma":0.71}
-    ]
-  },{
-    "featureType":"poi.business",
-    "stylers":[
-    {"hue":"#0055ff"},
-    {"saturation":9},
-    {"lightness":-46},
-    {"gamma":1.05}
-    ]
-  },{
-    "featureType":"administrative.country",
-    "stylers":[
-    {"gamma":0.99}
-    ]
-  },{
-    "featureType":"administrative.province",
-    "stylers":[
-    {"lightness":36},
-    {"saturation":-54},
-    {"gamma":0.76}
-    ]
-  },{
-    "featureType":"administrative.locality",
-    "stylers":[
-    {"lightness":33},
-    {"saturation":-61},
-    {"gamma":1.21}
-    ]
-  }, {
-    "featureType":"administrative.neighborhood",
-    "stylers":[
-    {"hue":"#ff0000"},
-    {"gamma":2.44}
-    ]
-  },{
-    "featureType":"road.highway.controlled_access",
-    "stylers":[
-    {"hue":"#ff0000"},
-    {"lightness":67},
-    {"saturation":-40}
-    ]
-  },{
-    "featureType":"road.arterial",
-    "stylers":[
-    {"hue":"#ff6600"},
-    {"saturation":52},
-    {"gamma":0.64}
-    ]
-  },{
-    "featureType":"road.local",
-    "stylers":[
-    {"hue":"#006eff"},
-    {"gamma":0.46},
-    {"saturation":-3},
-    {"lightness":-10}
-    ]
-  },{
-    "featureType":"transit.line",
-    "stylers":[
-    {"hue":"#0077ff"},
-    {"saturation":-46},
-    {"gamma":0.58}
-    ]
-  },{
-    "featureType":"transit.station",
-    "stylers":[
-    {"gamma":0.8}
-    ]
-  },{
-    "featureType":"transit.station.rail",
-    "stylers":[
-    {"hue":"#ff0000"},
-    {"saturation":-45},
-    {"gamma":0.9}
-    ]
-  },{
-    "elementType":"labels.text.fill",
-    "stylers":[
-    {"gamma":0.58}
-    ]
-  },{
-    "featureType":"landscape.man_made",
-    "elementType":"geometry.fill",
-    "stylers":[
-    {"gamma":2.01},
-    {"hue":"#00ffff"},
-    {"lightness":22}
-    ]
-  },{
-    "featureType":"transit",
-    "stylers":[
-    {"saturation":-87},
-    {"lightness":44},
-    {"gamma":1.98},
-    {"visibility":"off"}
-    ]
-  },{
-    "featureType":"poi.business",
-    "elementType":"labels.text",
-    "stylers":[
-    {"gamma":0.06},
-    {"visibility":"off"}
-    ]
-  },{
-    "featureType":"poi",
-    "elementType":"geometry",
-    "stylers":[
-    {"hue":"#00aaff"},
-    {"lightness":-6},
-    {"gamma":2.21}
-    ]
-  },{
-    "elementType":"labels.text.stroke",
-    "stylers":[
-    {"gamma":3.84}
-    ]
-  },{
-    "featureType":"road",
-    "elementType":"geometry.stroke",
-    "stylers":[
-    {"visibility":"off"}
-    ]
-  },{
-    "featureType":"road",
-    "elementType":"labels.text.stroke",
-    "stylers":[
-    {"gamma":9.99}
-    ]
-  },{
-    "featureType":"administrative",
-    "stylers":[
-    {"gamma":0.01}
-    ]
-  }
-];
-
   var locations;        
 
   var mapOptions = {
-    disableDefaultUI: true,
-    mapTypeControlOptions: {
-      mapTypeIds: ['map_style']
-    }
+    disableDefaultUI: true
   };
-
-  var styledMap = new google.maps.StyledMapType(styles,
-    {name: "Styled Map"});
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
-  map.mapTypes.set('map_style', styledMap);
-  map.setMapTypeId('map_style');
+
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.

@@ -207,11 +207,11 @@ svg {
 	fill: #8A8A8A;
 }
 
-#education-circle, #contacts-circle {
+#education-circle, #skills-circle {
 	fill: #03bbc5;
 }
 
-#education-circle:hover, #contacts-circle:hover {
+#education-circle:hover, #skills-circle:hover {
 	fill: #29E1EB;
 }
 
@@ -223,11 +223,11 @@ svg {
 	fill: #26B2D6;
 }
 
-#skills-circle {
+#about-circle {
 	fill: #002b2e;
 }
 
-#skills-circle:hover {
+#about-circle:hover {
 	fill: #265154;
 }
 
@@ -343,7 +343,7 @@ svg {
 	background-color: #002b2e;
 	border-radius: 10px;
 	padding: 0 20px 20px 20px;
-	height: 340px;
+	height: 360px;
 }
 
 .navy-col h1 {
@@ -357,13 +357,22 @@ svg {
 	background-color: #008cb0;
 	border-radius: 10px;
 	padding: 0 20px 20px 20px;
-	height: 340px;
+	height: 360px;
 }
 
 .lawyer-col h1 {
 	color: white;
 	font-family: Poly;
 	font-size: 4em;
+}
+
+.employer {
+	font-style: italic;
+	font-size: 1.2em;
+}
+
+.description {
+	text-align: justify;
 }
 
 /* Projects Section */
@@ -410,36 +419,22 @@ svg {
 	color: #008cb0;
 }
 
-/*  Map */
+/*  About Me and Map */
 
-/*.map {
-	display: block;
-	height: 450px;
-	margin-left: 5%;
-	margin-right: 5%;
+.developer, .mimibambino {
+	text-align: justify;
+	padding: 20px;
 }
-
-#mapDiv {
-	height: 400px;
-	width: 400px;
-	padding-bottom: 5%;
-}*/
 
 #map-header {
 	color: #777;
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
 #mapDiv {
   height: 400px;
   width: 500px;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
+  text-align: center;
 }
 
 /* Footer */
@@ -447,6 +442,7 @@ svg {
 footer {
 	padding-top: 15px;
 	color: black;
+	clear: both;
 }
 
 #javascript {
@@ -483,6 +479,9 @@ button {
 	.programming-col h1 {
 	font-size: 3em;
 	}
+	.navy-col, .lawyer-col {
+		height: 400px;
+	}
 }
 
 @media screen and (max-width: 1000px) {
@@ -496,6 +495,9 @@ button {
 	.contact-list {
 		text-align: center;
 	}
+	.navy-col, .lawyer-col {
+		height: 260px;
+	}
 
 }
 
@@ -504,8 +506,10 @@ button {
 		padding-top: 60px;
 	}
 	#mapDiv {
-		height: 400px;
-		width: 400px;
+		height: 300px;
+		width: 300px;
+	}
+	.navy-col, .lawyer-col {
+		height: auto;
 	}
 }
-

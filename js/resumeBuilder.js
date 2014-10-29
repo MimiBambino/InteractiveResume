@@ -21,20 +21,21 @@ var SVG = {
 			"text_y": 115,
 			"text": "Projects",
 			"color": "analgous"
-		},
-		"contacts": {
-			"id": "contacts-circle",
-			"text_x": 35,
-			"text_y": 115,
-			"text": "Contacts",
-			"color": "primary"
-		},
+		}, 
 		"skills": {
 			"id": "skills-circle",
 			"text_x": 65,
 			"text_y": 115,
 			"text": "Skills",
 			"color": "contrasting-1"
+		},
+		"about": {
+			"id": "about-circle",
+			"text_x": 60,
+			"text_y": 90,
+			"text": "About",
+			"moreText": "<text x='80' y='130' width='3cm' height='3cm' font-size='35' fill='white'>Me</text>",
+			"color": "primary"
 		}
 	},
 	"display": function(){
@@ -62,7 +63,7 @@ var SVG = {
 			$('#work').hide();
 			$('#projects').hide();
 			$('#skills').hide();
-			$('#contacts').hide();
+			$('#about').hide();
 		});
 		$("#work-circle").on("click", function(){
 			$(".main").hide();
@@ -71,7 +72,7 @@ var SVG = {
 			$('#education').hide();
 			$('#projects').hide();
 			$('#skills').hide();
-			$('#contacts').hide();
+			$('#about').hide();
 		});
 		$("#projects-circle").on("click", function(){
 			$(".main").hide();
@@ -80,7 +81,7 @@ var SVG = {
 			$('#education').hide();
 			$('#work').hide();
 			$('#skills').hide();
-			$('#contacts').hide();
+			$('#about').hide();
 		});
 		$("#skills-circle").on("click", function(){
 			$(".main").hide();
@@ -89,12 +90,13 @@ var SVG = {
 			$('#education').hide();
 			$('#work').hide();
 			$('#projects').hide();
-			$('#contacts').hide();
+			$('#about').hide();
 		});
-		$("#contacts-circle").on("click", function(){
+		$("#about-circle").on("click", function(){
 			$(".main").hide();
 			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#contacts').show();
+			$('#about').show();
+			$('#mapDiv').show();
 			$('#education').hide();
 			$('#work').hide();
 			$('#projects').hide();
@@ -117,6 +119,8 @@ var bio = {
 	},
 	"skills": ["css", "php", "html5", "python", "javascript", "business law", "management", "paper airplanes", "conversational german"], 
 	"image": "images/Cynthia.jpg",
+	"aboutDeveloper": "Why would an former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way.",
+	"aboutMimi": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby.",
 	"displayHeader": function(){
 		var formattedName = headerName.replace("%data%", bio.name);
 		var formattedRole = headerRole.replace("%data%", bio.role);
@@ -149,6 +153,12 @@ var bio = {
 			$(".skill-list").append(formattedSkill);
 		}
 		$("#skills").hide();
+	},
+	"displayAbout": function(){
+		$('.developer').append(bio.aboutDeveloper);
+		$('.mimibambino').append(bio.aboutMimi);
+		$('#about').hide();
+		$('#mapDiv').hide();
 	}
 };
 
@@ -301,11 +311,10 @@ education.display();
 work.display();
 projects.display();
 bio.displaySkills();
-bio.displayContacts();
 SVG.click();
+bio.displayAbout();
 
-$("#mapDiv").append(mapHeader);
-$("#mapDiv").append(googleMap);
+$("#mapDiv").hide();
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
@@ -314,16 +323,17 @@ $("button").on("click", function() {
 		$("#work").hide();
 		$("#projects").hide();
 		$("#skills").hide();
-		$("#contacts").hide();
+		$("#about").hide();
+		$("#mapDiv").hide();
 		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
 	}
 	else {
-		//$(".main").hide();
 		$("#education").show();
 		$("#work").show();
 		$("#projects").show();
 		$("#skills").show();
-		$("#contacts").show();
+		$("#about").show();
+		$("#mapDiv").show();
 		$('button').html("Home").removeClass('show-all').addClass('home');
 	}
 });
