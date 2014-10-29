@@ -1,3 +1,5 @@
+
+
 var SVG = {
 	"circle": {
 		"education": {
@@ -274,11 +276,11 @@ var projects = {
 		"url": "https://github.com/MimiBambino"
 	},
 	{
-		"title": "Grandpa",
-		"dates": "2010",
-		"description": "The best grandpa ever.",
-		"images": "images/Grandpa.jpg",
-		"url": "https://github.com/MimiBambino"
+		"title": "Interactive Resume",
+		"dates": "2014",
+		"description": "You're looking at it.  This resume was build with JavaScript, jQuery and Bootstrap.",
+		"images": "images/IR.jpg",
+		"url": "https://github.com/MimiBambino/InteractiveResume"
 	},
 	{
 		"title": "Johnny",
@@ -291,19 +293,12 @@ var projects = {
 	"display": function() {
 		for (var i in projects.project) {
 			var project = projects.project[i];
-			var formattedProject = projectStart.replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title);
+			var formattedProject = projectStart.replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title).replace("%description%", project.description);
 			$("#projects").append(formattedProject);
 		}
 		$("#projects").hide();
 	}
 };
-
-$(document).click(function(loc) {
-	var x = loc.pageX;
-	var y = loc.pageY;
-
-	logClicks(x, y);
-});
 
 bio.displayHeader();
 SVG.display();

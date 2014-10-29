@@ -237,7 +237,7 @@ svg {
 	background-color: #03bbc5;
 	border-radius: 10px;
 	height: 400px;
-	padding-bottom: 10px;
+	padding-bottom: 0;
 	margin: 1%;
 	padding: -1%;
 }
@@ -249,6 +249,10 @@ svg {
 	color: white;
 	padding-top: 20px;
 	padding-bottom: 20px;
+}
+
+.certificate {
+	margin-top: 0;
 }
 
 .Law-col {
@@ -274,8 +278,12 @@ svg {
 	margin-top: 10px;
 }
 
+.oC::before {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
 .oC {
-	padding: 5px;
+	padding: 5px 5px 0 5px;
 }
 
 .Music-col {
@@ -295,9 +303,9 @@ svg {
 	border-bottom: 2px solid #eee;
 }
 
-.title {
+/*.title {
 	padding-top: 10px;
-}
+}*/
 
 .school {
 	color: white;
@@ -424,17 +432,6 @@ svg {
 .developer, .mimibambino {
 	text-align: justify;
 	padding: 20px;
-}
-
-#map-header {
-	color: #777;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 500px;
-  padding-bottom: 5%;
-  text-align: center;
 }
 
 /* Footer */
