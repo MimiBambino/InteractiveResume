@@ -434,6 +434,15 @@ svg {
 	padding: 20px;
 }
 
+.blog-col-even, .blog-col-odd {
+	text-align: justify;
+	padding: 20px;
+}
+
+.blog-box h4 {
+	text-align: center;
+}
+
 /* Footer */
 
 footer {

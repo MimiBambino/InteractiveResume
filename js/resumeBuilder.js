@@ -121,8 +121,32 @@ var bio = {
 	},
 	"skills": ["css", "php", "html5", "python", "javascript", "business law", "management", "paper airplanes", "conversational german"], 
 	"image": "images/Cynthia.jpg",
+	"blog": [
+	{	
+		"title": "Why Web Development?",
+		"text":  "Why would an former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way."
+	},
+	{
+		"title": "What is MimiBambino?",
+		"text": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby."
+	}
+	],
 	"aboutDeveloper": "Why would an former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way.",
 	"aboutMimi": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby.",
+	"displayBlog": function(){
+		for (var i in bio.blog) {
+			var selector = bio.blog[i];
+			if (i % 2 === 0) {
+				var blogPost = blogPostEven.replace('%title%', selector.title).replace('%index%', i).replace('%data%', selector.text);
+				$(".blog-col-even").append(blogPost);
+			}
+			if (i % 2 === 1) {
+					console.log(selector.title);
+				var blogPost = blogPostOdd.replace('%title%', selector.title).replace('%index%', i).replace('%data%', selector.text);
+				$(".blog-col-odd").append(blogPost);
+			}
+		}
+	},
 	"displayHeader": function(){
 		var formattedName = headerName.replace("%data%", bio.name);
 		var formattedRole = headerRole.replace("%data%", bio.role);
@@ -163,6 +187,8 @@ var bio = {
 		$('#mapDiv').hide();
 	}
 };
+
+bio.displayBlog();
 
 var education = {
 	"schools": [

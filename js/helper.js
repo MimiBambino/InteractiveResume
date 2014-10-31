@@ -35,3 +35,5 @@ var contactLinkedIn = "<li class='contact-type'>linkedin: <span class='contact-d
 
 var HTMLbioPic = "<img src='%data%' class='img-responsive img-rounded'>";
 var HTMLskills = "<li>%data%</li>";
+var blogPostEven = "<div class='blog-box col-md-offset-2 col-md-10'><h4>%title%</h4><p class='even' id='%index%'>%data%</p></div>";
+var blogPostOdd = "<div class='blog-box col-md-10'><h4>%title%</h4><p class='odd' id='%index%'>%data%</p></div>";
