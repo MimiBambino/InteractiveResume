@@ -1,5 +1,3 @@
-
-
 var SVG = {
 	"circle": {
 		"education": {
@@ -334,8 +332,6 @@ projects.display();
 bio.displaySkills();
 SVG.click();
 bio.displayAbout();
-
-$("#mapDiv").hide();
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
