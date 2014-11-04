@@ -129,7 +129,7 @@ var bio = {
 		"text": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby."
 	}
 	],
-	"aboutDeveloper": "Why would an former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way.",
+	"aboutDeveloper": "Why would a former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way.",
 	"aboutMimi": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby.",
 	"displayBlog": function(){
 		for (var i in bio.blog) {
@@ -139,7 +139,6 @@ var bio = {
 				$(".blog-col-even").append(blogPost);
 			}
 			if (i % 2 === 1) {
-					console.log(selector.title);
 				var blogPost = blogPostOdd.replace('%title%', selector.title).replace('%index%', i).replace('%data%', selector.text);
 				$(".blog-col-odd").append(blogPost);
 			}
@@ -297,27 +296,30 @@ var projects = {
 		"dates": "2014",
 		"description": "Draw your design on the gray box then resize the pixels in the box!",
 		"images": "images/Etch-A-Sketch.png", 
-		"url": "https://github.com/MimiBambino/Etch-A-Sketch"
+		"url": "https://github.com/MimiBambino/Etch-A-Sketch",
+		"demo": "http://mimibambino.github.io/Etch-A-Sketch/"
 	},
 	{
 		"title": "Interactive Resume",
 		"dates": "2014",
 		"description": "You're looking at it.  This resume was build with JavaScript, jQuery and Bootstrap.",
 		"images": "images/IR.jpg",
-		"url": "https://github.com/MimiBambino/InteractiveResume"
+		"url": "https://github.com/MimiBambino/InteractiveResume",
+		"demo": "http://mimibambino.github.io/InteractiveResume/"
 	},
 	{
-		"title": "Johnny",
-		"dates": "2010",
-		"description": "This kid loves Spiderman!",
-		"images": "images/Johnny.jpg",
-		"url": "https://github.com/MimiBambino"
+		"title": "Custom Meme Maker",
+		"dates": "2014",
+		"description": "Create your own meme and save it to your computer.",
+		"images": "images/johnnyMeme.png",
+		"url": "https://github.com/MimiBambino/MemeMaker",
+		"demo": "http://mimibambino.github.io/MemeMaker/"
 	}
 	],
 	"display": function() {
 		for (var i in projects.project) {
 			var project = projects.project[i];
-			var formattedProject = projectStart.replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title).replace("%description%", project.description);
+			var formattedProject = projectStart.replace("%demo%", project.demo).replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title).replace("%description%", project.description);
 			$("#projects").append(formattedProject);
 		}
 		$("#projects").hide();

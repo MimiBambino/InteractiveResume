@@ -24,7 +24,7 @@ var locationString = "<div class='row text-center'><div class='col-md-12'><p cla
 var workStart = "<div class='%job%-col col-md-12'><h1>%title%</h1><p class='employer'>%employer%</p><div class='row'><div class='col-md-offset-1 col-md-10'><p class='description'>%description%</p></div></div></div>";
 var workLocation = "<p class='location'>%location%</p>";
 
-var projectStart = "<div class='col-md-4 text-center'><img class='img-responsive img-rounded' src='%image%' alt='%description%'><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a><p>%description%</p></div>";
+var projectStart = "<div class='col-md-4 text-center'><a href='%demo%' target='_blank'><img class='img-responsive img-rounded' src='%image%' alt='%description%'></a><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a><p>%description%</p></div>";
 
 var contactLocation = "<li class='contact-type'>location: <span class='contact-data'>%data%</span></li>";
 var contactWebsite = "<li class='contact-type'>website: <span class='contact-data'><a target='_blank' href='http://%data%'>%data%</a></span></li>";
