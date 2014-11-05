@@ -11,9 +11,7 @@ var moreTextHelper = "";
 var SVGend = "</svg></li>";
 
 var educationStart = "<div class='programming-col col-md-12 text-center'><div class='row'><div class='col-md-12'><h1 class='heading'>Programming</h1>";
-var onlineTitle = "<div class='row oC'><div class='title col-md-7 text-left'><p >%title%</p></div>";
-var onlineSchool = "<div class='col-md-offset-2 col-md-3 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div>";
-var HTMLcerficate = "<div class='row text-center'><div class='col-md-12 text-center'><span class='certificate'><a target='_blank' href='#'>Certificate</a></span></div></div>";
+var onlineSchool = "<div class='row oC'><div class='title col-sm-6 col-md-9 text-left'><p>%title% -- <a class='school' target='_blank' href='%#%'>%school%</a></p></div><div class='col-md-3 text-right'><span class='certificate'><a target='_blank' href='#'>Certificate</a></span></div></div>";
 var endOnline = "</div>";
 
 var schoolStart = "<div class='%major%-col col-md-12'><h1 class='heading text-center'>%major%</h1></div></div>";

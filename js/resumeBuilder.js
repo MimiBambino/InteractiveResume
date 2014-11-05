@@ -38,7 +38,7 @@ var SVG = {
 			"color": "primary"
 		}
 	},
-	"display": function(){
+	display: function(){
 		// function takes one of the resume sections as the title parameter
 		for (var i in SVG.circle){
 			var svg = SVG.circle[i];
@@ -107,7 +107,7 @@ var SVG = {
 
 var bio = {
 	"name": "Cynthia O'Donnell",
-	"role": "Front End Web Developer",
+	"role": "Full Stack Web Developer",
 	"welcomeMessage": "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
 	"contacts": {
 		"website" : "www.mimibambino.com", 
@@ -117,7 +117,7 @@ var bio = {
 		"linkedin" : "Cynthia O'Donnell",
 		"location" : "Naples, Italy"
 	},
-	"skills": ["css", "php", "html5", "python", "javascript", "business law", "management", "paper airplanes", "conversational german"], 
+	"skills": ["css", "php", "html5", "python", "ruby/rails", "javascript", "business law", "management", "paper airplanes", "conversational german"], 
 	"image": "images/Cynthia.jpg",
 	"blog": [
 	{	
@@ -144,7 +144,7 @@ var bio = {
 			}
 		}
 	},
-	"displayHeader": function(){
+	displayHeader: function(){
 		var formattedName = headerName.replace("%data%", bio.name);
 		var formattedRole = headerRole.replace("%data%", bio.role);
 		$("header").prepend(formattedRole);
@@ -153,7 +153,7 @@ var bio = {
 		var formattedContactBar = headerContacts.replace("%website%", bio.contacts["website"]).replace("%email%", bio.contacts["email"]).replace("%github%", bio.contacts["github"]);
 		$("header").append(formattedContactBar);
 	},
-	"displayContacts": function(){
+	displayContacts: function(){
 		var formattedWebsite = contactWebsite.replace("%data%", bio.contacts["website"]).replace("%data%", bio.contacts["website"]);
 		$(".contact-list").append(formattedWebsite);
 		var formattedEmail = contactEmail.replace("%data%", bio.contacts["email"]).replace("%data%", bio.contacts["email"]);
@@ -168,7 +168,7 @@ var bio = {
 		$(".contact-list").append(formattedLocation);
 		$("#contacts").hide();
 	},
-	"displaySkills": function(){
+	displaySkills: function(){
 		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
 		$(".biopic").append(formattedPic);
 		for (var skill in bio.skills) {
@@ -177,7 +177,7 @@ var bio = {
 		}
 		$("#skills").hide();
 	},
-	"displayAbout": function(){
+	displayAbout: function(){
 		$('.developer').append(bio.aboutDeveloper);
 		$('.mimibambino').append(bio.aboutMimi);
 		$('#about').hide();
@@ -208,11 +208,18 @@ var education = {
 	],
 	"onlineCourses": [
 		{
-		"title": "Front End Developer Nanodegree",
+		"title": "Intro to HTML and CSS",
 		"school": "Udacity",
 		"dates": 2014,
 		"url": "http://www.udacity.com",
-		"certificate": ""
+		"certificate": "images/htmlCertificate.pdf"
+		},
+		{
+		"title": "Javascript Basics",
+		"school": "Udacity",
+		"dates": 2014,
+		"url": "http://www.udacity.com",
+		"certificate": "images/jsCertificate.pdf"
 		},
 		{
 		"title": "Introduction to Linux",
@@ -229,18 +236,12 @@ var education = {
 		"certificate": "images/SaasCertificate.pdf"
 		}
 	],
-	"display": function(){
+	display: function(){
 		$(".Programming-holder").append(educationStart);
 		for (var i in education.onlineCourses){
 			var oC = education.onlineCourses[i];
-			var formattedTitle = onlineTitle.replace("%title%", oC["title"]);
-			var formattedSchool = onlineSchool.replace("%#%", oC["url"]).replace("%school%", oC["school"]);
-			var titleSchoolRow = formattedTitle + formattedSchool;
-			$(".programming-col").append(titleSchoolRow);
-			if (oC.certificate){
-				var formattedCertificate = HTMLcerficate.replace("#", oC.certificate);
-				$(".programming-col").append(formattedCertificate);
-			}
+			var formattedSchool = onlineSchool.replace("%title%", oC["title"]).replace("%#%", oC["url"]).replace("%school%", oC["school"]).replace("#", oC.certificate);
+			$(".programming-col").append(formattedSchool);
 			$(".programming-col").append(endOnline);
 		}
 		for (var i in education.schools) {
@@ -266,7 +267,7 @@ var work = {
 		"employer": "Case, Lombardi &amp; Pettit",
 		"title": "Attorney",
 		"location": "Honolulu, Hawaii",
-		"dates": "2008 - 2010",
+		"dates": "2008 &#151; 2010",
 		"description": "I began my legal career as a bankruptcy and business litigation attorney during the Summer of 2008. About 2 months after I began my career, the financial crisis hit. As a result, I was quickly indoctrinated in the inner workings of business reorganization, corporate board restructuring, and corporate finance as I advised and represented business clients on their rights under federal bankruptcy law as corporate creditors."
 	},
 	{
@@ -274,7 +275,7 @@ var work = {
 		"employer": "United States Navy",
 		"title": "Naval Officer",
 		"locations": ["Norfolk, Virginia", "Mediterranean Sea", "North Sea", "Indian Ocean", "Arabian Gulf"],
-		"dates": "2001 - 2005",
+		"dates": "2001 &#151; 2005",
 		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
 	}
 	],
