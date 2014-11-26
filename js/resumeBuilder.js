@@ -59,7 +59,7 @@ var SVG = {
 		$("#education-circle").on("click", function(){
 			$(".main").hide();
 			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#education').show();
+			$('#education').fadeIn('fast');
 			$('#work').hide();
 			$('#projects').hide();
 			$('#skills').hide();
@@ -68,7 +68,7 @@ var SVG = {
 		$("#work-circle").on("click", function(){
 			$(".main").hide();
 			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#work').show();
+			$('#work').fadeIn('fast');
 			$('#education').hide();
 			$('#projects').hide();
 			$('#skills').hide();
@@ -77,7 +77,7 @@ var SVG = {
 		$("#projects-circle").on("click", function(){
 			$(".main").hide();
 			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#projects').show();
+			$('#projects').fadeIn('fast');
 			$('#education').hide();
 			$('#work').hide();
 			$('#skills').hide();
@@ -86,7 +86,7 @@ var SVG = {
 		$("#skills-circle").on("click", function(){
 			$(".main").hide();
 			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#skills').show();
+			$('#skills').fadeIn('fast');
 			$('#education').hide();
 			$('#work').hide();
 			$('#projects').hide();
@@ -95,7 +95,7 @@ var SVG = {
 		$("#about-circle").on("click", function(){
 			$(".main").hide();
 			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#about').show();
+			$('#about').fadeIn('fast');
 			$('#mapDiv').show();
 			$('#education').hide();
 			$('#work').hide();
@@ -338,7 +338,7 @@ bio.displayAbout();
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
-		$(".main").show();
+		$(".main").fadeIn('fast');
 		$("#education").hide();
 		$("#work").hide();
 		$("#projects").hide();
@@ -348,12 +348,12 @@ $("button").on("click", function() {
 		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
 	}
 	else {
-		$("#education").show();
-		$("#work").show();
-		$("#projects").show();
-		$("#skills").show();
-		$("#about").show();
-		$("#mapDiv").show();
+		$("#education").fadeIn('fast');
+		$("#work").fadeIn('fast');
+		$("#projects").fadeIn('fast');
+		$("#skills").fadeIn('fast');
+		$("#about").fadeIn('fast');
+		$("#mapDiv").fadeIn('fast');
 		$('button').html("Home").removeClass('show-all').addClass('home');
 	}
 });
