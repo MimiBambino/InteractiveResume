@@ -7,6 +7,6 @@ and I intend to frequently improve it.
 
 
 While this was originally created for the Udacity Nanodegree, it is not the version I turned in because I had trouble implementing Google Maps which was required for the project.  I eventually 
-made another resume to turn in, the repository for which can be found here: https://github.com/MimiBambino/InteractiveResume.
+made another resume to turn in, the repository for which can be found here: https://github.com/MimiBambino/Resume.
 
 =======
