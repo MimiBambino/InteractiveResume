@@ -107,7 +107,7 @@ var SVG = {
 
 var bio = {
 	"name": "Cynthia O'Donnell",
-	"role": "Full Stack Web Developer",
+	"role": "JavaScript Web Developer",
 	"welcomeMessage": "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
 	"contacts": {
 		"website" : "www.mimibambino.com", 
