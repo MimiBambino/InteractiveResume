@@ -1,8 +1,3 @@
-var headerName = "<h1 class='analgous-color'>%data%</h1>";
-var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
-var headerContacts = "<div class='container'><div class='row'><div class='contactBar col-md-12'><ul class='nav nav-pills navbar-center'><li><a target='_blank' href='https://www.github.com/%github%' class='icon icon-github'></a></li><li><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/' class='icon icon-linkedin'></a></li><li><a target='_blank' href='http://www.twitter.com/mimibambino' class='icon icon-twitter'></a></li><li><a href='mailto:%email%' class='icon icon-mail'></a></li><li><a target='_blank' href='http://%website%' class='icon icon-link'></a></li></ul></div></div></div>";
-
-var HTMLWelcomeMsg = "<h4 class='welcome-message'>%data%</h4>";
 
 // The id must be in the svg and not the circle in order for CSS to supply the fill property correctly
 var SVGcircleHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='210' height='210'><circle cx='105' cy='105' r='105'/>";

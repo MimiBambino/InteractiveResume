@@ -1,3 +1,11 @@
+// TODO:  This app is garbage.
+//   1.  Refactor using Knockout.js.
+//   2.  Fix position the header and footer
+//   3.  Fix position the contact icons to the right side of the page.
+//   4.  Add fullpage.js to enable scrolling between sections.
+//   5.  Remove show whole resume/back button
+//   6.  Add education chart, chart.js looks promising
+
 var SVG = {
 	"circle": {
 		"education": {
@@ -21,7 +29,7 @@ var SVG = {
 			"text_y": 115,
 			"text": "Projects",
 			"color": "analgous"
-		}, 
+		},
 		"skills": {
 			"id": "skills-circle",
 			"text_x": 65,
@@ -42,7 +50,7 @@ var SVG = {
 		// function takes one of the resume sections as the title parameter
 		for (var i in SVG.circle){
 			var svg = SVG.circle[i];
-			// set caption to the appropriate property of SVG class 
+			// set caption to the appropriate property of SVG class
 			// insert appropriate SVG properties into the HTML helper
 			var SVGstring = SVGcircleHelper + SVGtext;
 			SVGstring = SVGstring.replace("%class%", svg["text"]).replace("%color%", svg["color"]).replace("%id%", svg["id"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace ("class", svg["id"]);
@@ -52,8 +60,6 @@ var SVG = {
 			SVGstring += SVGend;
 			$(".main ul").append(SVGstring);
 		}
-		HTMLWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-		$(".main").prepend(HTMLWelcomeMsg);
 	},
 	"click": function(){
 		$("#education-circle").on("click", function(){
@@ -107,20 +113,20 @@ var SVG = {
 
 var bio = {
 	"name": "Cynthia O'Donnell",
-	"role": "Full Stack Web Developer",
+	"role": "Web Developer &amp; Lifelong Learner",
 	"welcomeMessage": "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
 	"contacts": {
-		"website" : "www.mimibambino.com", 
+		"website" : "www.mimibambino.com",
 		"email" : "mimibambino@gmail.com",
 		"twitter" : "@mimibambino",
 		"github" : "MimiBambino",
 		"linkedin" : "Cynthia O'Donnell",
 		"location" : "Naples, Italy"
 	},
-	"skills": ["css", "php", "html5", "python", "ruby/rails", "javascript", "business law", "management", "paper airplanes", "conversational german"], 
+	"skills": ["r", "css", "html5", "python", "javascript", "business law", "management", "jasmine testing", "conversational german"],
 	"image": "images/Cynthia.jpg",
 	"blog": [
-	{	
+	{
 		"title": "Why Web Development?",
 		"text":  "Why would an former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way."
 	},
@@ -145,6 +151,10 @@ var bio = {
 		}
 	},
 	displayHeader: function(){
+		var headerName = "<h1 class='analgous-color'>%data%</h1>";
+		var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
+		var headerContacts = "<div class='container'><div class='row'><div class='contactBar col-md-12'><ul class='nav nav-pills navbar-center'><li><a target='_blank' href='https://www.github.com/%github%' class='icon icon-github'></a></li><li><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/' class='icon icon-linkedin'></a></li><li><a target='_blank' href='http://www.twitter.com/mimibambino' class='icon icon-twitter'></a></li><li><a href='mailto:%email%' class='icon icon-mail'></a></li><li><a target='_blank' href='http://%website%' class='icon icon-link'></a></li></ul></div></div></div>";
+
 		var formattedName = headerName.replace("%data%", bio.name);
 		var formattedRole = headerRole.replace("%data%", bio.role);
 		$("header").prepend(formattedRole);
@@ -152,21 +162,6 @@ var bio = {
 		//$("header").append(headerContacts);
 		var formattedContactBar = headerContacts.replace("%website%", bio.contacts["website"]).replace("%email%", bio.contacts["email"]).replace("%github%", bio.contacts["github"]);
 		$("header").append(formattedContactBar);
-	},
-	displayContacts: function(){
-		var formattedWebsite = contactWebsite.replace("%data%", bio.contacts["website"]).replace("%data%", bio.contacts["website"]);
-		$(".contact-list").append(formattedWebsite);
-		var formattedEmail = contactEmail.replace("%data%", bio.contacts["email"]).replace("%data%", bio.contacts["email"]);
-		$(".contact-list").append(formattedEmail);
-		var formattedTwitter = contactTwitter.replace("%data%", bio.contacts["twitter"]);
-		$(".contact-list").append(formattedTwitter);
-		var formattedGithub = contactGithub.replace("%data%", bio.contacts["github"]).replace("%data%", bio.contacts["github"]);
-		$(".contact-list").append(formattedGithub);
-		var formattedLinkedIn = contactLinkedIn.replace("%data%", bio.contacts["linkedin"]);
-		$(".contact-list").append(formattedLinkedIn);
-		var formattedLocation = contactLocation.replace("%data%", bio.contacts["location"]);
-		$(".contact-list").append(formattedLocation);
-		$("#contacts").hide();
 	},
 	displaySkills: function(){
 		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
@@ -181,7 +176,6 @@ var bio = {
 		$('.developer').append(bio.aboutDeveloper);
 		$('.mimibambino').append(bio.aboutMimi);
 		$('#about').hide();
-		$('#mapDiv').hide();
 	}
 };
 
@@ -192,7 +186,7 @@ var education = {
 		{
 		"name": "University of Florida",
 		"location": "Gainesville, Florida",
-		"degree": "Juris Doctor", 
+		"degree": "Juris Doctor",
 		"major": "Law",
 		"dates": "2005 &#151; 2008",
 		"url": "http://www.law.ufl.edu/"
@@ -296,7 +290,7 @@ var projects = {
 		"title": "Etch-A-Sketch",
 		"dates": "2014",
 		"description": "Draw your design on the gray box then resize the pixels in the box!",
-		"images": "images/Etch-A-Sketch.png", 
+		"images": "images/Etch-A-Sketch.png",
 		"url": "https://github.com/MimiBambino/Etch-A-Sketch",
 		"demo": "http://mimibambino.github.io/Etch-A-Sketch/"
 	},
@@ -346,6 +340,7 @@ $("button").on("click", function() {
 		$("#about").hide();
 		$("#mapDiv").hide();
 		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
+		// $('footer').css("position", "relative");
 	}
 	else {
 		$("#education").fadeIn('fast');
@@ -355,5 +350,6 @@ $("button").on("click", function() {
 		$("#about").fadeIn('fast');
 		$("#mapDiv").fadeIn('fast');
 		$('button').html("Home").removeClass('show-all').addClass('home');
+		// $("footer").css("position", "fixed");
 	}
 });
