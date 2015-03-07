@@ -52,6 +52,10 @@ var SVG = {
 			var svg = SVG.circle[i];
 			// set caption to the appropriate property of SVG class
 			// insert appropriate SVG properties into the HTML helper
+			var SVGcircleHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='210' height='210'><circle cx='105' cy='105' r='105'/>";
+			var SVGtext = "<text x='%text_x%' y='%text_y%' width='300' height='150'>%text%</text>";
+			var moreTextHelper = "";
+			var SVGend = "</svg></li>";
 			var SVGstring = SVGcircleHelper + SVGtext;
 			SVGstring = SVGstring.replace("%class%", svg["text"]).replace("%color%", svg["color"]).replace("%id%", svg["id"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace ("class", svg["id"]);
 			if (svg["moreText"]){
@@ -138,6 +142,8 @@ var bio = {
 	"aboutDeveloper": "Why would a former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way.",
 	"aboutMimi": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby.",
 	"displayBlog": function(){
+		var blogPostEven = "<div class='blog-box col-md-offset-2 col-md-10'><h4>%title%</h4><p class='even' id='%index%'>%data%</p></div>";
+		var blogPostOdd = "<div class='blog-box col-md-10'><h4>%title%</h4><p class='odd' id='%index%'>%data%</p></div>";
 		for (var i in bio.blog) {
 			var selector = bio.blog[i];
 			if (i % 2 === 0) {
@@ -164,6 +170,8 @@ var bio = {
 		$("header").append(formattedContactBar);
 	},
 	displaySkills: function(){
+		var HTMLbioPic = "<img src='%data%' class='img-responsive img-rounded'>";
+		var HTMLskills = "<li>%data%</li>";
 		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
 		$(".biopic").append(formattedPic);
 		for (var skill in bio.skills) {
@@ -231,20 +239,27 @@ var education = {
 		}
 	],
 	display: function(){
+		var educationStart = "<div class='programming-col col-md-12 text-center'><div class='row'><div class='col-md-12'><h1 class='heading'>Programming</h1>";
 		$(".Programming-holder").append(educationStart);
 		for (var i in education.onlineCourses){
 			var oC = education.onlineCourses[i];
+			var onlineSchool = "<div class='row oC'><div class='title col-sm-6 col-md-9 text-left'><p>%title% -- <a class='school' target='_blank' href='%#%'>%school%</a></p></div><div class='col-md-3 text-right'><span class='certificate'><a target='_blank' href='#'>Certificate</a></span></div></div>";
 			var formattedSchool = onlineSchool.replace("%title%", oC["title"]).replace("%#%", oC["url"]).replace("%school%", oC["school"]).replace("#", oC.certificate);
+			var endOnline = "</div>";
 			$(".programming-col").append(formattedSchool);
 			$(".programming-col").append(endOnline);
 		}
 		for (var i in education.schools) {
 			var school = education.schools[i];
+			var schoolStart = "<div class='%major%-col col-md-12'><h1 class='heading text-center'>%major%</h1></div></div>";
 			var formattedSchoolStart = schoolStart.replace("%major%", school.major).replace("%major%", school.major);
 			var selector = "." + school.major + "-holder";
 			$(selector).append(formattedSchoolStart);
+			var degreeString = "<div class='row'><div class='col-md-5 text-left'><p class='degree'>%degree%</p></div>";
 			var formattedDegree = degreeString.replace("%degree%", school.degree);
+			var schoolString = "<div class='col-md-7 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div></div>";
 			var formattedSchool = schoolString.replace("%school%", school.name).replace("%#%", school.url);
+			var locationString = "<div class='row text-center'><div class='col-md-12'><p class='location-text'>%location%</p></div></div><div class='row text-center'><div class='col-md-12'><p class='date-text'>%dates%</p></div></div>";
 			var formattedLocation = locationString.replace("%dates%", school.dates).replace("%location%", school.location);
 			var formattedSchoolString = formattedDegree + formattedSchool + formattedLocation;
 			selector = "." + school.major + "-col";
@@ -276,6 +291,8 @@ var work = {
 	"display": function(){
 		for (var i in work.jobs){
 			var job = work.jobs[i];
+			var workStart = "<div class='%job%-col col-md-12'><h1>%title%</h1><p class='employer'>%employer%</p><div class='row'><div class='col-md-offset-1 col-md-10'><p class='description'>%description%</p></div></div></div>";
+			var workLocation = "<p class='location'>%location%</p>";
 			formattedWork = workStart.replace("%job%", job.job).replace("%title%", job.title).replace("%employer%", job.employer).replace("%description%", job.description);
 			var selector = "." + job.job + "-holder";
 			$(selector).append(formattedWork);
@@ -314,6 +331,7 @@ var projects = {
 	"display": function() {
 		for (var i in projects.project) {
 			var project = projects.project[i];
+			var projectStart = "<div class='col-md-4 text-center'><a href='%demo%' target='_blank'><img class='img-responsive img-rounded' src='%image%' alt='%description%'></a><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a><p>%description%</p></div>";
 			var formattedProject = projectStart.replace("%demo%", project.demo).replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title).replace("%description%", project.description);
 			$("#projects").append(formattedProject);
 		}
