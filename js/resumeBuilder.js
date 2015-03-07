@@ -115,129 +115,9 @@ var SVG = {
 	}
 };
 
-var bio = {
-	"name": "Cynthia O'Donnell",
-	"role": "Web Developer &amp; Lifelong Learner",
-	"welcomeMessage": "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
-	"contacts": {
-		"website" : "www.mimibambino.com",
-		"email" : "mimibambino@gmail.com",
-		"twitter" : "@mimibambino",
-		"github" : "MimiBambino",
-		"linkedin" : "Cynthia O'Donnell",
-		"location" : "Naples, Italy"
-	},
-	"skills": ["r", "css", "html5", "python", "javascript", "business law", "management", "jasmine testing", "conversational german"],
-	"image": "images/Cynthia.jpg",
-	"blog": [
-	{
-		"title": "Why Web Development?",
-		"text":  "Why would an former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way."
-	},
-	{
-		"title": "What is MimiBambino?",
-		"text": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby."
-	}
-	],
-	"aboutDeveloper": "Why would a former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way.",
-	"aboutMimi": "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby.",
-	"displayBlog": function(){
-		var blogPostEven = "<div class='blog-box col-md-offset-2 col-md-10'><h4>%title%</h4><p class='even' id='%index%'>%data%</p></div>";
-		var blogPostOdd = "<div class='blog-box col-md-10'><h4>%title%</h4><p class='odd' id='%index%'>%data%</p></div>";
-		for (var i in bio.blog) {
-			var selector = bio.blog[i];
-			if (i % 2 === 0) {
-				var blogPost = blogPostEven.replace('%title%', selector.title).replace('%index%', i).replace('%data%', selector.text);
-				$(".blog-col-even").append(blogPost);
-			}
-			if (i % 2 === 1) {
-				var blogPost = blogPostOdd.replace('%title%', selector.title).replace('%index%', i).replace('%data%', selector.text);
-				$(".blog-col-odd").append(blogPost);
-			}
-		}
-	},
-	displayHeader: function(){
-		var headerName = "<h1 class='analgous-color'>%data%</h1>";
-		var headerRole = "<h4 class='contrasting1-color'>%data%</h4>";
-		var headerContacts = "<div class='container'><div class='row'><div class='contactBar col-md-12'><ul class='nav nav-pills navbar-center'><li><a target='_blank' href='https://www.github.com/%github%' class='icon icon-github'></a></li><li><a target='_blank' href='http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/' class='icon icon-linkedin'></a></li><li><a target='_blank' href='http://www.twitter.com/mimibambino' class='icon icon-twitter'></a></li><li><a href='mailto:%email%' class='icon icon-mail'></a></li><li><a target='_blank' href='http://%website%' class='icon icon-link'></a></li></ul></div></div></div>";
-
-		var formattedName = headerName.replace("%data%", bio.name);
-		var formattedRole = headerRole.replace("%data%", bio.role);
-		$("header").prepend(formattedRole);
-		$("header").prepend(formattedName);
-		//$("header").append(headerContacts);
-		var formattedContactBar = headerContacts.replace("%website%", bio.contacts["website"]).replace("%email%", bio.contacts["email"]).replace("%github%", bio.contacts["github"]);
-		$("header").append(formattedContactBar);
-	},
-	displaySkills: function(){
-		var HTMLbioPic = "<img src='%data%' class='img-responsive img-rounded'>";
-		var HTMLskills = "<li>%data%</li>";
-		var formattedPic = HTMLbioPic.replace("%data%", bio.image);
-		$(".biopic").append(formattedPic);
-		for (var skill in bio.skills) {
-			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$(".skill-list").append(formattedSkill);
-		}
-		$("#skills").hide();
-	},
-	displayAbout: function(){
-		$('.developer').append(bio.aboutDeveloper);
-		$('.mimibambino').append(bio.aboutMimi);
-		$('#about').hide();
-	}
-};
-
-bio.displayBlog();
+SVG.display();
 
 var education = {
-	"schools": [
-		{
-		"name": "University of Florida",
-		"location": "Gainesville, Florida",
-		"degree": "Juris Doctor",
-		"major": "Law",
-		"dates": "2005 &#151; 2008",
-		"url": "http://www.law.ufl.edu/"
-		},
-		{
-		"name": "Florida State University",
-		"location": "Tallahassee, Florida",
-		"degree": "Bachelor of Arts",
-		"major": "Music",
-		"dates": "1996 &#151; 2000",
-		"url": "http://www.music.fsu.edu//"
-		}
-	],
-	"onlineCourses": [
-		{
-		"title": "Intro to HTML and CSS",
-		"school": "Udacity",
-		"dates": 2014,
-		"url": "http://www.udacity.com",
-		"certificate": "images/htmlCertificate.pdf"
-		},
-		{
-		"title": "Javascript Basics",
-		"school": "Udacity",
-		"dates": 2014,
-		"url": "http://www.udacity.com",
-		"certificate": "images/jsCertificate.pdf"
-		},
-		{
-		"title": "Introduction to Linux",
-		"school": "edX",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
-		"certificate": "images/IntroToLinuxCertificate.pdf"
-		},
-		{
-		"title": "Engineering Software as a Service",
-		"school": "edX",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
-		"certificate": "images/SaasCertificate.pdf"
-		}
-	],
 	display: function(){
 		var educationStart = "<div class='programming-col col-md-12 text-center'><div class='row'><div class='col-md-12'><h1 class='heading'>Programming</h1>";
 		$(".Programming-holder").append(educationStart);
@@ -271,22 +151,6 @@ var education = {
 
 var work = {
 	"jobs": [
-	{
-		"job": "lawyer",
-		"employer": "Case, Lombardi &amp; Pettit",
-		"title": "Attorney",
-		"location": "Honolulu, Hawaii",
-		"dates": "2008 &#151; 2010",
-		"description": "I began my legal career as a bankruptcy and business litigation attorney during the Summer of 2008. About 2 months after I began my career, the financial crisis hit. As a result, I was quickly indoctrinated in the inner workings of business reorganization, corporate board restructuring, and corporate finance as I advised and represented business clients on their rights under federal bankruptcy law as corporate creditors."
-	},
-	{
-		"job": "navy",
-		"employer": "United States Navy",
-		"title": "Naval Officer",
-		"locations": ["Norfolk, Virginia", "Mediterranean Sea", "North Sea", "Indian Ocean", "Arabian Gulf"],
-		"dates": "2001 &#151; 2005",
-		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
-	}
 	],
 	"display": function(){
 		for (var i in work.jobs){
@@ -300,53 +164,6 @@ var work = {
 		$("#work").hide();
 	}
 };
-
-var projects = {
-	"project": [
-	{
-		"title": "Etch-A-Sketch",
-		"dates": "2014",
-		"description": "Draw your design on the gray box then resize the pixels in the box!",
-		"images": "images/Etch-A-Sketch.png",
-		"url": "https://github.com/MimiBambino/Etch-A-Sketch",
-		"demo": "http://mimibambino.github.io/Etch-A-Sketch/"
-	},
-	{
-		"title": "Interactive Resume",
-		"dates": "2014",
-		"description": "You're looking at it.  This resume was build with JavaScript, jQuery and Bootstrap.",
-		"images": "images/IR.jpg",
-		"url": "https://github.com/MimiBambino/InteractiveResume",
-		"demo": "http://mimibambino.github.io/InteractiveResume/"
-	},
-	{
-		"title": "Custom Meme Maker",
-		"dates": "2014",
-		"description": "Create your own meme and save it to your computer.",
-		"images": "images/johnnyMeme.png",
-		"url": "https://github.com/MimiBambino/MemeMaker",
-		"demo": "http://mimibambino.github.io/MemeMaker/"
-	}
-	],
-	"display": function() {
-		for (var i in projects.project) {
-			var project = projects.project[i];
-			var projectStart = "<div class='col-md-4 text-center'><a href='%demo%' target='_blank'><img class='img-responsive img-rounded' src='%image%' alt='%description%'></a><a class='project' target='_blank' href=%url%><h3 class='text-uppercase text-center'>%title%</h3></a><p>%description%</p></div>";
-			var formattedProject = projectStart.replace("%demo%", project.demo).replace("%image%", project.images).replace("%description%", project.description).replace("%url%", project.url).replace("%title%", project.title).replace("%description%", project.description);
-			$("#projects").append(formattedProject);
-		}
-		$("#projects").hide();
-	}
-};
-
-bio.displayHeader();
-SVG.display();
-education.display();
-work.display();
-projects.display();
-bio.displaySkills();
-SVG.click();
-bio.displayAbout();
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
@@ -371,3 +188,169 @@ $("button").on("click", function() {
 		// $("footer").css("position", "fixed");
 	}
 });
+
+var projects = [
+		{
+			title: "Etch-A-Sketch",
+			dates: "2014",
+			description: "Draw your design on the gray box then resize the pixels in the box!",
+			image: "images/Etch-A-Sketch.png",
+			url: "https://github.com/MimiBambino/Etch-A-Sketch",
+			demo: "http://mimibambino.github.io/Etch-A-Sketch/"
+		},
+		{
+			title: "Interactive Resume",
+			dates: "2014",
+			description: "You're looking at it.  This resume was build with JavaScript, jQuery and Bootstrap.",
+			image: "images/IR.jpg",
+			url: "https://github.com/MimiBambino/InteractiveResume",
+			demo: "http://mimibambino.github.io/InteractiveResume/"
+		},
+		{
+			title: "Custom Meme Maker",
+			dates: "2014",
+			description: "Create your own meme and save it to your computer.",
+			image: "images/johnnyMeme.png",
+			url: "https://github.com/MimiBambino/MemeMaker",
+			demo: "http://mimibambino.github.io/MemeMaker/"
+		}
+	];
+
+var work = [
+	{
+		"job": "lawyer",
+		"employer": "Case, Lombardi &amp; Pettit",
+		"title": "Attorney",
+		"location": "Honolulu, Hawaii",
+		"dates": "2008 &#151; 2010",
+		"description": "I began my legal career as a bankruptcy and business litigation attorney during the Summer of 2008. About 2 months after I began my career, the financial crisis hit. As a result, I was quickly indoctrinated in the inner workings of business reorganization, corporate board restructuring, and corporate finance as I advised and represented business clients on their rights under federal bankruptcy law as corporate creditors."
+	},
+	{
+		"job": "navy",
+		"employer": "United States Navy",
+		"title": "Naval Officer",
+		"locations": ["Norfolk, Virginia", "Mediterranean Sea", "North Sea", "Indian Ocean", "Arabian Gulf"],
+		"dates": "2001 &#151; 2005",
+		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
+	}
+];
+var education = [
+		{
+		"name": "University of Florida",
+		"location": "Gainesville, Florida",
+		"degree": "Juris Doctor",
+		"major": "Law",
+		"dates": "2005 &#151; 2008",
+		"url": "http://www.law.ufl.edu/",
+		type: "college"
+		},
+		{
+		"name": "Florida State University",
+		"location": "Tallahassee, Florida",
+		"degree": "Bachelor of Arts",
+		"major": "Music",
+		"dates": "1996 &#151; 2000",
+		"url": "http://www.music.fsu.edu//",
+		type: "college"
+		},
+		{
+		"title": "Intro to HTML and CSS",
+		"school": "Udacity",
+		"dates": 2014,
+		"url": "http://www.udacity.com",
+		"certificate": "images/htmlCertificate.pdf",
+		type: "MOOC"
+		},
+		{
+		"title": "Javascript Basics",
+		"school": "Udacity",
+		"dates": 2014,
+		"url": "http://www.udacity.com",
+		"certificate": "images/jsCertificate.pdf",
+		type: "MOOC"
+		},
+		{
+		"title": "Introduction to Linux",
+		"school": "edX",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
+		"certificate": "images/IntroToLinuxCertificate.pdf",
+		type: "MOOC"
+		},
+		{
+		"title": "Engineering Software as a Service",
+		"school": "edX",
+		"dates": 2014,
+		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
+		"certificate": "images/SaasCertificate.pdf",
+		type: "MOOC"
+		}
+];
+var bio = {
+	name: "Cynthia O'Donnell",
+	role: "Web Developer &amp; Lifelong Learner",
+	welcomeMessage: "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
+	contacts: {
+		website : "http://www.mimibambino.com",
+		email : "mailto:mimibambino@gmail.com",
+		twitter : "http://www.twitter.com/mimibambino",
+		github : "https://www.github.com/MimiBambino",
+		linkedin : "http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/",
+		location : "Naples, Italy"
+	},
+	skills: ["r", "css", "html5", "python", "javascript", "business law", "management", "jasmine testing", "conversational german"],
+	image: "images/Cynthia.jpg",
+	blog: [
+	{
+		title: "Why Web Development?",
+		text:  "Why would an former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way."
+	},
+	{
+		title: "What is MimiBambino?",
+		text: "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby."
+	}
+	],
+	aboutDeveloper: "Why would a former-lawyer, former-naval officer become a Front End Web Developer?  Well, I've pretty much loved the internet since I first experienced it in the 90s. It felt like I suddenly had access to all of the information I could have ever wanted.  Twenty years later, it's even more true. However, I have been growing increasingly critical about how that information is organized.  I started learning about computer programming and web development because I wanted to help make the information already available online more useful by building web applications that find and display data in a more user-friendly way.",
+	aboutMimi: "Why MimiBambino? It makes me smile. When my son was a baby, he called me Mimi. So for a few years, I <em>was</em> Mimi. He was the <em>bambino</em>. Now no one calls me Mimi and he is no longer a baby. To my delight, when I started creating handles and user accounts, I found that MimiBambino was always available. MimiBambino reminds me of that sweet, tender time when for most of the day it was just me and my baby.",
+};
+
+var viewModel = function(){
+	// Save a reference to the ViewModel object.
+	var self = this;
+
+	self.projects = projects;
+	self.work = work;
+	self.education = education;
+	self.bio = bio;
+
+	// Keep track of what part of resume is visible
+	self.projectVisible = ko.observable(false);
+	self.toggleProject = function(){
+		if (self.projectVisible) {
+			self.projectVisible(false);
+		} else {
+			self.projectVisible(true);
+		}
+	}
+	self.name = "Cynthia O'Donnell";
+	self.title = "Web Developer and Lifelong Learner";
+};
+
+/**
+ * Custom binding for fade in effect on instructions
+ */
+ko.bindingHandlers.fadeVisible = {
+    init: function(element, valueAccessor) {
+        // Initially set the element to be instantly visible/hidden depending on the value
+        var value = valueAccessor();
+        $(element).toggle(ko.unwrap(value)); // Use "unwrapObservable" so we can handle values that may or may not be observable
+    },
+    update: function(element, valueAccessor) {
+        // Whenever the value subsequently changes, slowly fade the element in or out
+        var value = valueAccessor();
+        ko.unwrap(value) ? $(element).fadeIn() : $(element).fadeOut();
+    }
+};
+
+ko.applyBindings( new viewModel() );
+

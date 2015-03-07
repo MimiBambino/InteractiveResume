@@ -16,7 +16,35 @@
     <body>
 <!--HEADER-->
       <header class='text-center'>
+        <h1 class='analgous-color' data-bind="text: bio.name"></h1>
+        <h4 class='contrasting1-color' data-bind="text: bio.title"></h4>
       </header>
+      <aside>
+            <div class='container'>
+              <div class='row'>
+                <div class='contactBar col-md-12'>
+                  <ul class='nav nav-pills'>
+                    <li>
+                      <a target='_blank' data-bind="attr: {href: bio.contacts.github}" class='icon icon-github'></a>
+                    </li>
+                    <li>
+                      <a target='_blank' data-bind="attr: {href: bio.contacts.linkedin}" class='icon icon-linkedin'></a>
+                    </li>
+                    <li>
+                      <a target='_blank' data-bind="attr: {href: bio.contacts.twitter}" class='icon icon-twitter'></a>
+                    </li>
+                    <li>
+                      <a data-bind="attr: {href: bio.contacts.email}" class='icon icon-mail'></a>
+                    </li>
+                    <li>
+                      <a target='_blank' data-bind="attr: {href: bio.contacts.website" class='icon icon-link'></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>;
+
+      </aside>
 <!--Home view-->
       <div class='main text-center'>
         <ul class='svg'>
@@ -27,9 +55,11 @@
         <div class='skills-row row text-center'>
           <h2 class='section-heading text-center'>Skills</h2>
           <div class='biopic col-md-offset-2 col-md-4 col-xs-12 text-right'>
+            <img data-bind="attr: {src: bio.image}" class='img-responsive img-rounded'>
           </div>
           <div class='col-md-6 col-xs-12'>
-            <ul class='skill-list analgous-color text-left'>
+            <ul class='skill-list analgous-color text-left' data-bind="foreach: bio.skills">
+              <li data-bind="text: skill"></li>
             </ul>
           </div>
         </div>
@@ -52,6 +82,18 @@
       <div id='projects' class='container'>
         <h2 class='section-heading text-center'>Projects</h2>
         <div class='projects-row row text-center'>
+
+
+          <div class='col-md-4 text-center' data-bind="foreach: projects">
+            <a data-bind="attr: {href: demo}" target='_blank'>
+              <img class='img-responsive img-rounded' data-bind="attr: {src: image, alt: description}">
+            </a>
+            <a class='project' target='_blank' data-bind="attr: {href: url}">
+              <h3 class='text-uppercase text-center' data-bind="text: title"></h3>
+            </a>
+            <p data-bind="text: description"></p>
+          </div>
+
         </div>
       </div>
 <!--Work Experience view-->
@@ -73,8 +115,13 @@
             <h2 class='section-heading text-center'>About Me</h2>
             <div class='row'>
               <div class='blog-col-even col-md-6'>
+                <div class='blog-box col-md-offset-2 col-md-10'>
+                  <h4 data-bind="text: bio.blog[0].title"></h4>
+                  <p class='even' data-bind="text: bio.blog[0].text"></p></div>
               </div>
               <div class='blog-col-odd col-md-6'>
+                <h4 data-bind="text: bio.blog[1].title"></h4>
+                <p class='even' data-bind="text: bio.blog[1].text"></p></div>
               </div>
             </div>
           </div>
