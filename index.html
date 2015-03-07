@@ -17,7 +17,7 @@
 <!--HEADER-->
       <header class='text-center'>
         <h1 class='analgous-color' data-bind="text: bio.name"></h1>
-        <h4 class='contrasting1-color' data-bind="text: bio.title"></h4>
+        <h4 class='contrasting1-color' data-bind="html: bio.role"></h4>
       </header>
       <aside>
             <div class='container'>
@@ -58,7 +58,7 @@
             <img data-bind="attr: {src: bio.image}" class='img-responsive img-rounded'>
           </div>
           <div class='col-md-6 col-xs-12'>
-            <ul class='skill-list analgous-color text-left' data-bind="foreach: bio.skills">
+            <ul class='skill-list analgous-color text-left' data-bind="foreach: { data: bio.skills, as: 'skill' }">
               <li data-bind="text: skill"></li>
             </ul>
           </div>
@@ -67,23 +67,11 @@
 <!--Education view-->
       <div id='education' class='container text-center'>
         <h2 class='section-heading text-center'>Education</h2>
-        <div class='education-row row text-center'>
-          <div class='row'>
-            <div class='Programming-holder col-md-6'>
-            </div>
-            <div class='Law-holder col-md-3'>
-            </div>
-            <div class='Music-holder col-md-3'>
-            </div>
-          </div>
-        </div>
       </div>
 <!--Projects view-->
       <div id='projects' class='container'>
         <h2 class='section-heading text-center'>Projects</h2>
         <div class='projects-row row text-center'>
-
-
           <div class='col-md-4 text-center' data-bind="foreach: projects">
             <a data-bind="attr: {href: demo}" target='_blank'>
               <img class='img-responsive img-rounded' data-bind="attr: {src: image, alt: description}">
@@ -101,8 +89,28 @@
         <h2 class='section-heading text-center'>Work Experience</h2>
         <div class='work-row row'>
           <div class='lawyer-holder col-md-6 col-xs-12'>
+            <div class='lawyer-col col-md-12'>
+              <h1 data-bind="text: work[0].title"></h1>
+              <p class='employer' data-bind="text: work[0].employer"></p>
+              <div class='row'>
+                <div class='col-md-offset-1 col-md-10'>
+                  <p class='description' data-bind="text: work[0].description"></p>
+                </div>
+              </div>
+            </div>
+            <p class='location' data-bind="text: work[0].location"></p>
           </div>
           <div class='navy-holder col-md-6 col-xs-12'>
+            <div class='navy-col col-md-12'>
+              <h1 data-bind="text: work[1].title"></h1>
+              <p class='employer' data-bind="text: work[1].employer"></p>
+              <div class='row'>
+                <div class='col-md-offset-1 col-md-10'>
+                  <p class='description' data-bind="text: work[1].description"></p>
+                </div>
+              </div>
+            </div>
+            <p class='location' data-bind="text: work[1].location"></p>
           </div>
         </div>
       </div>
@@ -117,11 +125,11 @@
               <div class='blog-col-even col-md-6'>
                 <div class='blog-box col-md-offset-2 col-md-10'>
                   <h4 data-bind="text: bio.blog[0].title"></h4>
-                  <p class='even' data-bind="text: bio.blog[0].text"></p></div>
+                  <p class='even' data-bind="html: bio.blog[0].text"></p></div>
               </div>
               <div class='blog-col-odd col-md-6'>
                 <h4 data-bind="text: bio.blog[1].title"></h4>
-                <p class='even' data-bind="text: bio.blog[1].text"></p></div>
+                <p class='even' data-bind="html: bio.blog[1].text"></p></div>
               </div>
             </div>
           </div>

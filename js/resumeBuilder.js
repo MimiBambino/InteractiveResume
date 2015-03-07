@@ -1,5 +1,5 @@
-// TODO:  This app is garbage.
-//   1.  Refactor using Knockout.js.
+// TODO:
+//   1.  Continue refactoring the SVG portion to use Knockout.js.
 //   2.  Fix position the header and footer
 //   3.  Fix position the contact icons to the right side of the page.
 //   4.  Add fullpage.js to enable scrolling between sections.
@@ -116,54 +116,6 @@ var SVG = {
 };
 
 SVG.display();
-
-var education = {
-	display: function(){
-		var educationStart = "<div class='programming-col col-md-12 text-center'><div class='row'><div class='col-md-12'><h1 class='heading'>Programming</h1>";
-		$(".Programming-holder").append(educationStart);
-		for (var i in education.onlineCourses){
-			var oC = education.onlineCourses[i];
-			var onlineSchool = "<div class='row oC'><div class='title col-sm-6 col-md-9 text-left'><p>%title% -- <a class='school' target='_blank' href='%#%'>%school%</a></p></div><div class='col-md-3 text-right'><span class='certificate'><a target='_blank' href='#'>Certificate</a></span></div></div>";
-			var formattedSchool = onlineSchool.replace("%title%", oC["title"]).replace("%#%", oC["url"]).replace("%school%", oC["school"]).replace("#", oC.certificate);
-			var endOnline = "</div>";
-			$(".programming-col").append(formattedSchool);
-			$(".programming-col").append(endOnline);
-		}
-		for (var i in education.schools) {
-			var school = education.schools[i];
-			var schoolStart = "<div class='%major%-col col-md-12'><h1 class='heading text-center'>%major%</h1></div></div>";
-			var formattedSchoolStart = schoolStart.replace("%major%", school.major).replace("%major%", school.major);
-			var selector = "." + school.major + "-holder";
-			$(selector).append(formattedSchoolStart);
-			var degreeString = "<div class='row'><div class='col-md-5 text-left'><p class='degree'>%degree%</p></div>";
-			var formattedDegree = degreeString.replace("%degree%", school.degree);
-			var schoolString = "<div class='col-md-7 text-right'><a class='school' target='_blank' href='%#%'>%school%</a></div></div>";
-			var formattedSchool = schoolString.replace("%school%", school.name).replace("%#%", school.url);
-			var locationString = "<div class='row text-center'><div class='col-md-12'><p class='location-text'>%location%</p></div></div><div class='row text-center'><div class='col-md-12'><p class='date-text'>%dates%</p></div></div>";
-			var formattedLocation = locationString.replace("%dates%", school.dates).replace("%location%", school.location);
-			var formattedSchoolString = formattedDegree + formattedSchool + formattedLocation;
-			selector = "." + school.major + "-col";
-			$(selector).append(formattedSchoolString);
-		}
-		$("#education").hide();
-	}
-}
-
-var work = {
-	"jobs": [
-	],
-	"display": function(){
-		for (var i in work.jobs){
-			var job = work.jobs[i];
-			var workStart = "<div class='%job%-col col-md-12'><h1>%title%</h1><p class='employer'>%employer%</p><div class='row'><div class='col-md-offset-1 col-md-10'><p class='description'>%description%</p></div></div></div>";
-			var workLocation = "<p class='location'>%location%</p>";
-			formattedWork = workStart.replace("%job%", job.job).replace("%title%", job.title).replace("%employer%", job.employer).replace("%description%", job.description);
-			var selector = "." + job.job + "-holder";
-			$(selector).append(formattedWork);
-		}
-		$("#work").hide();
-	}
-};
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
@@ -332,8 +284,6 @@ var viewModel = function(){
 			self.projectVisible(true);
 		}
 	}
-	self.name = "Cynthia O'Donnell";
-	self.title = "Web Developer and Lifelong Learner";
 };
 
 /**
