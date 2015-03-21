@@ -6,139 +6,6 @@
 //   5.  Remove show whole resume/back button
 //   6.  Add education chart, chart.js looks promising
 
-/*var SVG = {
-	"circle": {
-		"education": {
-			"id": "education-circle",
-			"text_x": 28,
-			"text_y": 115,
-			"text": "Education",
-			"color": "primary"
-		},
-		"work": {
-			"id": "work-circle",
-			"text_x": 60,
-			"text_y": 90,
-			"text": "Work",
-			"moreText": "<text x='20' y='130' width='3cm' height='3cm' font-size='35' fill='white'>Experience</text>",
-			"color": "gray"
-		},
-		"projects": {
-			"id": "projects-circle",
-			"text_x": 40,
-			"text_y": 115,
-			"text": "Projects",
-			"color": "analgous"
-		},
-		"skills": {
-			"id": "skills-circle",
-			"text_x": 65,
-			"text_y": 115,
-			"text": "Skills",
-			"color": "contrasting-1"
-		},
-		"about": {
-			"id": "about-circle",
-			"text_x": 60,
-			"text_y": 90,
-			"text": "About",
-			"moreText": "<text x='80' y='130' width='3cm' height='3cm' font-size='35' fill='white'>Me</text>",
-			"color": "primary"
-		}
-	},
-	display: function(){
-		// function takes one of the resume sections as the title parameter
-		for (var i in SVG.circle){
-			var svg = SVG.circle[i];
-			// set caption to the appropriate property of SVG class
-			// insert appropriate SVG properties into the HTML helper
-			var SVGcircleHelper = "<li class='%class%'><svg id='%id%' class='%color%' width='210' height='210'><circle cx='105' cy='105' r='105'/>";
-			var SVGtext = "<text x='%text_x%' y='%text_y%' width='300' height='150'>%text%</text>";
-			var moreTextHelper = "";
-			var SVGend = "</svg></li>";
-			var SVGstring = SVGcircleHelper + SVGtext;
-			SVGstring = SVGstring.replace("%class%", svg["text"]).replace("%color%", svg["color"]).replace("%id%", svg["id"]).replace("%text_x%", svg["text_x"]).replace("%text_y%", svg["text_y"]).replace("%text%", svg["text"]).replace ("class", svg["id"]);
-			if (svg["moreText"]){
-				SVGstring = SVGstring + svg["moreText"];
-			}
-			SVGstring += SVGend;
-			$(".main ul").append(SVGstring);
-		}
-	},
-	"click": function(){
-		$("#education-circle").on("click", function(){
-			$(".main").hide();
-			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#education').fadeIn('fast');
-			$('#work').hide();
-			$('#projects').hide();
-			$('#skills').hide();
-			$('#about').hide();
-		});
-		$("#work-circle").on("click", function(){
-			$(".main").hide();
-			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#work').fadeIn('fast');
-			$('#education').hide();
-			$('#projects').hide();
-			$('#skills').hide();
-			$('#about').hide();
-		});
-		$("#projects-circle").on("click", function(){
-			$(".main").hide();
-			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#projects').fadeIn('fast');
-			$('#education').hide();
-			$('#work').hide();
-			$('#skills').hide();
-			$('#about').hide();
-		});
-		$("#skills-circle").on("click", function(){
-			$(".main").hide();
-			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#skills').fadeIn('fast');
-			$('#education').hide();
-			$('#work').hide();
-			$('#projects').hide();
-			$('#about').hide();
-		});
-		$("#about-circle").on("click", function(){
-			$(".main").hide();
-			$('button').html("Home").removeClass('show-all').addClass('home');
-			$('#about').fadeIn('fast');
-			$('#mapDiv').show();
-			$('#education').hide();
-			$('#work').hide();
-			$('#projects').hide();
-			$('#skills').hide();
-		});
-	}
-};
-
-SVG.display();*/
-
-$("button").on("click", function() {
-	if ($("button").hasClass('home')) {
-		$(".main").fadeIn('fast');
-		$("#education").hide();
-		$("#work").hide();
-		$("#projects").hide();
-		$("#skills").hide();
-		$("#about").hide();
-		$("#mapDiv").hide();
-		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
-	}
-	else {
-		$("#education").fadeIn('fast');
-		$("#work").fadeIn('fast');
-		$("#projects").fadeIn('fast');
-		$("#skills").fadeIn('fast');
-		$("#about").fadeIn('fast');
-		$("#mapDiv").fadeIn('fast');
-		$('button').html("Home").removeClass('show-all').addClass('home');
-	}
-});
-
 var projects = [
 		{
 			title: "Etch-A-Sketch",
@@ -299,10 +166,18 @@ var viewModel = function(){
 	self.showProjects = ko.observable(false);
 	self.showWork = ko.observable(false);
 	self.showEducation = ko.observable(false);
-	self.showBio = ko.observable(false);
-	self.showAll = ko.observable(false);
+	self.showSkills = ko.observable(false);
+	self.showAbout = ko.observable(false);
+	self.showButton = ko.observable(true);
 
-	self.showSection = function() {}
+	self.showSection = function() {
+
+	};
+	self.educationClick = function() {
+		self.showMain(false);
+		self.showEducation(true);
+		self.showButton(true);
+	};
 
 	// Keep track of what part of resume is visible
 	self.projectVisible = ko.observable(false);
@@ -312,7 +187,7 @@ var viewModel = function(){
 		} else {
 			self.projectVisible(true);
 		}
-	}
+	};
 };
 
 /**

@@ -64,11 +64,13 @@ h1.analgous-color {
 	font-size: 5.2em;
 	font-weight: 100;
 	line-height: 1.1;
+	padding-top: 20px;
 }
 
 h4.contrasting1-color {
 	text-transform: uppercase;
-	line-height: 0.2;
+	padding-top: 20px;
+	line-height: 2.5;
 }
 
 h1, h2, a {
@@ -77,6 +79,13 @@ h1, h2, a {
 
 h2 {
 	font-size: 2.2em;
+}
+
+.svg {
+	position: relative;
+	top: 0;
+	width: 90%;
+	margin: auto;
 }
 
 .section-heading {
@@ -424,9 +433,14 @@ svg {
 /* Footer */
 
 footer {
-	padding-top: 15px;
 	color: black;
 	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #ddd;
+	z-index: 3;
+	padding-top: 10px;
 }
 
 #javascript {
@@ -446,6 +460,11 @@ button {
 	color: white;
 	background-color: #03bbc5;
 	border: #03bbc5;
+	height:50px;
+	width: 100px;
+	position: absolute;
+	right: 45%;
+	bottom: 100px;
 }
 
 .btn:hover {
@@ -485,9 +504,7 @@ button {
 		margin-bottom: -20px;
 		margin-top: -20px;
 	}
-	footer {
-		padding-top: 30px;
-	}
+
 	.contact-list {
 		text-align: center;
 	}
@@ -498,13 +515,6 @@ button {
 }
 
 @media screen and (max-width: 700px){
-	footer {
-		padding-top: 60px;
-	}
-	#mapDiv {
-		height: 300px;
-		width: 300px;
-	}
 	.navy-col, .lawyer-col {
 		height: auto;
 	}

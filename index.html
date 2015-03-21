@@ -19,54 +19,52 @@
         <h1 class='analgous-color' data-bind="text: bio.name"></h1>
         <h4 class='contrasting1-color' data-bind="html: bio.role"></h4>
       </header>
-      <aside>
-        <ul class='nav nav-pills'>
-          <li>
-            <a target='_blank' data-bind="attr: {href: bio.contacts.github}" class='icon icon-github'></a>
-          </li>
-          <li>
-            <a target='_blank' data-bind="attr: {href: bio.contacts.linkedin}" class='icon icon-linkedin'></a>
-          </li>
-          <li>
-            <a target='_blank' data-bind="attr: {href: bio.contacts.twitter}" class='icon icon-twitter'></a>
-          </li>
-          <li>
-            <a data-bind="attr: {href: bio.contacts.email}" class='icon icon-mail'></a>
-          </li>
-          <li>
-            <a target='_blank' data-bind="attr: {href: bio.contacts.website" class='icon icon-link'></a>
-          </li>
-        </ul>
-      </aside>
+      <ul class='nav nav-pills'>
+        <li>
+          <a target='_blank' data-bind="attr: {href: bio.contacts.github}" class='icon icon-github'></a>
+        </li>
+        <li>
+          <a target='_blank' data-bind="attr: {href: bio.contacts.linkedin}" class='icon icon-linkedin'></a>
+        </li>
+        <li>
+          <a target='_blank' data-bind="attr: {href: bio.contacts.twitter}" class='icon icon-twitter'></a>
+        </li>
+        <li>
+          <a data-bind="attr: {href: bio.contacts.email}" class='icon icon-mail'></a>
+        </li>
+        <li>
+          <a target='_blank' data-bind="attr: {href: bio.contacts.website" class='icon icon-link'></a>
+        </li>
+      </ul>
 <!--Home view-->
-      <div class='main text-center'>
+      <div class='main text-center' data-bind="fadeVisible: showMain">
         <ul class='svg'>
           <li education-circle="Education" data-bind="fadeVisible: showSection">
             <svg id="education-circle" class="primary" width="210" height="210">
-              <circle cx="105" cy="105" r="105"></circle>
+              <circle cx="105" cy="105" r="105" data-bind="click: educationClick"></circle>
               <text x="28" y="115" width="300" height="150">Education</text>
             </svg>
           </li>
-          <li work-circle="Work">
+          <li work-circle="Work" data-bind="fadeVisible: showSection">
             <svg id="work-circle" class="gray" width="210" height="210">
               <circle cx="105" cy="105" r="105"></circle>
               <text x="60" y="90" width="300" height="150">Work</text>
               <text x="20" y="130" width="3cm" height="3cm" font-size="35" fill="white">Experience</text>
             </svg>
           </li>
-          <li projects-circle="Projects">
+          <li projects-circle="Projects" data-bind="fadeVisible: showSection">
             <svg id="projects-circle" class="analgous" width="210" height="210">
               <circle cx="105" cy="105" r="105"></circle>
               <text x="40" y="115" width="300" height="150">Projects</text>
             </svg>
           </li>
-          <li skills-circle="Skills">
+          <li skills-circle="Skills" data-bind="fadeVisible: showSection">
             <svg id="skills-circle" class="contrasting-1" width="210" height="210">
               <circle cx="105" cy="105" r="105"></circle>
               <text x="65" y="115" width="300" height="150">Skills</text>
             </svg>
           </li>
-          <li about-circle="About">
+          <li about-circle="About" data-bind="fadeVisible: showSection">
             <svg id="about-circle" class="primary" width="210" height="210">
               <circle cx="105" cy="105" r="105"></circle>
               <text x="60" y="90" width="300" height="150">About</text>
@@ -76,7 +74,7 @@
         </ul>
       </div>
 <!--Skills view-->
-      <div id='skills' class='container' style="display: block;">
+      <div id='skills' class='container' style="display: block;" data-bind="fadeVisible: showSkills">
         <div class='skills-row row text-center'>
           <h2 class='section-heading text-center'>Skills</h2>
           <div class='biopic col-md-offset-2 col-md-4 col-xs-12 text-right'>
@@ -90,7 +88,7 @@
         </div>
       </div>
 <!--Education view-->
-      <div id='education' class='container text-center' style="display: block;">
+      <div id='education' class='container text-center' style="display: block;" data-bind="fadeVisible: showEducation">
         <h2 class='section-heading text-center'>Education</h2>
         <div class="education-row row text-center">
           <div class="row">
@@ -129,7 +127,7 @@
         </div>
       </div>
 <!--Projects view-->
-      <div id='projects' class='container'>
+      <div id='projects' class='container' data-bind="fadeVisible: showProjects">
         <h2 class='section-heading text-center'>Projects</h2>
         <div class='projects-row row text-center'>
           <div class='col-md-4 text-center' data-bind="foreach: projects">
@@ -145,13 +143,13 @@
         </div>
       </div>
 <!--Work Experience view-->
-      <div id='work' class='container'>
+      <div id='work' class='container' data-bind="fadeVisible: showWork">
         <h2 class='section-heading text-center'>Work Experience</h2>
         <div class='work-row row'>
           <div class='lawyer-holder col-md-6 col-xs-12'>
             <div class='lawyer-col col-md-12'>
               <h1 data-bind="text: work[0].title"></h1>
-              <p class='employer' data-bind="text: work[0].employer"></p>
+              <p class='employer' data-bind="html: work[0].employer"></p>
               <div class='row'>
                 <div class='col-md-offset-1 col-md-10'>
                   <p class='description' data-bind="text: work[0].description"></p>
@@ -177,7 +175,7 @@
 <!--Carousel view-->
 
 <!--About Me view-->
-      <div id='about' class='container'>
+      <div id='about' class='container' data-bind="fadeVisible: showAbout">
         <div class='about-row row text-center'>
           <div class='blog-container analgous-color col-md-12'>
             <h2 class='section-heading text-center'>About Me</h2>
@@ -195,12 +193,12 @@
           </div>
         </div>
       </div>
+      <button type='button' class='btn img-rounded' data-bind="visible: showButton">Back</button>
 <!--FOOTER-->
       <footer>
-          <p><button type='button' class='btn img-rounded show-all'>Show Whole Resume</button></p>
+
           <p>Made with <span id='javascript'>JavaScript</span>.  Code available at <span><a target='_blank' href='https://github.com/MimiBambino/InteractiveResume'><img class='github' src='images/GitHub.png' alt='GitHub'></a></span>
           </p>
-          <p>&copy; Cynthia O'Donnell 2015</p>
       </footer>
     <script src='js/resumeBuilder.js'></script>
   </body>
