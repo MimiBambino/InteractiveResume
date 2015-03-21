@@ -470,6 +470,18 @@ button {
 	outline: none;
 }
 
+.nav-pills {
+	position: fixed;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 60px;
+}
+
+.nav-pills li {
+	position: relative;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 1200px) {
