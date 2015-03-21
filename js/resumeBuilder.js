@@ -127,7 +127,6 @@ $("button").on("click", function() {
 		$("#about").hide();
 		$("#mapDiv").hide();
 		$('button').html("Show Whole Resume").addClass('show-all').removeClass('home');
-		// $('footer').css("position", "relative");
 	}
 	else {
 		$("#education").fadeIn('fast');
@@ -137,7 +136,6 @@ $("button").on("click", function() {
 		$("#about").fadeIn('fast');
 		$("#mapDiv").fadeIn('fast');
 		$('button').html("Home").removeClass('show-all').addClass('home');
-		// $("footer").css("position", "fixed");
 	}
 });
 
@@ -186,62 +184,82 @@ var work = [
 		description: "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
 	}
 ];
-var education = [
-		{
-		name: "University of Florida",
-		location: "Gainesville, Florida",
+var law = {
+		school: "University of Florida",
 		degree: "Juris Doctor",
 		major: "Law",
 		dates: "2005 &#151; 2008",
 		url: "http://www.law.ufl.edu/",
-		type: "college"
-		},
-		{
-		name: "Florida State University",
-		location: "Tallahassee, Florida",
+};
+var music =	{
+		school: "Florida State University",
 		degree: "Bachelor of Arts",
 		major: "Music",
 		dates: "1996 &#151; 2000",
 		url: "http://www.music.fsu.edu//",
-		type: "college"
-		},
+};
+
+var moocs = [
 		{
-		title: "Intro to HTML and CSS",
+		title: "Object-Oriented JavaScript",
 		school: "Udacity",
 		dates: 2014,
-		url: "http://www.udacity.com",
-		certificate: "images/htmlCertificate.pdf",
-		type: "MOOC"
+		url: "",
+		certificate: "images/htmlCertificate.pdf"
 		},
 		{
-		title: "Javascript Basics",
+		title: "Website Performance Optimization",
 		school: "Udacity",
 		dates: 2014,
+		url: "",
+		certificate: ""
+		},
+		{
+		title: "JavaScript Design Patterns",
+		school: "Udacity",
+		dates: 2015,
+		url: "",
+		certificate: ""
+		},
+		{
+		title: "Front End Web Developer Nanodegree",
+		school: "Udacity",
+		dates: 2015,
 		url: "http://www.udacity.com",
-		certificate: "images/jsCertificate.pdf",
-		type: "MOOC"
+		certificate: ""
+		},
+		{
+		title: "Data Analysis and Statistical Inference",
+		school: "Coursera",
+		dates: 2015,
+		url: "",
+		certificate: ""
+		},
+		{
+		title: "The Analytics Edge",
+		school: "edX",
+		dates: 2015,
+		url: "",
+		certificate: ""
 		},
 		{
 		title: "Introduction to Linux",
 		school: "edX",
 		dates: 2014,
 		url: "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
-		certificate: "images/IntroToLinuxCertificate.pdf",
-		type: "MOOC"
+		certificate: "images/IntroToLinuxCertificate.pdf"
 		},
 		{
 		title: "Engineering Software as a Service",
 		school: "edX",
 		dates: 2014,
 		url: "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
-		certificate: "images/SaasCertificate.pdf",
-		type: "MOOC"
+		certificate: "images/SaasCertificate.pdf"
 		}
 ];
 var bio = {
 	name: "Cynthia O'Donnell",
 	role: "Web Developer &amp; Lifelong Learner",
-	welcomeMessage: "<p>Welcome to my resume!  Please click on an area of interest for more information.</p>",
 	contacts: {
 		website : "http://www.mimibambino.com",
 		email : "mailto:mimibambino@gmail.com",
@@ -250,7 +268,7 @@ var bio = {
 		linkedin : "http://www.linkedin.com/pub/cynthia-o-donnell/a2/719/7a0/",
 		location : "Naples, Italy"
 	},
-	skills: ["r", "css", "html5", "python", "javascript", "business law", "management", "jasmine testing", "conversational german"],
+	skills: ["r", "css", "html5", "python", "javascript", "business law", "management", "jasmine testing"],
 	image: "images/Cynthia.jpg",
 	blog: [
 	{
@@ -272,8 +290,19 @@ var viewModel = function(){
 
 	self.projects = projects;
 	self.work = work;
-	self.education = education;
+	self.law = law;
+	self.music = music;
 	self.bio = bio;
+	self.moocs = moocs;
+
+	self.showMain = ko.observable(true);
+	self.showProjects = ko.observable(false);
+	self.showWork = ko.observable(false);
+	self.showEducation = ko.observable(false);
+	self.showBio = ko.observable(false);
+	self.showAll = ko.observable(false);
+
+	self.showSection = function() {}
 
 	// Keep track of what part of resume is visible
 	self.projectVisible = ko.observable(false);
@@ -303,4 +332,3 @@ ko.bindingHandlers.fadeVisible = {
 };
 
 ko.applyBindings( new viewModel() );
-

@@ -20,35 +20,28 @@
         <h4 class='contrasting1-color' data-bind="html: bio.role"></h4>
       </header>
       <aside>
-         <!--    <div class='container'>
-              <div class='row'>
-                <div class='contactBar'> -->
-                  <ul class='nav nav-pills'>
-                    <li>
-                      <a target='_blank' data-bind="attr: {href: bio.contacts.github}" class='icon icon-github'></a>
-                    </li>
-                    <li>
-                      <a target='_blank' data-bind="attr: {href: bio.contacts.linkedin}" class='icon icon-linkedin'></a>
-                    </li>
-                    <li>
-                      <a target='_blank' data-bind="attr: {href: bio.contacts.twitter}" class='icon icon-twitter'></a>
-                    </li>
-                    <li>
-                      <a data-bind="attr: {href: bio.contacts.email}" class='icon icon-mail'></a>
-                    </li>
-                    <li>
-                      <a target='_blank' data-bind="attr: {href: bio.contacts.website" class='icon icon-link'></a>
-                    </li>
-                  </ul>
-<!--                 </div>
-              </div>
-            </div> -->
-
+        <ul class='nav nav-pills'>
+          <li>
+            <a target='_blank' data-bind="attr: {href: bio.contacts.github}" class='icon icon-github'></a>
+          </li>
+          <li>
+            <a target='_blank' data-bind="attr: {href: bio.contacts.linkedin}" class='icon icon-linkedin'></a>
+          </li>
+          <li>
+            <a target='_blank' data-bind="attr: {href: bio.contacts.twitter}" class='icon icon-twitter'></a>
+          </li>
+          <li>
+            <a data-bind="attr: {href: bio.contacts.email}" class='icon icon-mail'></a>
+          </li>
+          <li>
+            <a target='_blank' data-bind="attr: {href: bio.contacts.website" class='icon icon-link'></a>
+          </li>
+        </ul>
       </aside>
 <!--Home view-->
-      <div class='main text-center' data-bind="click: fadeVisible">
+      <div class='main text-center'>
         <ul class='svg'>
-          <li education-circle="Education">
+          <li education-circle="Education" data-bind="fadeVisible: showSection">
             <svg id="education-circle" class="primary" width="210" height="210">
               <circle cx="105" cy="105" r="105"></circle>
               <text x="28" y="115" width="300" height="150">Education</text>
@@ -83,7 +76,7 @@
         </ul>
       </div>
 <!--Skills view-->
-      <div id='skills' class='container'>
+      <div id='skills' class='container' style="display: block;">
         <div class='skills-row row text-center'>
           <h2 class='section-heading text-center'>Skills</h2>
           <div class='biopic col-md-offset-2 col-md-4 col-xs-12 text-right'>
@@ -97,8 +90,43 @@
         </div>
       </div>
 <!--Education view-->
-      <div id='education' class='container text-center'>
+      <div id='education' class='container text-center' style="display: block;">
         <h2 class='section-heading text-center'>Education</h2>
+        <div class="education-row row text-center">
+          <div class="row">
+            <div class="Programming-holder col-md-6">
+              <div class="programming-col col-md-12 text-center">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h1 class="heading">Programming</h1>
+                  </div>
+                </div>
+                <ul class="row oC" data-bind="foreach: moocs">
+                  <li class="title col-md-12" data-bind="text: title">
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="Law-holder col-md-3">
+              <div class="Law-col col-md-12">
+                <h1 class="heading text-center">Law</h1>
+                <p class="degree" data-bind="text: law.degree"></p>
+                <p class="school" data-bind="text: law.school"></p>
+                <p class="date-text" data-bind="html: law.dates"></p>
+              </div>
+            </div>
+            <div class="Music-holder col-md-3">
+              <div class="Music-col col-md-12">
+                <h1 class="heading">Music</h1>
+                <p class="degree" data-bind="text: music.degree"></p>
+                <p class="school" data-bind="text: music.school"></p>
+                <p class="date-text" data-bind="html: music.dates"></p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
 <!--Projects view-->
       <div id='projects' class='container'>

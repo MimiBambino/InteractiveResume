@@ -265,7 +265,7 @@ svg {
 	font-family: 'Poly';
 	font-size: 4.6em;
 	font-weight: 300;
-	padding-bottom: 20px;
+	padding-bottom: 18px;
 }
 
 .Law-col > div, .Music-col > div {
@@ -301,21 +301,8 @@ svg {
 	border-bottom: 2px solid #eee;
 }
 
-/*.title {
-	padding-top: 10px;
-}*/
-
 .school {
 	color: white;
-	margin: 3px;
-	border-bottom: 1px solid white;
-	line-height: 1;
-}
-
-.school:hover {
-	text-decoration: none;
-	color: #444;
-	border-bottom: 1px solid #444;
 }
 
 .certificate {
@@ -473,8 +460,8 @@ button {
 .nav-pills {
 	position: fixed;
 	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 30%;
+	transform: translateY(-0%);
 	width: 60px;
 }
 
