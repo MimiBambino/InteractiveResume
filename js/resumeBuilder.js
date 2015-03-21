@@ -168,7 +168,7 @@ var viewModel = function(){
 	self.showEducation = ko.observable(false);
 	self.showSkills = ko.observable(false);
 	self.showAbout = ko.observable(false);
-	self.showButton = ko.observable(true);
+	self.showButton = ko.observable(false);
 
 	self.showSection = function() {
 
@@ -178,6 +178,36 @@ var viewModel = function(){
 		self.showEducation(true);
 		self.showButton(true);
 	};
+	self.workClick = function() {
+		self.showMain(false);
+		self.showWork(true);
+		self.showButton(true);
+	};
+	self.projectsClick = function() {
+		self.showMain(false);
+		self.showProjects(true);
+		self.showButton(true);
+	};
+	self.skillsClick = function() {
+		self.showMain(false);
+		self.showSkills(true);
+		self.showButton(true);
+	};
+	self.aboutClick = function() {
+		self.showMain(false);
+		self.showAbout(true);
+		self.showButton(true);
+	};
+
+	self.buttonClick = function() {
+		self.showMain(true);
+		self.showButton(false);
+		self.showProjects(false);
+		self.showWork(false);
+		self.showEducation(false);
+		self.showSkills(false);
+		self.showAbout(false);
+	}
 
 	// Keep track of what part of resume is visible
 	self.projectVisible = ko.observable(false);

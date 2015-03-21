@@ -335,6 +335,18 @@ svg {
 
 /* Work Section */
 
+#work {
+	padding-top: 50px;
+}
+
+#skills {
+	padding-top: 50px;
+}
+
+#about, #education {
+	padding-top: 50px;
+}
+
 .lawyer-col h1 {
 	color: white;
 }
@@ -421,9 +433,15 @@ svg {
 
 /*  About Me */
 
-.blog-col-even, .blog-col-odd {
+.blog-col-even {
 	text-align: justify;
 	padding: 20px;
+}
+.blog-col-odd  {
+	text-align: justify;
+	padding-right: 20px;
+	padding-top: 20px;
+	padding-left: 0;
 }
 
 .blog-box h4 {
@@ -464,7 +482,12 @@ button {
 	width: 100px;
 	position: absolute;
 	right: 45%;
-	bottom: 100px;
+	bottom: 0;
+}
+.button-box {
+	position: absolute;
+	bottom: 60px;
+	width: 100%;
 }
 
 .btn:hover {
