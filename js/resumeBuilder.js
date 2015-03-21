@@ -6,7 +6,7 @@
 //   5.  Remove show whole resume/back button
 //   6.  Add education chart, chart.js looks promising
 
-var SVG = {
+/*var SVG = {
 	"circle": {
 		"education": {
 			"id": "education-circle",
@@ -115,7 +115,7 @@ var SVG = {
 	}
 };
 
-SVG.display();
+SVG.display();*/
 
 $("button").on("click", function() {
 	if ($("button").hasClass('home')) {
@@ -170,71 +170,71 @@ var projects = [
 
 var work = [
 	{
-		"job": "lawyer",
-		"employer": "Case, Lombardi &amp; Pettit",
-		"title": "Attorney",
-		"location": "Honolulu, Hawaii",
-		"dates": "2008 &#151; 2010",
-		"description": "I began my legal career as a bankruptcy and business litigation attorney during the Summer of 2008. About 2 months after I began my career, the financial crisis hit. As a result, I was quickly indoctrinated in the inner workings of business reorganization, corporate board restructuring, and corporate finance as I advised and represented business clients on their rights under federal bankruptcy law as corporate creditors."
+		job: "lawyer",
+		employer: "Case, Lombardi &amp; Pettit",
+		title: "Attorney",
+		location: "Honolulu, Hawaii",
+		dates: "2008 &#151; 2010",
+		description: "I began my legal career as a bankruptcy and business litigation attorney during the Summer of 2008. About 2 months after I began my career, the financial crisis hit. As a result, I was quickly indoctrinated in the inner workings of business reorganization, corporate board restructuring, and corporate finance as I advised and represented business clients on their rights under federal bankruptcy law as corporate creditors."
 	},
 	{
-		"job": "navy",
-		"employer": "United States Navy",
-		"title": "Naval Officer",
-		"locations": ["Norfolk, Virginia", "Mediterranean Sea", "North Sea", "Indian Ocean", "Arabian Gulf"],
-		"dates": "2001 &#151; 2005",
-		"description": "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
+		job: "navy",
+		employer: "United States Navy",
+		title: "Naval Officer",
+		locations: ["Norfolk, Virginia", "Mediterranean Sea", "North Sea", "Indian Ocean", "Arabian Gulf"],
+		dates: "2001 &#151; 2005",
+		description: "As a U.S. Navy Surface Warfare Officer onboard a Guided Missile Destroyer I supervised and trained a division of 20 Sailors. Additionally, I oversaw the maintenance and use of all onboard missile launching system hardware (including missiles) and installation and use of all system software.  I served in the Arabian Gulf, Indian Ocean, Mediterranean Sea and the North Sea."
 	}
 ];
 var education = [
 		{
-		"name": "University of Florida",
-		"location": "Gainesville, Florida",
-		"degree": "Juris Doctor",
-		"major": "Law",
-		"dates": "2005 &#151; 2008",
-		"url": "http://www.law.ufl.edu/",
+		name: "University of Florida",
+		location: "Gainesville, Florida",
+		degree: "Juris Doctor",
+		major: "Law",
+		dates: "2005 &#151; 2008",
+		url: "http://www.law.ufl.edu/",
 		type: "college"
 		},
 		{
-		"name": "Florida State University",
-		"location": "Tallahassee, Florida",
-		"degree": "Bachelor of Arts",
-		"major": "Music",
-		"dates": "1996 &#151; 2000",
-		"url": "http://www.music.fsu.edu//",
+		name: "Florida State University",
+		location: "Tallahassee, Florida",
+		degree: "Bachelor of Arts",
+		major: "Music",
+		dates: "1996 &#151; 2000",
+		url: "http://www.music.fsu.edu//",
 		type: "college"
 		},
 		{
-		"title": "Intro to HTML and CSS",
-		"school": "Udacity",
-		"dates": 2014,
-		"url": "http://www.udacity.com",
-		"certificate": "images/htmlCertificate.pdf",
+		title: "Intro to HTML and CSS",
+		school: "Udacity",
+		dates: 2014,
+		url: "http://www.udacity.com",
+		certificate: "images/htmlCertificate.pdf",
 		type: "MOOC"
 		},
 		{
-		"title": "Javascript Basics",
-		"school": "Udacity",
-		"dates": 2014,
-		"url": "http://www.udacity.com",
-		"certificate": "images/jsCertificate.pdf",
+		title: "Javascript Basics",
+		school: "Udacity",
+		dates: 2014,
+		url: "http://www.udacity.com",
+		certificate: "images/jsCertificate.pdf",
 		type: "MOOC"
 		},
 		{
-		"title": "Introduction to Linux",
-		"school": "edX",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
-		"certificate": "images/IntroToLinuxCertificate.pdf",
+		title: "Introduction to Linux",
+		school: "edX",
+		dates: 2014,
+		url: "https://courses.edx.org/courses/LinuxFoundationX/LFS101x/2T2014/info",
+		certificate: "images/IntroToLinuxCertificate.pdf",
 		type: "MOOC"
 		},
 		{
-		"title": "Engineering Software as a Service",
-		"school": "edX",
-		"dates": 2014,
-		"url": "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
-		"certificate": "images/SaasCertificate.pdf",
+		title: "Engineering Software as a Service",
+		school: "edX",
+		dates: 2014,
+		url: "https://courses.edx.org/courses/BerkeleyX/CS_CS169.1x/1T2014/info",
+		certificate: "images/SaasCertificate.pdf",
 		type: "MOOC"
 		}
 ];

@@ -46,8 +46,40 @@
 
       </aside>
 <!--Home view-->
-      <div class='main text-center'>
+      <div class='main text-center' data-bind="click: fadeVisible">
         <ul class='svg'>
+          <li education-circle="Education">
+            <svg id="education-circle" class="primary" width="210" height="210">
+              <circle cx="105" cy="105" r="105"></circle>
+              <text x="28" y="115" width="300" height="150">Education</text>
+            </svg>
+          </li>
+          <li work-circle="Work">
+            <svg id="work-circle" class="gray" width="210" height="210">
+              <circle cx="105" cy="105" r="105"></circle>
+              <text x="60" y="90" width="300" height="150">Work</text>
+              <text x="20" y="130" width="3cm" height="3cm" font-size="35" fill="white">Experience</text>
+            </svg>
+          </li>
+          <li projects-circle="Projects">
+            <svg id="projects-circle" class="analgous" width="210" height="210">
+              <circle cx="105" cy="105" r="105"></circle>
+              <text x="40" y="115" width="300" height="150">Projects</text>
+            </svg>
+          </li>
+          <li skills-circle="Skills">
+            <svg id="skills-circle" class="contrasting-1" width="210" height="210">
+              <circle cx="105" cy="105" r="105"></circle>
+              <text x="65" y="115" width="300" height="150">Skills</text>
+            </svg>
+          </li>
+          <li about-circle="About">
+            <svg id="about-circle" class="primary" width="210" height="210">
+              <circle cx="105" cy="105" r="105"></circle>
+              <text x="60" y="90" width="300" height="150">About</text>
+              <text x="80" y="130" width="3cm" height="3cm" font-size="35" fill="white">Me</text>
+            </svg>
+          </li>
         </ul>
       </div>
 <!--Skills view-->
