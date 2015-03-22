@@ -407,6 +407,7 @@ svg {
 #projects {
 	color: #008cb0;
 }
+.dino, .treasure, .wordpress {}
 
 /* Skills Section */
 
@@ -481,7 +482,7 @@ button {
 	height:50px;
 	width: 100px;
 	position: absolute;
-	right: 45%;
+	right: calc(100%/2 - 50px);
 	bottom: 0;
 }
 .button-box {

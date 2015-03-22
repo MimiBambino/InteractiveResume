@@ -8,28 +8,31 @@
 
 var projects = [
 		{
-			title: "Etch-A-Sketch",
-			dates: "2014",
-			description: "Draw your design on the gray box then resize the pixels in the box!",
-			image: "images/Etch-A-Sketch.png",
-			url: "https://github.com/MimiBambino/Etch-A-Sketch",
-			demo: "http://mimibambino.github.io/Etch-A-Sketch/"
+			id: "dino",
+			title: "Dinosaur Map",
+			dates: "2015",
+			description: "Find out where your favorite dinosaurs lived.  Made with Google Maps API, Wikipedia API, Firebase and KnockoutJS.",
+			image: "images/dino.png",
+			url: "https://github.com/MimiBambino/Dinosaur",
+			demo: "http://mimibambino.github.io/Dinosaur/"
 		},
 		{
-			title: "Interactive Resume",
+			id: "treasure",
+			title: "Treasure Hunt",
 			dates: "2014",
-			description: "You're looking at it.  This resume was build with JavaScript, jQuery and Bootstrap.",
-			image: "images/IR.jpg",
-			url: "https://github.com/MimiBambino/InteractiveResume",
-			demo: "http://mimibambino.github.io/InteractiveResume/"
+			description: "Try to collect enough gems to win a star gun, then let the bugs have it!  An interactive JavaScript driven game using HTML5 Canvas.",
+			image: "images/TreasureHunt.png",
+			url: "https://github.com/MimiBambino/TreasureHunt",
+			demo: "http://mimibambino.github.io/TreasureHunt"
 		},
 		{
-			title: "Custom Meme Maker",
+			id: "wordpress",
+			title: "Personal Blog",
 			dates: "2014",
-			description: "Create your own meme and save it to your computer.",
-			image: "images/johnnyMeme.png",
-			url: "https://github.com/MimiBambino/MemeMaker",
-			demo: "http://mimibambino.github.io/MemeMaker/"
+			description: "My personal blog.  I primarily use it for notes for the many MOOCs that I take.  Built with WordPress.",
+			image: "images/Blog.png",
+			url: "http://www.cynthiaodonnell.com",
+			demo: "http://www.cynthiaodonnell.com"
 		}
 	];
 
@@ -169,6 +172,14 @@ var viewModel = function(){
 	self.showSkills = ko.observable(false);
 	self.showAbout = ko.observable(false);
 	self.showButton = ko.observable(false);
+	self.showDino = ko.observable(false);
+	self.showTreasure = ko.observable(false);
+	self.showBlog = ko.observable(false);
+	self.changeProject = function(arg){
+
+		console.log(arguments);
+		}
+	};
 
 	self.showSection = function() {
 
@@ -185,7 +196,7 @@ var viewModel = function(){
 	};
 	self.projectsClick = function() {
 		self.showMain(false);
-		self.showProjects(true);
+		self.showProject("dino");
 		self.showButton(true);
 	};
 	self.skillsClick = function() {
@@ -207,18 +218,18 @@ var viewModel = function(){
 		self.showEducation(false);
 		self.showSkills(false);
 		self.showAbout(false);
-	}
+	};
 
 	// Keep track of what part of resume is visible
 	self.projectVisible = ko.observable(false);
-	self.toggleProject = function(){
-		if (self.projectVisible) {
-			self.projectVisible(false);
-		} else {
-			self.projectVisible(true);
-		}
-	};
-};
+// 	self.toggleProject = function(){
+// 		if (self.projectVisible) {
+// 			self.projectVisible(false);
+// 		} else {
+// 			self.projectVisible(true);
+// 		}
+// 	};
+// };
 
 /**
  * Custom binding for fade in effect on instructions

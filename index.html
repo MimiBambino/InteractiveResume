@@ -125,16 +125,21 @@
         </div>
       </div>
 <!--Projects view-->
-      <div id='projects' class='container' data-bind="visible: showProjects">
+
+
+      <div id='projects' class='container' data-bind="visible: showProject">
+
         <div class='projects-row row text-center'>
           <div class='col-md-4 text-center' data-bind="foreach: projects">
-            <a data-bind="attr: {href: demo}" target='_blank'>
-              <img class='img-responsive img-rounded' data-bind="attr: {src: image, alt: description}">
-            </a>
-            <a class='project' target='_blank' data-bind="attr: {href: url}">
-              <h3 class='text-uppercase text-center' data-bind="text: title"></h3>
-            </a>
-            <p data-bind="text: description"></p>
+            <div data-bind="attr: {id: id}, visible: $parent.showProject">
+              <a data-bind="attr: {href: demo}" target='_blank'>
+                <img class='img-responsive img-rounded' data-bind="attr: {src: image, alt: description}">
+              </a>
+              <a class='project' target='_blank' data-bind="attr: {href: url}">
+                <h3 class='text-uppercase text-center' data-bind="text: title"></h3>
+              </a>
+              <p data-bind="text: description"></p>
+            </div>
           </div>
         </div>
       </div>
